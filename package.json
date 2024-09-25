@@ -1,0 +1,22 @@
+{
+  "name": "hardtimes",
+  "version": "1.0.0",
+  "description": "No description so far",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  
+  "keywords": [
+    "philosophy",
+    "quotes"
+  ],
+  "author": "xrustik",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
