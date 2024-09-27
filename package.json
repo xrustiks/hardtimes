@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "No description so far",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "test": "jest"
   },
-  
   "keywords": [
     "philosophy",
     "quotes"
@@ -14,7 +14,9 @@
   "author": "xrustik",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.0"
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "mysql2": "^3.11.3"
   },
   "devDependencies": {
     "jest": "^29.7.0"
