@@ -1,4 +1,5 @@
-import mysql from 'mysql2/promise';
+// async-based version of mysql2
+import mysql from 'mysql2/promise'; 
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -18,4 +19,4 @@ const openConnection = async () => {
   }
 }
 
-export default openConnection();
+export default openConnection;
