@@ -7,8 +7,8 @@ const initDataBase = async() => {
   try {
     connection = await openConnection();
 
-    const quotesDataBaseQuery = `CREATE DATABASE IF NOT EXISTS quotes`;
-    await connection.query(quotesDataBaseQuery);
+    const query = `CREATE DATABASE IF NOT EXISTS quotes`;
+    await connection.query(query);
     console.log('Database successfully created or already exists');
 
     await createTables(connection);

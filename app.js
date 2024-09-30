@@ -1,4 +1,4 @@
-import initDataBase from './db/initDataBase.js';
+import initDataBase from './server/db/init.js';
 import express from 'express';
 
 const app = express();
@@ -11,7 +11,7 @@ const startServer = async() => {
       console.log('Server is running on port 3000');
     });
   } catch (error) {
-    console.log('Error starting the server: ', error);
+    console.error('Error starting the server: ', error);
   }
 }
 

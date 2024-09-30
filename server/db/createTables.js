@@ -13,7 +13,7 @@ const createTables = async(connection) => {
 
     await connection.query(quotesTableQuery);
   } catch (error) {
-    console.log('Error creating tables:', error);
+    console.error('Error creating tables:', error);
     throw error;
   } finally {
     if (connection) {
