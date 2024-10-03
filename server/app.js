@@ -1,10 +1,13 @@
 import express from 'express';
+import cors from 'cors';
 
-import initDataBase from './server/db/init.js';
-import addQuote from './server/routes/addQuote.js';
+import initDataBase from './db/init.js';
+import addQuote from './routes/addQuote.js';
 
 const app = express();
 
+// Turn on CORS for all routes
+app.use(cors());
 // Middleware for working with JSON
 app.use(express.json());
 

@@ -14,7 +14,7 @@ const addQuote = async(req, res) => {
 
     const query = `INSERT INTO quotes (quote, author, category, origin) VALUES (?, ?, ?, ?)`;
     await connection.query(query, [quote, author, category, origin]);
-    res.status(201).json({ message: `Quote successfully added: ${quote}` });
+    res.status(201).json({ message: 'Quote successfully added' });
   } catch(error) {
     console.log('Failed adding the quote, ' + error);
     res.status(500).json({ message: 'Server error' });

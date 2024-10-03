@@ -1,11 +1,15 @@
-const AddForm = () => {
+import { useState } from "react";
+
+const AddQuote = () => {
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
   const [category, setCategory] = useState("");
   const [origin, setOrigin] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = async() => {
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+
     const freshQuote = {
       quote,
       author,
@@ -14,7 +18,7 @@ const AddForm = () => {
     }
 
     try {
-      const response = await fetch('/add-quote', {
+      const response = await fetch('http://localhost:3000/add-quote', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -23,17 +27,17 @@ const AddForm = () => {
       })
 
       const result = await response.json();
-
+  
       if (response.ok) {
         setQuote("");
         setAuthor("");
         setCategory("");
         setOrigin("");
       }
-
+  
       setMessage(result.message);
     } catch(error) {
-      setMessage('Error sending data: ' + error)
+      setMessage(error);
     }
   }
 
@@ -43,8 +47,8 @@ const AddForm = () => {
         <label>Цитата:</label>
         <input
           type="text"
-          value={quote}
-          onChange={(e) => setQuote(e.target.value)}
+          value={ quote }
+          onChange={ (e) => setQuote(e.target.value) }
           required
         />
       </div>
@@ -53,8 +57,9 @@ const AddForm = () => {
         <label>Автор:</label>
         <input
           type="text"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
+          value={ author }
+          onChange={ (e) => setAuthor(e.target.value) }
+          required
         />
       </div>
 
@@ -62,8 +67,9 @@ const AddForm = () => {
         <label>Категория:</label>
         <input
           type="text"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
+          value={ category }
+          onChange={ (e) => setCategory(e.target.value) }
+          required
         />
       </div>
 
@@ -71,16 +77,17 @@ const AddForm = () => {
         <label>Источник:</label>
         <input
           type="text"
-          value={origin}
-          onChange={(e) => setOrigin(e.target.value)}
+          value={ origin }
+          onChange={ (e) => setOrigin(e.target.value) }
+          required
         />
       </div>
 
       <button type="submit">Добавить цитату</button>
 
-      { if message && <p>{message}</p> }
+      { message && <p>{message}</p> }
     </form>
   );
 }
 
-export default AddForm;
+export default AddQuote;
