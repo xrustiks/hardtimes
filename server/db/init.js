@@ -4,6 +4,7 @@ import createTables from './createTables.js';
 // Connect to the database
 const initDataBase = async() => {
   let connection;
+
   try {
     connection = await openConnection();
 
