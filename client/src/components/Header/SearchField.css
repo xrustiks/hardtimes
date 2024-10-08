@@ -1,0 +1,10 @@
+.search-field {
+  margin-left: auto;
+}
+
+.search-field form {
+  display: flex;
+  gap: 5px;
+
+  padding: 10px;
+}
