@@ -4,6 +4,8 @@ import { FavoritesProvider } from './context/UseContext.jsx';
 import Header from './components//Header/Header.jsx'
 import Home from './components/Main/Home.jsx';
 import AddQuote from './components/Main/AddQuote.jsx';
+import Favorites from './components/Main/Favorites.jsx';
+
 import './App.css';
 
 const App = () => {
@@ -14,6 +16,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={ <Home /> } />
           <Route path="/add-quote" element={ <AddQuote /> } />
+          <Route path="/favorites" element={ <Favorites /> } />
         </Routes>
       </BrowserRouter>
     </FavoritesProvider>

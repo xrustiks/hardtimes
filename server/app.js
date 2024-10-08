@@ -3,6 +3,7 @@ import cors from 'cors';
 
 import initDataBase from './db/init.js';
 import addQuote from './routes/addQuote.js';
+import getFavorites from './routes/getFavorites.js';
 
 const app = express();
 
@@ -19,9 +20,7 @@ const startServer = async() => {
       res.status(200).json({ message: `All quotes` });
     })
 
-    app.get('/categories', async(req, res) => {
-      res.status(200).json({ message: "Quotes categories" });
-    })
+    app.get('/favorites', getFavorites);
 
     app.get('/add-quote', async(req, res) => {
       res.status(200).json({ message: "Add quote here" });
