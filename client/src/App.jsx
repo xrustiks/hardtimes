@@ -5,6 +5,7 @@ import Header from './components//Header/Header.jsx'
 import Home from './components/Main/Home.jsx';
 import AddQuote from './components/Main/AddQuote.jsx';
 import Favorites from './components/Main/Favorites.jsx';
+import SearchPage from './components/Main/SearchPage.jsx';
 
 import './App.css';
 
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/" element={ <Home /> } />
           <Route path="/add-quote" element={ <AddQuote /> } />
           <Route path="/favorites" element={ <Favorites /> } />
+          <Route path="/search" element={<SearchPage />} />
         </Routes>
       </BrowserRouter>
     </FavoritesProvider>
