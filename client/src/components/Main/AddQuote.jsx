@@ -18,7 +18,7 @@ const AddQuote = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:3000/add-quote', {
+      const response = await fetch('http://localhost:3000/api/add-quote', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
