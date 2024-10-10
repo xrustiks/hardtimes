@@ -1,7 +1,14 @@
 import { useState, useEffect } from 'react';
 
+import makeTitle from "../../utils/makeTitle.js";
+
 const Home = () => {
   const [randomQuote, setRandomQuote] = useState(null);
+
+  // Making title for the component
+  useEffect(() => {
+    makeTitle("Главная");
+  }, [])
 
   useEffect(() => {
     const fetchRandomQuote = async() => {

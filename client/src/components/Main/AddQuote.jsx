@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+import makeTitle from "../../utils/makeTitle.js";
 
 const AddQuote = () => {
   const [quote, setQuote] = useState("");
@@ -6,6 +8,11 @@ const AddQuote = () => {
   const [category, setCategory] = useState("");
   const [origin, setOrigin] = useState("");
   const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    // Making title for the component
+    makeTitle("Добавить цитату");
+  }, [])
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -18,7 +25,7 @@ const AddQuote = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:3000/api/add-quote', {
+      const response = await fetch('http://localhost:3000/api/post-quote', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

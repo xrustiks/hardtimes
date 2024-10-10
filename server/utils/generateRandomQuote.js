@@ -1,6 +1,6 @@
 import openConnection from '../db/connection.js';
 
-const generateRandomQuote = async (req, res) => {
+const generateRandomQuote = async () => {
   let connection;
   try {
     connection = await openConnection();

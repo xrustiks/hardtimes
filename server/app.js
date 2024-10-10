@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 
 import initDataBase from './db/init.js';
-import addQuote from './routes/addQuote.js';
+import postQuote from './routes/postQuote.js';
 import getFavorites from './routes/getFavorites.js';
 import getRandomQuote from './routes/getRandomQuote.js';
 
@@ -25,11 +25,11 @@ const startServer = async() => {
 
     app.get('/api/favorites', getFavorites);
 
-    app.get('/api/add-quote', async(req, res) => {
+    app.get('/api/post-quote', async(req, res) => {
       res.status(200).json({ message: "Add quote here" });
     })
 
-    app.post('/api/add-quote', addQuote);
+    app.post('/api/post-quote', postQuote);
 
     app.listen(3000, () => {
       console.log('Server is running on port 3000');

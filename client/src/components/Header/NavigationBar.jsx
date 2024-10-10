@@ -6,7 +6,7 @@ const NavigationBar = () => {
   return (
     <div className="nav-bar">
       <Link to="/">Главная</Link>
-      <Link to="/add-quote">Добавить цитату</Link>
+      <Link to="/post-quote">Добавить цитату</Link>
       <Link to="/favorites">Избранные цитаты</Link>
     </div>
   )

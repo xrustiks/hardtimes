@@ -17,7 +17,7 @@ const App = () => {
         <Header />
         <Routes>
           <Route path="/" element={ <Home /> } />
-          <Route path="/add-quote" element={ <AddQuote /> } />
+          <Route path="/post-quote" element={ <AddQuote /> } />
           <Route path="/favorites" element={ <Favorites /> } />
           <Route path="/search" element={<SearchPage />} />
         </Routes>
