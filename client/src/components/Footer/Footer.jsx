@@ -1,9 +1,9 @@
-import React from 'react';
+import './Footer.css';
 
 const Footer = () => {
   return (
     <div className="footer">
-      Как бы безнадежно все ни казалось, помни, что такое уже много раз было до тебя.
+      Всё уже много раз случалось до тебя.
     </div>
   );
 };

@@ -4,6 +4,7 @@ import cors from 'cors';
 import initDataBase from './db/init.js';
 import addQuote from './routes/addQuote.js';
 import getFavorites from './routes/getFavorites.js';
+import getRandomQuote from './routes/getRandomQuote.js';
 
 const app = express();
 
@@ -19,6 +20,8 @@ const startServer = async() => {
     app.get('/api/', async(req, res) => {
       res.status(200).json({ message: `All quotes` });
     })
+
+    app.get('/api/random-quote', getRandomQuote);
 
     app.get('/api/favorites', getFavorites);
 
