@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { FavoritesProvider } from './context/UseContext.jsx';
+import { FavoritesProvider } from './hooks/UseContext.jsx';
 
 import Header from './components/Header/Header.jsx';
 import Home from './components/Main/Home.jsx';

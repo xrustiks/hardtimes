@@ -9,8 +9,8 @@ const AddQuote = () => {
   const [origin, setOrigin] = useState("");
   const [message, setMessage] = useState("");
 
+  // Making title for the component
   useEffect(() => {
-    // Making title for the component
     makeTitle("Добавить цитату");
   }, [])
 

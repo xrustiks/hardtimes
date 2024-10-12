@@ -18,7 +18,7 @@ const startServer = async() => {
     await initDataBase();
 
     app.get('/api/', async(req, res) => {
-      res.status(200).json({ message: `All quotes` });
+      return res.status(200).json({ message: `All quotes` });
     })
 
     app.get('/api/random-quote', getRandomQuote);
@@ -26,7 +26,7 @@ const startServer = async() => {
     app.get('/api/favorites', getFavorites);
 
     app.get('/api/post-quote', async(req, res) => {
-      res.status(200).json({ message: "Add quote here" });
+      return res.status(200).json({ message: "Add quote here" });
     })
 
     app.post('/api/post-quote', postQuote);
