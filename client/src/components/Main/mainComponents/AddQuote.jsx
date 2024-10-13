@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import makeTitle from "../../utils/makeTitle.js";
+import makeTitle from "../../../utils/makeTitle.js";
 
 const AddQuote = () => {
   const [quote, setQuote] = useState("");
