@@ -17,18 +17,23 @@ const startServer = async() => {
   try {
     await initDataBase();
 
-    app.get('/api/', async(req, res) => {
-      return res.status(200).json({ message: `All quotes` });
+    // Main route for the server
+    app.get('/api', async(req, res) => {
+      return res.status(200).json({ message: `Hello from server` });
     })
 
+    // Route for getting a random quote
     app.get('/api/random-quote', getRandomQuote);
 
+    // Route for getting all favorite quotes
     app.get('/api/favorites', getFavorites);
 
+    // Route for page with a form for adding a new quote
     app.get('/api/post-quote', async(req, res) => {
       return res.status(200).json({ message: "Add quote here" });
     })
 
+    // Route for adding a new quote
     app.post('/api/post-quote', postQuote);
 
     app.listen(3000, () => {

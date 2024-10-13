@@ -14,10 +14,10 @@ const addQuote = async(req, res) => {
 
     const query = `INSERT INTO quotes (quote, author, category, origin) VALUES (?, ?, ?, ?)`;
     await connection.query(query, [quote, author, category, origin]);
-    res.status(201).json({ message: 'Quote successfully added' });
+    return res.status(201).json({ message: 'Quote successfully added' });
   } catch(error) {
-    console.log('Failed adding the quote, ' + error);
-    res.status(500).json({ message: 'Server error' });
+    console.error('Failed adding the quote, ' + error);
+    return res.status(500).json({ message: 'Server error' });
   } finally {
     if (connection) {
       await connection.end();

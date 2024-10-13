@@ -1,6 +1,6 @@
-import SearchField from './SearchField.jsx';
-import NavigationBar from './NavigationBar.jsx';
-import Categories from './Categories.jsx';
+import SearchField from './headerComponents/SearchField.jsx';
+import NavigationBar from './headerComponents/NavigationBar.jsx';
+import Categories from './headerComponents/Categories.jsx';
 import './Header.css';
 
 const Header = () => {
