@@ -1,8 +1,8 @@
 import React, { createContext, useState } from 'react';
 
-export const FavoritesContext = createContext();
+export const Context = createContext();
 
-export const FavoritesProvider = ({ children }) => {
+export const ContextProvider = ({ children }) => {
   const [quoteProperties, setQuoteProperties] = useState({
     quote: '',
     author: '',
@@ -12,9 +12,9 @@ export const FavoritesProvider = ({ children }) => {
 
 
   return (
-    <FavoritesContext.Provider 
+    <Context.Provider 
       value = { quoteProperties }>
         { children }
-    </FavoritesContext.Provider>
+    </Context.Provider>
   )
 }
