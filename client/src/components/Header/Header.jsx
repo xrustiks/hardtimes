@@ -1,6 +1,7 @@
 import SearchField from './headerComponents/SearchField.jsx';
 import NavigationBar from './headerComponents/NavigationBar.jsx';
 import Categories from './headerComponents/Categories.jsx';
+import LoginBar from './headerComponents/LoginBar.jsx';
 import './Header.css';
 
 const Header = () => {
@@ -9,6 +10,7 @@ const Header = () => {
       <NavigationBar />
       <Categories />
       <SearchField />
+      <LoginBar />
     </div>
   )
 }
