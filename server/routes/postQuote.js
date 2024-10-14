@@ -10,7 +10,7 @@ const addQuote = async(req, res) => {
   let connection;
   try {
     connection = await openConnection();
-    await connection.query('use quotes');
+    await connection.query('USE quotes');
 
     const query = `INSERT INTO quotes (quote, author, category, origin) VALUES (?, ?, ?, ?)`;
     await connection.query(query, [quote, author, category, origin]);

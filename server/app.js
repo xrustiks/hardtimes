@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 
 import initDataBase from './db/init.js';
+import postRegister from './routes/postRegister.js';
 import postQuote from './routes/postQuote.js';
 import getFavorites from './routes/getFavorites.js';
 import getRandomQuote from './routes/getRandomQuote.js';
@@ -21,6 +22,8 @@ const startServer = async() => {
     app.get('/api', async(req, res) => {
       return res.status(200).json({ message: `Hello from server` });
     })
+
+    app.post('/api/register', postRegister);
 
     // Route for getting a random quote
     app.get('/api/random-quote', getRandomQuote);

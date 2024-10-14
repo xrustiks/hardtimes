@@ -35,12 +35,12 @@ const Registration = () => {
       if (response.ok) {
         setUserName("");
         setEmail("");
-        setPassword("")
+        setPassword("");
       }
 
       setMessage(result.message);
     } catch(error) {
-      setMessage(error.message);
+      setMessage("An error occurred. Please try again.");
     }
   }
 
@@ -78,9 +78,9 @@ const Registration = () => {
         </div>
 
         <button type="submit">Регистрация</button>
-
-        { message && <p>{ message }</p> }
       </form>
+
+      { message && <p>{ message }</p> }
     </div>
   )
 }
