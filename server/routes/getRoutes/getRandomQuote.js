@@ -1,4 +1,4 @@
-import generateRandomQuote from '../utils/generateRandomQuote.js';
+import generateRandomQuote from '../../utils/generateRandomQuote.js';
 
 const getRandomQuote = async (req, res) => {
   try {

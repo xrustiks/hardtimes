@@ -1,4 +1,4 @@
-import openConnection from '../db/connection.js';
+import openConnection from '../../db/connection.js';
 
 const addQuote = async(req, res) => {
   const { quote, author, category, origin } = req.body;
@@ -16,8 +16,8 @@ const addQuote = async(req, res) => {
     await connection.query(query, [quote, author, category, origin]);
     return res.status(201).json({ message: 'Quote successfully added' });
   } catch(error) {
-    console.error('Failed adding the quote, ' + error);
-    return res.status(500).json({ message: 'Server error' });
+    console.error('Server error. Failed adding the quote, ' + error);
+    return res.status(500).json({ message: 'Server error. Failed adding the quote' });
   } finally {
     if (connection) {
       await connection.end();

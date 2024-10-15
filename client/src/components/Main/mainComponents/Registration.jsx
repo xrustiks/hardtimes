@@ -40,7 +40,8 @@ const Registration = () => {
 
       setMessage(result.message);
     } catch(error) {
-      setMessage("An error occurred. Please try again.");
+      console.error("Error: ", error);
+      setMessage("An error occurred. Please try again");
     }
   }
 

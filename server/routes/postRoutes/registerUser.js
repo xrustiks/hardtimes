@@ -1,10 +1,10 @@
-import openConnection from '../db/connection.js';
+import openConnection from '../../db/connection.js';
 
-const postRegister = async(req, res) => {
+const registerUser = async(req, res) => {
   const { userName, email, password } = req.body;
 
   if (!userName || !email || !password) {
-    return res.status(400).send('All fields are necessary');
+    return res.status(400).json({ message: 'All fields are necessary' });
   }
 
   let connection;
@@ -17,7 +17,7 @@ const postRegister = async(req, res) => {
     return res.status(201).json({ message: 'User successfully added' });
   } catch(error) {
     console.error('Error during user registration:', error);
-    return res.status(500).json('Something went wrong');
+    return res.status(500).json({ message: 'Server error during user registration' });
   } finally {
     if (connection) {
       connection.end();
@@ -25,4 +25,4 @@ const postRegister = async(req, res) => {
   }
 }
 
-export default postRegister;
+export default registerUser;
