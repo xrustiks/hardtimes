@@ -22,7 +22,7 @@ const Login = () => {
     }
 
     try {
-      const response = fetch('http://localhost:3000/api/loginUser', {
+      const response = await fetch('http://localhost:3000/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ const Login = () => {
   return (
     <div className="login">
       <form onSubmit={ handleSubmit }>
-      <div className="user-name">
+        <div className="user-name">
           <label>Почта</label>
           <input
             type="email"

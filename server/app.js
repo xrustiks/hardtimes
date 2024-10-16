@@ -3,7 +3,7 @@ import cors from 'cors';
 
 import initDataBase from './db/init.js';
 import registerUser from './routes/postRoutes/registerUser.js';
-// import loginUser from './routes/loginUser.js';
+import loginUser from './routes/postRoutes/loginUser.js';
 import addQuote from './routes/postRoutes/addQuote.js';
 import getFavorites from './routes/getRoutes/getFavorites.js';
 import getRandomQuote from './routes/getRoutes/getRandomQuote.js';
@@ -28,7 +28,7 @@ const startServer = async() => {
     app.post('/api/register', registerUser);
 
     // Route for user login
-    // app.post('/api/login', loginUser);
+    app.post('/api/login', loginUser);
 
     // Route for getting a random quote
     app.get('/api/random-quote', getRandomQuote);

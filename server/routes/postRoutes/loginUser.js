@@ -13,10 +13,9 @@ const loginUser = async(req, res) => {
     await connection.query('USE quotes');
 
     const query = `SELECT * FROM users WHERE email = ?`;
-    const result = await connection.query(query, [email]);
-
+    const [result] = await connection.query(query, [email]);
     if (result.length === 0) {
-      return res.status(400).json({ message: 'You need register first' });
+      return res.status(400).json({ message: 'User not found. You need to register first' });
     }
 
     return res.status(200).json({ message: 'User found' });
