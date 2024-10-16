@@ -1,4 +1,5 @@
 import openConnection from '../../db/connection.js';
+import verifyUser from '../../utils/verifyUser.js';
 
 const loginUser = async(req, res) => {
   const { email, password } = req.body;
@@ -12,14 +13,16 @@ const loginUser = async(req, res) => {
     connection = await openConnection();
     await connection.query('USE quotes');
 
-    const query = `SELECT * FROM users WHERE email = ?`;
-    const [result] = await connection.query(query, [email]);
-    if (result.length === 0) {
-      return res.status(400).json({ message: 'User not found. You need to register first' });
+    // Desctructuring the object with the result of verification
+    const { success, message } = await verifyUser(connection, email, password);
+    if (success) {
+      return res.status(200).json({ message: message });
     }
 
-    return res.status(200).json({ message: 'User found' });
+    return res.status(400).json({ message: message });
+
   } catch(error) {
+    console.error('Error: ', error);
     return res.status(500).json({ message: 'Server error' });
   } finally {
     if (connection) {
