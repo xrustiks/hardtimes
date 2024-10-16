@@ -65,6 +65,8 @@ const Login = () => {
             required
           />
         </div>
+
+        <button type="submit">Логин</button>
       </form>
 
       { message && <p className="message">{ message }</p> }

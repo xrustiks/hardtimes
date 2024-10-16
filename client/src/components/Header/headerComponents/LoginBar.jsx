@@ -5,7 +5,7 @@ import './LoginBar.css';
 const LoginBar = () => {
   return (
     <div className="login-bar">
-      <Link to="#">Логин</Link>
+      <Link to="login">Логин</Link>
       <Link to="register">Зарегистрироваться</Link>
     </div>
   )
