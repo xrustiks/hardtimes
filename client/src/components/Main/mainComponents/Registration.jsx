@@ -9,16 +9,18 @@ const Registration = () => {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    makeTitle("Добавить цитату");
+    makeTitle("Регистрация");
   }, [])
 
   const handleSubmit = async(e) => {
+    // Prevent reloading page when submit
     e.preventDefault();
 
+    // Object to be sent to server as a request
     const freshUser = {
-      userName,
-      email,
-      password
+      userName: userName,
+      email: email,
+      password: password
     }
 
     try {
@@ -30,18 +32,18 @@ const Registration = () => {
         body: JSON.stringify(freshUser)
       });
 
-      const result = await response.json();
-      
       if (response.ok) {
         setUserName("");
         setEmail("");
         setPassword("");
       }
 
+      const result = await response.json();
+
       setMessage(result.message);
     } catch(error) {
       console.error("Error: ", error);
-      setMessage("An error occurred. Please try again");
+      setMessage(error.message);
     }
   }
 
@@ -81,7 +83,7 @@ const Registration = () => {
         <button type="submit">Регистрация</button>
       </form>
 
-      { message && <p>{ message }</p> }
+      { message && <p className="message">{ message }</p> }
     </div>
   )
 }

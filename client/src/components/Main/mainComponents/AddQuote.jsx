@@ -15,8 +15,10 @@ const AddQuote = () => {
   }, [])
 
   const handleSubmit = async(e) => {
+    // Prevents reloading page after submitting
     e.preventDefault();
 
+    // What should be sent in request to server
     const freshQuote = {
       quote,
       author,
@@ -33,15 +35,17 @@ const AddQuote = () => {
         body: JSON.stringify(freshQuote)
       })
 
-      const result = await response.json();
-  
       if (response.ok) {
         setQuote("");
         setAuthor("");
         setCategory("");
         setOrigin("");
       }
-  
+
+      const result = await response.json();
+      console.log(response);
+      console.log(result);
+
       setMessage(result.message);
     } catch(error) {
       setMessage(error.message);
@@ -50,7 +54,7 @@ const AddQuote = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+      <div className="quote">
         <label>Цитата:</label>
         <input
           type="text"
@@ -60,7 +64,7 @@ const AddQuote = () => {
         />
       </div>
 
-      <div>
+      <div className="author">
         <label>Автор:</label>
         <input
           type="text"
@@ -70,7 +74,7 @@ const AddQuote = () => {
         />
       </div>
 
-      <div>
+      <div className="category">
         <label>Категория:</label>
         <input
           type="text"
@@ -80,7 +84,7 @@ const AddQuote = () => {
         />
       </div>
 
-      <div>
+      <div className="origin">
         <label>Источник:</label>
         <input
           type="text"
@@ -92,7 +96,7 @@ const AddQuote = () => {
 
       <button type="submit">Добавить цитату</button>
 
-      { message && <p>{message}</p> }
+      { message && <p className="message">{ message }</p> }
     </form>
   );
 }
