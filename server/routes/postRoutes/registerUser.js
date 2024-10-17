@@ -1,7 +1,7 @@
 import { hash } from 'bcrypt';
 
 import openConnection from '../../db/connection.js';
-import checkUserExistence from '../../utils/checkUserExistence.js';
+import checkUserExistence from '../../helpers/checkUserExistence.js';
 
 const registerUser = async(req, res) => {
   const { userName, email, password } = req.body;

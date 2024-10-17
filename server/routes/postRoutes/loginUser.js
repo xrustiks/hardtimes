@@ -1,5 +1,5 @@
 import openConnection from '../../db/connection.js';
-import verifyUser from '../../utils/verifyUser.js';
+import verifyUser from '../../helpers/verifyUser.js';
 
 const loginUser = async(req, res) => {
   const { email, password } = req.body;

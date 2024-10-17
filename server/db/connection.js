@@ -1,23 +1,16 @@
 // async-based version of mysql2
 import mysql from 'mysql2/promise';
-import dotenv from 'dotenv';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import loadEnv from '../helpers/loadEnv.js';
 
-// Convert the module URL to a file path
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// Load environment variables from a specific path
-dotenv.config({ path: path.resolve(__dirname, '../.env') });
+const env = loadEnv();
 
 // Create a connection to the database
 const openConnection = async () => {
   try {
     const connection = await mysql.createConnection({
-      host: process.env.DB_HOST,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD
+      host: env.DB_HOST,
+      user: env.DB_USER,
+      password: env.DB_PASSWORD
     });
     return connection;
   } catch (error) {
