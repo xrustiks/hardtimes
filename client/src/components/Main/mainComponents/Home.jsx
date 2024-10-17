@@ -36,7 +36,9 @@ const Home = () => {
             <footer>Автор: { randomQuote.author }</footer>
           </blockquote>
         ) : (
-          <p>Loading...</p>
+          <blockquote>
+            <p>Загрузка...</p>
+          </blockquote>
         )}
       </div>
     </>
