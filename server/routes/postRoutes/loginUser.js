@@ -1,5 +1,6 @@
 import openConnection from '../../db/connection.js';
 import verifyUser from '../../helpers/verifyUser.js';
+import createToken from '../../helpers/config/createToken.js';
 
 const loginUser = async(req, res) => {
   const { email, password } = req.body;
@@ -16,7 +17,11 @@ const loginUser = async(req, res) => {
     // Desctructuring the object with the result of verification
     const { success, message } = await verifyUser(connection, email, password);
     if (success) {
-      return res.status(200).json({ message: message });
+      // Extracting additional user data from the database
+      const [user] = await connection.query('SELECT id, userName, isAdmin FROM users WHERE email = ?', [email]);
+      // Creating a token with the user data
+      const token = createToken(user[0]);
+      return res.status(200).json({ message: message, token: token });
     }
 
     return res.status(400).json({ message: message });
