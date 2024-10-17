@@ -22,16 +22,16 @@ const registerUser = async(req, res) => {
     // Checking if the user already exists
     // 1. Checking if a user with the given username is already exists
     const userCheck = await checkUserExistence(connection, 'userName', userName);
-    if (userCheck.exists) {
+    if (userCheck) {
       return res.status(400).json({ message: 'User with this username already exists' });
     }
     // 2. Checking if a user with the given email is already exists
     const emailCheck = await checkUserExistence(connection, 'email', email);
-    if (emailCheck.exists) {
+    if (emailCheck) {
       return res.status(400).json({ message: 'User with this email already exists' });
     }
 
-    // If the user doesn't exist, we can add the user to the database
+    // If the user doesn't exist, we add them to the database
     const query = `INSERT INTO users (userName, email, password) VALUES (?, ?, ?)`;
     await connection.query(query, [userName, email, hashedPassword]);
     return res.status(201).json({ message: 'User successfully added' });
@@ -48,4 +48,4 @@ const registerUser = async(req, res) => {
 export default registerUser;
 
 // There is no password length validation in the code above, because fuck it.
-// Let user set whatever they want length password.
+// Let user choose a password of any length
