@@ -30,12 +30,13 @@ const Login = () => {
         body: JSON.stringify(user)
       })
 
+      const result = await response.json();
+
       if (response.ok) {
+        localStorage.setItem('token', result.token);
         setEmail("");
         setPassword("");
       }
-
-      const result = await response.json();
 
       setMessage(result.message);
     } catch(error) {

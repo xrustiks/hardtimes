@@ -6,6 +6,7 @@ import Favorites from './mainComponents/Favorites.jsx';
 import SearchPage from './mainComponents/SearchPage.jsx';
 import Login from './mainComponents/Login.jsx';
 import Registration from './mainComponents/Registration.jsx';
+import UserProfile from './mainComponents/UserProfile.jsx';
 
 const Main = () => {
   return (
@@ -17,6 +18,7 @@ const Main = () => {
         <Route path="/search" element={ <SearchPage /> } />
         <Route path="/login" element={ <Login /> } />
         <Route path="/register" element={ <Registration /> } />
+        <Route path="/user-profile" element={ <UserProfile /> } />
       </Routes>
     </div>
   )

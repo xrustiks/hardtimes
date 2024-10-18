@@ -3,7 +3,7 @@ import loadEnv from './loadEnv.js';
 
 // JWT creator
 const createToken = (user) => {
-  const SECRET = loadEnv();
+  const SECRET = loadEnv().JWT_SECRET;
   if (!SECRET) {
     console.error('SECRET is not defined');
     return { success: false, error: 'SECRET is not defined' };
