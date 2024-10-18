@@ -1,5 +1,6 @@
 import makeTitle from "../../../utils/makeTitle.js";
 
+// Component for user profile
 const UserProfile = () => {
   // Making title for the component
   useEffect(() => {

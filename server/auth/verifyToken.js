@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import loadEnv from '../config/loadEnv.js';
 
-// JWT validator
+// Verifies JWT token
 export const verifyToken = (token) => {
   const SECRET = loadEnv().JWT_SECRET;
   if (!SECRET) {

@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import loadEnv from '../config/loadEnv.js';
 
-// JWT creator
+// Creates JWT token
 const createToken = (user) => {
   const SECRET = loadEnv().JWT_SECRET;
   if (!SECRET) {

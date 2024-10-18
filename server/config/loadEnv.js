@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// Get the secret key from the environment variables
+// Load environment variables from .env file
 const loadEnv = () => {
   // Convert the module URL to a file path
   const __filename = fileURLToPath(import.meta.url);

@@ -1,3 +1,4 @@
+// Checks if a user exists in the database (for registration)
 const checkUserExistence = async(connection, key, value) => {
   // Only username and email can be passed as key
   const validKeys = ['userName', 'email'];

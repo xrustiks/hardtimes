@@ -1,5 +1,6 @@
 import openConnection from '../db/connection.js';
 
+// Generates a random quote from the database (for the main page)
 const generateRandomQuote = async () => {
   let connection;
   try {

@@ -1,5 +1,6 @@
 import { compare } from 'bcrypt';
 
+// Checks if the user with the given email exists and if the password is correct (for login)
 const verifyUser = async(connection, email, password) => {
   // Extracting the password from db for the given email
   const query = 'SELECT password FROM users WHERE email = ?';
