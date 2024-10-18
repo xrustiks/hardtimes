@@ -9,8 +9,8 @@ const AddQuote = () => {
   const [origin, setOrigin] = useState("");
   const [message, setMessage] = useState("");
 
-  // Making title for the component
   useEffect(() => {
+    // Making title for the component
     makeTitle("Добавить цитату");
   }, [])
 
@@ -27,7 +27,7 @@ const AddQuote = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:3000/api/post-quote', {
+      const response = await fetch('http://localhost:3000/api/add-quote', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

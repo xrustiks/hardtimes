@@ -5,8 +5,8 @@ import makeTitle from "../../../utils/makeTitle.js";
 const Home = () => {
   const [randomQuote, setRandomQuote] = useState(null);
 
-  // Making title for the component
   useEffect(() => {
+    // Making title for the component
     makeTitle("Главная");
   }, [])
 

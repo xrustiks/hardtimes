@@ -10,6 +10,7 @@ const createToken = (user) => {
   }
 
   try {
+    // Returns JWT token for the user with the expiration date of 30 days
     return jwt.sign(user, SECRET, { expiresIn: '30d' });
   } catch(error) {
     console.error('Error creating token:', error.message);

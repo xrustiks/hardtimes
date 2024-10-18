@@ -4,8 +4,8 @@ import { useLocation } from "react-router-dom";
 import makeTitle from "../../../utils/makeTitle.js";
 
 const SearchPage = () => {
-  // Making title for the component
   useEffect(() => {
+    // Making title for the component
     makeTitle("Поиск");
   }, [])
 

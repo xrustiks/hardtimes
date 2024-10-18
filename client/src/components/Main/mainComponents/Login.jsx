@@ -8,6 +8,7 @@ const Login = () => {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
+    // Making title for the component
     makeTitle("Логин");
   }, [])
 
@@ -29,8 +30,10 @@ const Login = () => {
         },
         body: JSON.stringify(user)
       })
+      // console.log(response);
 
       const result = await response.json();
+      // console.log(result);
 
       if (response.ok) {
         localStorage.setItem('token', result.token);

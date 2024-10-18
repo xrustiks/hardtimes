@@ -15,7 +15,7 @@ const loginUser = async(req, res) => {
     connection = await openConnection();
     await connection.query('USE quotes');
 
-    // Desctructuring the object with the result of verification
+    // Desctructuring the verifyUser result (object) with the result of verification
     const { success, message } = await verifyUser(connection, email, password);
     if (success) {
       // Extracting additional user data from the database

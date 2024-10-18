@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 import makeTitle from "../../../utils/makeTitle.js";
 
 const Favorites = () => {
-  // Making title for the component
   useEffect(() => {
+    // Making title for the component
     makeTitle("Избранное");
   }, [])
 

@@ -9,6 +9,7 @@ const Registration = () => {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
+    // Making title for the component
     makeTitle("Регистрация");
   }, [])
 

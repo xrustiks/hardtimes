@@ -7,6 +7,7 @@ import loginUser from './routes/postRoutes/loginUser.js';
 import addQuote from './routes/postRoutes/addQuote.js';
 import getFavorites from './routes/getRoutes/getFavorites.js';
 import getRandomQuote from './routes/getRoutes/getRandomQuote.js';
+import authenticate from './auth/authenticate.js';
 
 const app = express();
 
@@ -30,6 +31,14 @@ const startServer = async() => {
     // Route for user login
     app.post('/api/login', loginUser);
 
+    // Route for getting user profile
+    app.get('/api/profile', authenticate, async(req, res) => {
+      if (!req.user.userName) {
+        return res.status(401).json({ message: 'Not logged in' });
+      }
+      return res.status(200).json({ message: `Hello, ${req.user.userName}!` });
+    });
+
     // Route for getting a random quote
     app.get('/api/random-quote', getRandomQuote);
 
@@ -37,12 +46,12 @@ const startServer = async() => {
     app.get('/api/favorites', getFavorites);
 
     // Route for page with a form for adding a new quote
-    app.get('/api/post-quote', async(req, res) => {
+    app.get('/api/add-quote', async(req, res) => {
       return res.status(200).json({ message: "Add quote here" });
     })
 
     // Route for adding a new quote
-    app.post('/api/post-quote', addQuote);
+    app.post('/api/add-quote', addQuote);
 
     app.listen(3000, () => {
       console.log('Server is running on port 3000');
