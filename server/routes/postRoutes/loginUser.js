@@ -1,6 +1,6 @@
 import openConnection from '../../db/connection.js';
 import verifyUser from '../../helpers/verifyUser.js';
-import createToken from '../../helpers/config/createToken.js';
+import createToken from '../../auth/createToken.js';
 
 const loginUser = async(req, res) => {
   const { email, password } = req.body;

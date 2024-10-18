@@ -9,7 +9,7 @@ const verifyUser = async(connection, email, password) => {
 
   // The first check is to see if the user with the given email exists
   if (userData.length === 0) {
-    return { success: false, message: 'Invalid email or user doesn\'t exist' };
+    return { success: false, message: 'User with this email wasn\'t found' };
   }
 
   // Extracting the password from user object

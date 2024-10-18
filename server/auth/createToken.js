@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import loadEnv from './loadEnv.js';
+import loadEnv from '../config/loadEnv.js';
 
 // JWT creator
 const createToken = (user) => {
