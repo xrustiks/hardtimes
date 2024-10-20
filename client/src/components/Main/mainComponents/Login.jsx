@@ -16,24 +16,19 @@ const Login = () => {
     // Prevent reloading page when submit
     e.preventDefault();
 
-    // Object to be sent to server as a request
-    const user = {
-      email: email,
-      password: password
-    }
-
     try {
       const response = await fetch('http://localhost:3000/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(user)
+        // Data to be sent to the server in the body of the request (converted to JSON)
+        body: JSON.stringify({ email: email, password: password })
       })
-      // console.log(response);
+      // console.log('Response: ', response);
 
       const result = await response.json();
-      // console.log(result);
+      // console.log('Result: ', result);
 
       if (response.ok) {
         localStorage.setItem('token', result.token);
