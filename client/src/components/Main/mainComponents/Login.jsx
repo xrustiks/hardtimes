@@ -25,10 +25,10 @@ const Login = () => {
         // Data to be sent to the server in the body of the request (converted to JSON)
         body: JSON.stringify({ email: email, password: password })
       })
-      // console.log('Response: ', response);
+      console.log('Response: ', response);
 
       const result = await response.json();
-      // console.log('Result: ', result);
+      console.log('Result: ', result);
 
       if (response.ok) {
         localStorage.setItem('token', result.token);
