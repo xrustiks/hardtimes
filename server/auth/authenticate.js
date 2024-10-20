@@ -9,7 +9,7 @@ export const authenticate = (req, res, next) => {
     return res.status(401).json({ message: 'No token provided' });
   }
   const verificationResult = verifyToken(token);
-
+  // If the verification is unsuccessful, return the error message
   if (!verificationResult.success) {
     return res.status(401).json({ message: verificationResult.error });
   }
