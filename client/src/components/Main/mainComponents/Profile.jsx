@@ -18,6 +18,16 @@ const Profile = () => {
     const token = localStorage.getItem('token');
     // console.log('Token:', token);
 
+    // If login is successful, reload the page
+    // Declaring a variable that contains the value of hasReloaded in localStorage
+    const hasReloaded = localStorage.getItem('hasReloaded');
+    // If the token exists and hasReloaded=false, reload the page
+    if (token && !hasReloaded) {
+      // Checking if hasReloaded=true in localStorage
+      localStorage.setItem('hasReloaded', 'true');
+      window.location.reload();
+    }
+
     try {
       // Sending a GET request to the server and waiting for the response
       const response = await fetch('http://localhost:3000/api/profile', {
