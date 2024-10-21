@@ -27,6 +27,7 @@ const AddQuote = () => {
     }
 
     try {
+      // Sending a POST request to the server and waiting for the response
       const response = await fetch('http://localhost:3000/api/add-quote', {
         method: 'POST',
         headers: {

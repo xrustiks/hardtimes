@@ -32,11 +32,17 @@ const startServer = async() => {
     app.post('/api/login', loginUser);
 
     // Route for getting user profile
-    app.get('/api/profile', authenticate, async(req, res) => {
-      if (!req.user.userName) {
-        return res.status(401).json({ message: 'Not logged in' });
+    app.get('/api/profile', authenticate, (req, res) => {
+      console.log('Inside /api/profile route');
+      try {
+        if (!req.user || !req.user.userName) {
+          return res.status(404).json({ message: 'User not found' });
+        }
+        return res.status(200).json({ message: `Hello, ${ req.user.userName }!` });
+      } catch (error) {
+        console.error('Error fetching profile:', error);
+        return res.status(500).json({ message: 'Server error' });
       }
-      return res.status(200).json({ message: `Hello, ${req.user.userName}!` });
     });
 
     // Route for getting a random quote

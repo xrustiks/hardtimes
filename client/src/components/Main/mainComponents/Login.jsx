@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import makeTitle from "../../../utils/makeTitle.js";
 
@@ -6,6 +7,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  // Hook for navigating between pages
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Making title for the component
@@ -17,6 +20,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
+      // Sending a POST request to the server and waiting for the response
       const response = await fetch('http://localhost:3000/api/login', {
         method: 'POST',
         headers: {
@@ -25,15 +29,17 @@ const Login = () => {
         // Data to be sent to the server in the body of the request (converted to JSON)
         body: JSON.stringify({ email: email, password: password })
       })
-      console.log('Response: ', response);
+      // console.log('Response: ', response);
 
       const result = await response.json();
-      console.log('Result: ', result);
+      // console.log('Result: ', result);
 
       if (response.ok) {
         localStorage.setItem('token', result.token);
         setEmail("");
         setPassword("");
+        // If the login is successful, redirect to the user profile page
+        navigate('/profile');
       }
 
       setMessage(result.message);

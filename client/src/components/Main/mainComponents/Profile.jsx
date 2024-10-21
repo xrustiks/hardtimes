@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import makeTitle from "../../../utils/makeTitle.js";
 
 // Component for user profile
-const UserProfile = () => {
+const Profile = () => {
   const [message, setMessage] = useState('');
 
   
@@ -16,16 +16,20 @@ const UserProfile = () => {
 
   const fetchProfile = async() => {
     const token = localStorage.getItem('token');
+    console.log('Token:', token);
 
     try {
+      // Sending a GET request to the server and waiting for the response
       const response = await fetch('http://localhost:3000/api/profile', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`
         }
       })
+      console.log('Profile Fetch Response:', response);
 
       const result = await response.json();
+      console.log('Profile Fetch Result:', result);
 
       setMessage(result.message);
     } catch(error) {
@@ -43,4 +47,4 @@ const UserProfile = () => {
   );
 };
 
-export default UserProfile;
+export default Profile;

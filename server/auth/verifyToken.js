@@ -11,7 +11,8 @@ export const verifyToken = (token) => {
 
   try {
     // Returns the decoded token if the verification is successful
-    return jwt.verify(token, SECRET);
+    const decoded = jwt.verify(token, SECRET);
+    return { success: true, data: decoded };
   } catch (error) {
     console.error('Error verifying token:', error.message);
     return { success: false, error: error.message };
