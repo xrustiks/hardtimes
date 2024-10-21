@@ -34,7 +34,7 @@ const startServer = async() => {
     // Route for getting user profile
     app.get('/api/profile', authenticate, (req, res) => {
       try {
-        if (!req.user || !req.user.userName) {
+        if (!req.user.userName) {
           return res.status(404).json({ message: 'User not found' });
         }
         return res.status(200).json({ message: `Hello, ${ req.user.userName }!` });
