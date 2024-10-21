@@ -16,7 +16,7 @@ const Profile = () => {
 
   const fetchProfile = async() => {
     const token = localStorage.getItem('token');
-    console.log('Token:', token);
+    // console.log('Token:', token);
 
     try {
       // Sending a GET request to the server and waiting for the response
@@ -26,10 +26,8 @@ const Profile = () => {
           'Authorization': `Bearer ${token}`
         }
       })
-      console.log('Profile Fetch Response:', response);
 
       const result = await response.json();
-      console.log('Profile Fetch Result:', result);
 
       setMessage(result.message);
     } catch(error) {

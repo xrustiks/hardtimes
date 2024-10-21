@@ -33,7 +33,6 @@ const startServer = async() => {
 
     // Route for getting user profile
     app.get('/api/profile', authenticate, (req, res) => {
-      console.log('Inside /api/profile route');
       try {
         if (!req.user || !req.user.userName) {
           return res.status(404).json({ message: 'User not found' });

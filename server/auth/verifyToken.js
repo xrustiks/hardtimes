@@ -5,7 +5,6 @@ import loadEnv from '../config/loadEnv.js';
 export const verifyToken = (token) => {
   const SECRET = loadEnv().JWT_SECRET;
   if (!SECRET) {
-    console.error('SECRET is not defined');
     return { success: false, error: 'SECRET is not defined' };
   }
 

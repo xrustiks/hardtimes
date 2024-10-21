@@ -10,15 +10,12 @@ export const authenticate = (req, res, next) => {
     return res.status(401).json({ message: 'No token provided' });
   }
   const verificationResult = verifyToken(token);
-  console.log('Verification result: ', verificationResult);
   // If the verification is unsuccessful, return the error message
   if (!verificationResult.success) {
     return res.status(401).json({ message: verificationResult.error });
   }
   // If the verification is successful, save the user data in the request object
   req.user = verificationResult.data;
-  console.log('Before next');
-  console.log('User data:', req.user);
   // Transfers control to the next middleware or handler
   next();
 };
