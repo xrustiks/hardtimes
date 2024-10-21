@@ -1,18 +1,23 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 
 import makeTitle from "../../../utils/makeTitle.js";
 
 // Component for user profile
 const Profile = () => {
   const [message, setMessage] = useState('');
-
+  const navigate = useNavigate();
   
   useEffect(() => {
     // Making title for the component
     makeTitle("Профиль пользователя");
+    // Check if the user is authenticated
+    if (!localStorage.getItem('token')) {
+      navigate('/login');
+    }
     // Fetching user profile data
     fetchProfile();
-  }, [])
+  }, [navigate]);
 
   const fetchProfile = async() => {
     const token = localStorage.getItem('token');
