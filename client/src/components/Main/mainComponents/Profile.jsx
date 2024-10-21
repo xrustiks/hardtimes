@@ -40,7 +40,7 @@ const Profile = () => {
       <h1>Имя пользователя</h1>
       <p>Избранные цитаты</p>
 
-      {message && <p>{message}</p>}
+      {message && <p>{ message }</p>}
     </div>
   );
 };

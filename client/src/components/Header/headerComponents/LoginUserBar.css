@@ -1,4 +1,4 @@
-.login-bar {
+.login-bar, .user-bar {
   display: flex;
   gap: 10px;
 
