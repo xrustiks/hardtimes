@@ -43,7 +43,7 @@ const Profile = () => {
           headers: {
             'Authorization': `Bearer ${token}`
           }
-        })
+        });
   
         const result = await response.json();
         setUserData(result.user);
@@ -63,6 +63,8 @@ const Profile = () => {
       <p>Username: { userData.userName }</p>
       <p>Email: { userData.email }</p>
       <p>Избранные цитаты:</p>
+
+      { message && <p>{ message }</p> }
     </div>
   );
 };
