@@ -24,7 +24,7 @@ const loginUser = async(req, res) => {
 
     // If the user is verified:
     // Extracting additional user data from the database
-    const [user] = await connection.query('SELECT id, userName, isAdmin FROM users WHERE email = ?', [email]);
+    const [user] = await connection.query('SELECT id, userName, email, isAdmin FROM users WHERE email = ?', [email]);
     // Creating a token with the user data
     const token = createToken(user[0]);
     

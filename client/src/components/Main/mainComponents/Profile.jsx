@@ -6,6 +6,7 @@ import makeTitle from "../../../utils/makeTitle.js";
 // Component for user profile
 const Profile = () => {
   const [message, setMessage] = useState('');
+  const [userData, setUserData] = useState({});
   const navigate = useNavigate();
   
   const token = localStorage.getItem('token');
@@ -45,6 +46,7 @@ const Profile = () => {
         })
   
         const result = await response.json();
+        setUserData(result.user);
   
         setMessage(result.message);
       } catch(error) {
@@ -57,10 +59,10 @@ const Profile = () => {
 
   return (
     <div className="user-profile">
-      <h1>Имя пользователя</h1>
-      <p>Избранные цитаты</p>
-
-      {message && <p>{ message }</p>}
+      <h1>You are in your personal room</h1>
+      <p>Username: { userData.userName }</p>
+      <p>Email: { userData.email }</p>
+      <p>Избранные цитаты:</p>
     </div>
   );
 };
