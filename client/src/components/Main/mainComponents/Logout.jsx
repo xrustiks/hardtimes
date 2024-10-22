@@ -13,6 +13,7 @@ const Logout = () => {
     navigate('/login');
 
     // Reload the page
+    // Reloading is needed for user bar switched to login bar
     window.location.reload();
   }, [navigate]);
 

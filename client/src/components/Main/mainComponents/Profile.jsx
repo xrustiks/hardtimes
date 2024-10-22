@@ -8,47 +8,52 @@ const Profile = () => {
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
   
+  const token = localStorage.getItem('token');
+  // console.log('Token:', token);
+
   useEffect(() => {
     // Making title for the component
     makeTitle("Профиль пользователя");
-    // Check if the user is authenticated
-    if (!localStorage.getItem('token')) {
+    // If a user is authenticated, redirect to the login page
+    if (!token) {
       navigate('/login');
+      return;
     }
-    // Fetching user profile data
+    
+    // Fetches user profile data
+    const fetchProfile = async() => {
+      // If login is successful, reload the page
+      // Declaring a variable that contains the value of hasReloaded in localStorage
+      const hasReloaded = localStorage.getItem('hasReloaded');
+      // If the token exists and hasReloaded=false, reload the page
+      // Reloading is needed for login bar switched to user bar
+      if (token && !hasReloaded) {
+        // Checking if hasReloaded=true in localStorage
+        localStorage.setItem('hasReloaded', 'true');
+        window.location.reload();
+      }
+  
+      try {
+        // Sending a GET request to the server and waiting for the response
+        const response = await fetch('http://localhost:3000/api/profile', {
+          method: 'GET',
+          // Server side cannot take the token from the localStorage
+          // That's why it must be sent in the headers of the request
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        })
+  
+        const result = await response.json();
+  
+        setMessage(result.message);
+      } catch(error) {
+        setMessage(error.message);
+      }
+    }
+
     fetchProfile();
-  }, [navigate]);
-
-  const fetchProfile = async() => {
-    const token = localStorage.getItem('token');
-    // console.log('Token:', token);
-
-    // If login is successful, reload the page
-    // Declaring a variable that contains the value of hasReloaded in localStorage
-    const hasReloaded = localStorage.getItem('hasReloaded');
-    // If the token exists and hasReloaded=false, reload the page
-    if (token && !hasReloaded) {
-      // Checking if hasReloaded=true in localStorage
-      localStorage.setItem('hasReloaded', 'true');
-      window.location.reload();
-    }
-
-    try {
-      // Sending a GET request to the server and waiting for the response
-      const response = await fetch('http://localhost:3000/api/profile', {
-        method: 'GET',
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
-
-      const result = await response.json();
-
-      setMessage(result.message);
-    } catch(error) {
-      setMessage(error.message);
-    }
-  }
+  }, [navigate, token]);
 
   return (
     <div className="user-profile">

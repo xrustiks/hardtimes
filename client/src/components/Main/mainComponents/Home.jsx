@@ -33,7 +33,12 @@ const Home = () => {
             <p>&quot;{ randomQuote.quote }&quot;</p>
             <p>Категория: { randomQuote.category }</p>
             <p>Источник: { randomQuote.origin }</p>
+
             <footer>Автор: { randomQuote.author }</footer>
+
+            <button type="submit">
+              Add to favorites
+            </button>
           </blockquote>
         ) : (
           <blockquote>
