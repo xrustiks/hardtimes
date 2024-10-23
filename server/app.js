@@ -7,6 +7,7 @@ import loginUser from './routes/postRoutes/loginUser.js';
 import addQuote from './routes/postRoutes/addQuote.js';
 import getFavorites from './routes/getRoutes/getFavorites.js';
 import getRandomQuote from './routes/getRoutes/getRandomQuote.js';
+import getProfile from './routes/getRoutes/getProfile.js';
 import authenticate from './auth/authenticate.js';
 
 const app = express();
@@ -31,18 +32,11 @@ const startServer = async() => {
     // Route for user login
     app.post('/api/login', loginUser);
 
-    // Route for getting user profile
-    app.get('/api/profile', authenticate, (req, res) => {
-      try {
-        if (!req.user.userName) {
-          return res.status(404).json({ message: 'User not found' });
-        }
-        return res.status(200).json({ message: `Hello, ${ req.user.userName }!`, user: req.user });
-      } catch (error) {
-        console.error('Error fetching profile:', error);
-        return res.status(500).json({ message: 'Server error' });
-      }
-    });
+    // Route for getting user profile: 
+    // first argument is the route, 
+    // second is the middleware function, 
+    // third is the handler function
+    app.get('/api/profile', authenticate, getProfile);
 
     // Route for getting a random quote
     app.get('/api/random-quote', getRandomQuote);
