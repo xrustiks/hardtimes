@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import makeTitle from "../../../utils/makeTitle.js";
 
@@ -60,8 +61,8 @@ const Profile = () => {
   return (
     <div className="user-profile">
       <h1>You are in your personal room</h1>
-      <p>Username: { userData.userName }</p>
-      <p>Email: { userData.email }</p>
+      <p>Username: { userData.userName } | <Link to="/settings">Изменить</Link></p>
+      <p>Email: { userData.email } | <Link to="/settings">Изменить</Link></p>
       <p>Избранные цитаты:</p>
     </div>
   );

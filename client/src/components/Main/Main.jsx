@@ -8,6 +8,7 @@ import Login from './mainComponents/Login.jsx';
 import Registration from './mainComponents/Registration.jsx';
 import Profile from './mainComponents/Profile.jsx';
 import Logout from './mainComponents/Logout.jsx';
+import Settings from './mainComponents/Settings.jsx';
 
 const Main = () => {
   return (
@@ -21,6 +22,7 @@ const Main = () => {
         <Route path="/register" element={ <Registration /> } />
         <Route path="/profile" element={ <Profile /> } />
         <Route path="/logout" element={ <Logout /> } />
+        <Route path="/settings" element={ <Settings /> } />
       </Routes>
     </div>
   )
