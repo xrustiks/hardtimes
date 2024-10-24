@@ -14,7 +14,7 @@ const app = express();
 
 // Turn on CORS for all routes
 app.use(cors());
-// Middleware for working with JSON
+// Middleware for parsing incoming JSON requests
 app.use(express.json());
 
 const startServer = async() => {
@@ -33,9 +33,9 @@ const startServer = async() => {
     app.post('/api/login', loginUser);
 
     // Route for getting user profile: 
-    // first argument is the route, 
-    // second is the middleware function, 
-    // third is the handler function
+    // 1st argument is the route, 
+    // 2nd is the middleware function, 
+    // 3rd is the handler function
     app.get('/api/profile', authenticate, getProfile);
 
     // Route for getting a random quote

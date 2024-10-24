@@ -9,6 +9,9 @@ import Registration from './mainComponents/Registration.jsx';
 import Profile from './mainComponents/Profile.jsx';
 import Logout from './mainComponents/Logout.jsx';
 import Settings from './mainComponents/Settings.jsx';
+import ChangeLogin from './mainComponents/settingComponents/ChangeLogin.jsx';
+import ChangeEmail from './mainComponents/settingComponents/ChangeEmail.jsx';
+import ChangePassword from './mainComponents/settingComponents/ChangePassword.jsx';
 
 const Main = () => {
   return (
@@ -22,7 +25,10 @@ const Main = () => {
         <Route path="/register" element={ <Registration /> } />
         <Route path="/profile" element={ <Profile /> } />
         <Route path="/logout" element={ <Logout /> } />
-        <Route path="/settings" element={ <Settings /> } />
+        <Route path="/profile/settings" element={ <Settings /> } />
+        <Route path="/profile/settings/change-login" element={ <ChangeLogin /> } />
+        <Route path="/profile/settings/change-email" element={ <ChangeEmail /> } />
+        <Route path="/profile/settings/change-password" element={ <ChangePassword /> } />
       </Routes>
     </div>
   )
