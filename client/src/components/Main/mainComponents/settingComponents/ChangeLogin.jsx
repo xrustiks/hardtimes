@@ -1,15 +1,14 @@
 import { useState } from 'react';
 
 const ChangeLogin = () => {
+  const [ freshLogin, setFreshLogin ] = useState('');
+  const [ freshLoginConfirm, setFreshLoginConfirm ] = useState('');
   const [ message, setMessage ] = useState('');
 
   const handleSubmit = async(e) => {
     e.preventDefault();
 
     try {
-      const freshLogin = e.target['new-login'].value;
-      const freshLoginConfirm = e.target['new-login-confirm'].value;
-
       // Check if the logins match
       if (freshLogin !== freshLoginConfirm) {
         setMessage('Logins do not match');
@@ -27,12 +26,12 @@ const ChangeLogin = () => {
       const result = await response.json();
 
       if (response.ok) {
-        e.target['new-login'].value = '';
-        e.target['new-login-confirm'].value = '';
-
+        setFreshLogin('');
+        setFreshLoginConfirm('');
+        
         setMessage(result.message);
       } else {
-        setMessage(result.message);
+        setMessage(result.message || 'Failed to change login');
       }
     } catch(error) {
       setMessage(`Network error: ${error.message}. Please try again later.`);
@@ -43,10 +42,24 @@ const ChangeLogin = () => {
     <div className="change-login">
       <form className="change-login-form" onSubmit={ handleSubmit }>
         <label htmlFor="new-login">New login:</label>
-        <input type="text" id="new-login" name="new-login" required />
+        <input 
+          type="text" 
+          id="new-login" 
+          name="new-login"
+          value={ freshLogin }
+          onChange={ (e) => setFreshLogin(e.target.value) }
+          required 
+        />
 
         <label htmlFor="new-login-confirm">Confirm new login:</label>
-        <input type="text" id="new-login-confirm" name="new-login-confirm" required />
+        <input 
+          type="text" 
+          id="new-login-confirm" 
+          name="new-login-confirm" 
+          value={ freshLoginConfirm }
+          onChange={ (e) => setFreshLoginConfirm(e.target.value) }
+          required 
+        />
 
         <button type="submit">Change login</button>
       </form>
