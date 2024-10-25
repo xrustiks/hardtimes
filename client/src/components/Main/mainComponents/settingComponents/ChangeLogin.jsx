@@ -6,18 +6,36 @@ const ChangeLogin = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
 
-    const response = await fetch('http://localhost:3000/api/profile/settings/change-login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application'
-      },
-      body: JSON.stringify({ newLogin })
-    });
+    try {
+      const freshLogin = e.target['new-login'].value;
+      const freshLoginConfirm = e.target['new-login-confirm'].value;
 
-    
-    if (response.ok) {
+      // Check if the logins match
+      if (freshLogin !== freshLoginConfirm) {
+        setMessage('Logins do not match');
+        return;
+      }
+
+      const response = await fetch('http://localhost:3000/api/profile/settings/change-login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ freshLogin: freshLogin })
+      });
+
       const result = await response.json();
-      setMessage(result.message);
+
+      if (response.ok) {
+        e.target['new-login'].value = '';
+        e.target['new-login-confirm'].value = '';
+
+        setMessage(result.message);
+      } else {
+        setMessage(result.message);
+      }
+    } catch(error) {
+      setMessage(`Network error: ${error.message}. Please try again later.`);
     }
   }
 

@@ -36,21 +36,22 @@ const AddQuote = () => {
         body: JSON.stringify(freshQuote)
       })
 
+      const result = await response.json();
+
       if (response.ok) {
         setQuote("");
         setAuthor("");
         setCategory("");
         setOrigin("");
+        
+        setMessage(result.message);
+      } else {
+        setMessage(result.message);
       }
-
-      const result = await response.json();
-      console.log(response);
-      console.log(result);
-
-      setMessage(result.message);
-    } catch(error) {
-      setMessage(error.message);
+    } catch (error) {
+      setMessage(`Network error: ${error.message}. Please try again later.`);
     }
+    
   }
 
   return (
