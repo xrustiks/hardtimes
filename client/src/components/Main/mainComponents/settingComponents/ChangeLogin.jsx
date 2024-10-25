@@ -1,9 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
+import makeTitle from "../../../../utils/makeTitle.js";
 
 const ChangeLogin = () => {
   const [ freshLogin, setFreshLogin ] = useState('');
   const [ freshLoginConfirm, setFreshLoginConfirm ] = useState('');
   const [ message, setMessage ] = useState('');
+
+  useEffect(() => {
+    // Making title for the component
+    makeTitle("Change login");
+  }, [])
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -15,10 +22,17 @@ const ChangeLogin = () => {
         return;
       }
 
+      const token = localStorage.getItem('token');
+      if (!token) {
+        setMessage('No token provided');
+        return;
+      }
+
       const response = await fetch('http://localhost:3000/api/profile/settings/change-login', {
-        method: 'POST',
+        method: 'PUT',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer: ${ token }`
         },
         body: JSON.stringify({ freshLogin: freshLogin })
       });

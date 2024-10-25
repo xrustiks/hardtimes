@@ -8,6 +8,7 @@ import addQuote from './routes/postRoutes/addQuote.js';
 import getFavorites from './routes/getRoutes/getFavorites.js';
 import getRandomQuote from './routes/getRoutes/getRandomQuote.js';
 import getProfile from './routes/getRoutes/getProfile.js';
+import changeLogin from './routes/putRoutes/changeLogin.js';
 import authenticate from './auth/authenticate.js';
 
 const app = express();
@@ -37,6 +38,9 @@ const startServer = async() => {
     // 2nd is the middleware function, 
     // 3rd is the handler function
     app.get('/api/profile', authenticate, getProfile);
+
+    // Route for profile settings: changing login
+    app.put('/api/profile/settings/change-login', authenticate, changeLogin);
 
     // Route for getting a random quote
     app.get('/api/random-quote', getRandomQuote);
