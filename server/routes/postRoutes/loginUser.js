@@ -27,8 +27,10 @@ const loginUser = async(req, res) => {
     const [user] = await connection.query('SELECT id, userName, email, isAdmin FROM users WHERE email = ?', [email]);
     // Creating a token with the user data
     const token = createToken(user[0]);
+    // Extracting the user data from the user array for context
+    const userData = user[0];
     
-    return res.status(200).json({ message: message, token: token });
+    return res.status(200).json({ message: message, token: token, user: userData });
   } catch(error) {
     console.error('Error: ', error);
     return res.status(500).json({ message: 'Server error' });

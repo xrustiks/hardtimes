@@ -8,12 +8,16 @@ const ChangeLogin = () => {
   const [ freshLogin, setFreshLogin ] = useState('');
   const [ freshLoginConfirm, setFreshLoginConfirm ] = useState('');
   const [ message, setMessage ] = useState('');
-  const { setUser } = useContext(UserContext);
+  const [ user, setUser ] = useContext(UserContext);
 
   useEffect(() => {
     // Making title for the component
     makeTitle("Change login");
   }, [])
+
+  useEffect(() => {
+    console.log('Updated User:', user);
+  }, [user]);
 
   const handleSubmit = async(e) => {
     e.preventDefault();
