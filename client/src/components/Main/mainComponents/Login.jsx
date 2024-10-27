@@ -8,6 +8,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  
   const [user, setUser] = useContext(UserContext);
   // Hook for navigating between pages
   const navigate = useNavigate();

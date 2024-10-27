@@ -30,6 +30,7 @@ const loginUser = async(req, res) => {
     // Extracting the user data from the user array for context
     const userData = user[0];
     
+    // Returning the message, token (for localStorage) and user data (for context)
     return res.status(200).json({ message: message, token: token, user: userData });
   } catch(error) {
     console.error('Error: ', error);

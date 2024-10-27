@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
-import { useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { UserContext } from '../../../../hooks/UserContext.jsx';
 
 import makeTitle from "../../../../utils/makeTitle.js";
 
 const ChangeLogin = () => {
-  const [ freshLogin, setFreshLogin ] = useState('');
-  const [ freshLoginConfirm, setFreshLoginConfirm ] = useState('');
-  const [ message, setMessage ] = useState('');
-  const [ user, setUser ] = useContext(UserContext);
+  const [freshLogin, setFreshLogin] = useState('');
+  const [freshLoginConfirm, setFreshLoginConfirm] = useState('');
+  const [message, setMessage] = useState('');
+
+  const [user, setUser] = useContext(UserContext);
 
   useEffect(() => {
     // Making title for the component
@@ -86,6 +86,7 @@ const ChangeLogin = () => {
 
         <button type="submit">Change login</button>
       </form>
+
       { message && <p>{ message }</p> }
     </div>
   );
