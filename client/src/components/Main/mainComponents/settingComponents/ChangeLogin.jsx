@@ -1,5 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
-import { UserContext } from '../../../../hooks/UserContext.jsx';
+import { useState, useEffect } from 'react';
 
 import makeTitle from "../../../../utils/makeTitle.js";
 
@@ -8,16 +7,10 @@ const ChangeLogin = () => {
   const [freshLoginConfirm, setFreshLoginConfirm] = useState('');
   const [message, setMessage] = useState('');
 
-  const [user, setUser] = useContext(UserContext);
-
   useEffect(() => {
     // Making title for the component
     makeTitle("Change login");
   }, [])
-
-  useEffect(() => {
-    console.log('Updated User:', user);
-  }, [user]);
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -51,8 +44,8 @@ const ChangeLogin = () => {
         setFreshLoginConfirm('');
         
         setMessage(result.message);
-        // Update the user context with the new login
-        setUser((prevUser) => ({ ...prevUser, userName: freshLogin }));
+
+        localStorage.setItem('token', result.token);
       } else {
         setMessage(result.message || 'Failed to change login');
       }

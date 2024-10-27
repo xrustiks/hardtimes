@@ -1,6 +1,5 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../../../hooks/UserContext.jsx';
 
 import makeTitle from "../../../utils/makeTitle.js";
 
@@ -8,8 +7,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-  
-  const [user, setUser] = useContext(UserContext);
+
   // Hook for navigating between pages
   const navigate = useNavigate();
 
@@ -41,8 +39,7 @@ const Login = () => {
         localStorage.setItem('token', result.token);
         setEmail("");
         setPassword("");
-        // Transfer the user data to the context
-        setUser(result.user);
+        
         // If the login is successful, redirect to the user profile page
         navigate('/profile');
       }
