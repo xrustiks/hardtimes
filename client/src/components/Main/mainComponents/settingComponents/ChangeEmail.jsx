@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import makeTitle from "../../../../utils/makeTitle.js";
 
@@ -7,10 +8,19 @@ const ChangeEmail = () => {
   const [freshEmailConfirm, setFreshEmailConfirm] = useState('');
   const [message, setMessage] = useState('');
 
+  const navigate = useNavigate();
+
+  const token = localStorage.getItem('token');
+
   useEffect(() => {
     // Making title for the component
     makeTitle("Change email");
-  }, [])
+    // If a user is authenticated, redirect to the login page
+    if (!token) {
+      navigate('/login');
+      return;
+    }
+  }, [token, navigate])
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -22,7 +32,6 @@ const ChangeEmail = () => {
         return;
       }
 
-      const token = localStorage.getItem('token');
       if (!token) {
         setMessage('No token provided');
         return;

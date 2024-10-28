@@ -25,7 +25,7 @@ const Main = () => {
         <Route path="/register" element={ <Registration /> } />
         <Route path="/profile" element={ <Profile /> } />
         <Route path="/logout" element={ <Logout /> } />
-        <Route path="/profile/settings" element={ <Settings /> } />
+        {/* <Route path="/profile/settings" element={ <Settings /> } /> */}
         <Route path="/profile/settings/change-login" element={ <ChangeLogin /> } />
         <Route path="/profile/settings/change-email" element={ <ChangeEmail /> } />
         <Route path="/profile/settings/change-password" element={ <ChangePassword /> } />
