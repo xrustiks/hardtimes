@@ -9,6 +9,8 @@ import getFavorites from './routes/getRoutes/getFavorites.js';
 import getRandomQuote from './routes/getRoutes/getRandomQuote.js';
 import getProfile from './routes/getRoutes/getProfile.js';
 import changeLogin from './routes/putRoutes/changeLogin.js';
+import changeEmail from './routes/putRoutes/changeEmail.js';
+import changePassword from './routes/putRoutes/changePassword.js';
 import authenticate from './auth/authenticate.js';
 
 const app = express();
@@ -41,6 +43,12 @@ const startServer = async() => {
 
     // Route for profile settings: changing login
     app.put('/api/profile/settings/change-login', authenticate, changeLogin);
+
+    // Route for profile settings: changing email
+    app.put('/api/profile/settings/change-email', authenticate, changeEmail);
+
+    // Route for profile settings: changing password
+    app.put('/api/profile/settings/change-password', authenticate, changePassword);
 
     // Route for getting a random quote
     app.get('/api/random-quote', getRandomQuote);

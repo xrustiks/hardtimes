@@ -63,6 +63,7 @@ const Profile = () => {
       <h1>You are in your personal room</h1>
       <p>Username: { userData.userName } | <Link to="/profile/settings/change-login">Изменить</Link></p>
       <p>Email: { userData.email } | <Link to="/profile/settings/change-email">Изменить</Link></p>
+      <Link to="/profile/settings/change-password">Change password</Link>
       <p>Избранные цитаты:</p>
 
       { message && <p>{ message }</p> }
