@@ -18,6 +18,7 @@ const createTables = async(connection) => {
       userName VARCHAR(255) NOT NULL UNIQUE,
       email VARCHAR(255) NOT NULL UNIQUE,
       password VARCHAR(255) NOT NULL,
+      favoriteQuotes TEXT,
       isAdmin BOOLEAN DEFAULT FALSE
     )`;
     await connection.query(usersTableQuery);

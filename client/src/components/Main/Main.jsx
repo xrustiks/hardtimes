@@ -8,7 +8,7 @@ import Login from './mainComponents/Login.jsx';
 import Registration from './mainComponents/Registration.jsx';
 import Profile from './mainComponents/Profile.jsx';
 import Logout from './mainComponents/Logout.jsx';
-import Settings from './mainComponents/Settings.jsx';
+// import Settings from './mainComponents/Settings.jsx';
 import ChangeLogin from './mainComponents/settingComponents/ChangeLogin.jsx';
 import ChangeEmail from './mainComponents/settingComponents/ChangeEmail.jsx';
 import ChangePassword from './mainComponents/settingComponents/ChangePassword.jsx';
