@@ -1,4 +1,5 @@
 import openConnection from '../../db/connection.js';
+
 import { hash, compare } from 'bcrypt';
 
 const changePassword = async(req, res) => {
@@ -9,11 +10,12 @@ const changePassword = async(req, res) => {
     connection = await openConnection();
     await connection.query('USE quotes');
 
+    // Exctract existing hashed password from the database
     const [userPassword] = await connection.query('SELECT password FROM users WHERE id = ?', [req.user.id]);
-    // Making sure entered old password is correct
+    // Making sure a user entered correct old password
     const checkCurrentPassword = await compare(oldPassword, userPassword[0].password);
     if (!checkCurrentPassword) {
-      return res.status(400).json({ message: 'Enter your current password correctly' });
+      return res.status(400).json({ message: 'Please enter your current password correctly' });
     }
 
     // Hashing new password

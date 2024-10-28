@@ -41,12 +41,11 @@ const ChangePassword = () => {
       const result = await response.json();
 
       if (response.ok) {
+        setOldPassword('');
         setFreshPassword('');
         setFreshPasswordConfirm('');
         
         setMessage(result.message);
-
-        localStorage.setItem('token', result.token);
       } else {
         setMessage(result.message || 'Failed to change password');
       }
