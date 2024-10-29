@@ -22,6 +22,15 @@ const createTables = async(connection) => {
       isAdmin BOOLEAN DEFAULT FALSE
     )`;
     await connection.query(usersTableQuery);
+
+    const usersQuotes = `CREATE TABLE IF NOT EXISTS user_quotes (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      user_id INT NOT NULL,
+      quote_id INT NOT NULL,
+      FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+      FOREIGN KEY (quote_id) REFERENCES quotes(id) ON DELETE CASCADE
+    )`;
+    await connection.query(usersQuotes);
   } catch (error) {
     console.error('Error creating tables:', error);
     throw error;

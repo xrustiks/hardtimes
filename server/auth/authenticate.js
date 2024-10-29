@@ -3,6 +3,7 @@ import verifyToken from './verifyToken.js';
 // Middleware for verifying JWT token
 export const authenticate = (req, res, next) => {
   // Getting token out of the request headers
+  // Token is placed in request headers when login
   let token;
   if (req.headers['authorization']) {
     token = req.headers['authorization'].split(' ')[1];
