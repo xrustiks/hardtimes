@@ -32,8 +32,11 @@ const registerUser = async(req, res) => {
     }
 
     // If the user doesn't exist, we add them to the database
-    const query = `INSERT INTO users (userName, email, password) VALUES (?, ?, ?)`;
-    await connection.query(query, [userName, email, hashedPassword]);
+    await connection.query(
+      `INSERT INTO users (userName, email, password) VALUES (?, ?, ?)`, 
+      [userName, email, hashedPassword]
+    );
+
     return res.status(201).json({ message: 'User successfully added' });
   } catch(error) {
     console.error('Error during user registration:', error);
