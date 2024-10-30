@@ -1,7 +1,9 @@
 import openConnection from '../../db/connection.js';
 
 const addToFavorites = async(req, res) => {
+  // Receive quote data from frontend
   const { randomQuote } = req.body;
+  // Extract user data from headers
   const user = req.user;
 
   let connection;
@@ -18,7 +20,7 @@ const addToFavorites = async(req, res) => {
       return res.status(201).json({ message: 'This quote is already in your favorites' });
     }
 
-    // If not, then add it to the user's favorites
+    // If not, then add it to the favorite_quotes table
     await connection.query(
       `INSERT INTO favorite_quotes (quote_id, user_id) VALUES (?, ?)`, 
       [randomQuote.id, user.id]

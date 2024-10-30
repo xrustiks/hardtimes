@@ -1,16 +1,18 @@
-import { useState, useEffect } from 'react';
-// import { UserContext } from '../../../hooks/UserContext.jsx';
+import { useState, useEffect, useContext } from 'react';
+import { UserContext } from '../../../hooks/UserContext.jsx';
 
 import makeTitle from "../../../utils/makeTitle.js";
 
 const Home = () => {
   const [randomQuote, setRandomQuote] = useState(null);
-  // const [user, setUser] = useContext(UserContext);
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const token = localStorage.getItem('token');
+  // Context variables
+  const [favorites, setFavorites] = useContext(UserContext);
 
+  const token = localStorage.getItem('token');
+  
   useEffect(() => {
     // Making title for the component
     makeTitle("Главная");
@@ -32,6 +34,7 @@ const Home = () => {
 
   const addToFavorites = async() => {
     setIsLoading(true);
+
     try {
       const response = await fetch('http://localhost:3000/api/addToFavorites', {
         method: 'POST',
@@ -45,6 +48,9 @@ const Home = () => {
       const result = await response.json();
 
       if (response.ok) {
+        // Add quote to the context
+        setFavorites((prevFavorites) => [...prevFavorites, randomQuote]);
+        // Display status
         setMessage(result.message);
       } else {
         setMessage(result.message);
