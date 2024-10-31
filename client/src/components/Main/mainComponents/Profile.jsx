@@ -1,6 +1,5 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { UserContext } from '../../../hooks/UserContext.jsx';
 
 import makeTitle from "../../../utils/makeTitle.js";
 
@@ -8,8 +7,6 @@ import makeTitle from "../../../utils/makeTitle.js";
 const Profile = () => {
   const [message, setMessage] = useState('');
   const [userData, setUserData] = useState({});
-
-  const [favorites, setFavorites] = useContext(UserContext);
 
   const navigate = useNavigate();
   
@@ -66,16 +63,8 @@ const Profile = () => {
       <h1>You are in your personal room</h1>
       <p>Username: { userData.userName } | <Link to="/profile/settings/change-login">Изменить</Link></p>
       <p>Email: { userData.email } | <Link to="/profile/settings/change-email">Изменить</Link></p>
-      <Link to="/profile/settings/change-password">Change password</Link>
-      <p>Избранные цитаты:</p>
-      { /* List of favorite quotes */ }
-      { 
-        favorites.map((quote, index) => (
-          <li key={index}>
-            { quote.quote }
-          </li>
-        )) 
-      }
+      <p><Link to="/profile/settings/change-password">Change password</Link></p>
+      <p><Link to="/favorites">Favorite quotes</Link></p>
 
       { message && <p>{ message }</p> }
     </div>

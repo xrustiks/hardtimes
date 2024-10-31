@@ -1,5 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
-import { UserContext } from '../../../hooks/UserContext.jsx';
+import { useState, useEffect } from 'react';
 
 import makeTitle from "../../../utils/makeTitle.js";
 
@@ -9,8 +8,6 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   // Context variables
-  const [favorites, setFavorites] = useContext(UserContext);
-
   const token = localStorage.getItem('token');
   
   useEffect(() => {
@@ -48,8 +45,6 @@ const Home = () => {
       const result = await response.json();
 
       if (response.ok) {
-        // Add quote to the context
-        setFavorites((prevFavorites) => [...prevFavorites, randomQuote]);
         // Display status
         setMessage(result.message);
       } else {
@@ -75,7 +70,7 @@ const Home = () => {
 
             <footer>Автор: { randomQuote.author }</footer>
 
-            <button type="submit" onClick={ addToFavorites } disabled={isLoading}>
+            <button type="submit" onClick={ addToFavorites } disabled={ isLoading }>
               {isLoading ? 'Adding...' : 'Add to favorites'}
             </button>
             {message && <p>{message}</p>}
