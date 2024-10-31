@@ -12,8 +12,12 @@ const addQuote = async(req, res) => {
     connection = await openConnection();
     await connection.query('USE quotes');
 
-    const query = `INSERT INTO quotes (quote, author, category, origin) VALUES (?, ?, ?, ?)`;
-    await connection.query(query, [quote, author, category, origin]);
+    // Adding the quote to the database
+    await connection.query(
+      `INSERT INTO quotes (quote, author, category, origin) VALUES (?, ?, ?, ?)`, 
+      [quote, author, category, origin]
+    );
+
     return res.status(201).json({ message: 'Quote successfully added' });
   } catch(error) {
     console.error('Server error. Failed adding the quote, ' + error);

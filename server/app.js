@@ -11,6 +11,7 @@ import getProfile from './routes/getRoutes/getProfile.js';
 import changeLogin from './routes/putRoutes/changeLogin.js';
 import changeEmail from './routes/putRoutes/changeEmail.js';
 import changePassword from './routes/putRoutes/changePassword.js';
+import addToFavorites from './routes/postRoutes/addToFavorites.js';
 import authenticate from './auth/authenticate.js';
 
 const app = express();
@@ -49,6 +50,9 @@ const startServer = async() => {
 
     // Route for profile settings: changing password
     app.put('/api/profile/settings/change-password', authenticate, changePassword);
+
+    // Route for adding some quote to favorites
+    app.post('/api/addToFavorites', authenticate, addToFavorites);
 
     // Route for getting a random quote
     app.get('/api/random-quote', getRandomQuote);

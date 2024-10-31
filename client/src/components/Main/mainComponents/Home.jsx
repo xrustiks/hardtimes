@@ -1,10 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { UserContext } from '../../../hooks/UserContext.jsx';
 
 import makeTitle from "../../../utils/makeTitle.js";
 
 const Home = () => {
   const [randomQuote, setRandomQuote] = useState(null);
+  const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
+  // Context variables
+  const [favorites, setFavorites] = useContext(UserContext);
+
+  const token = localStorage.getItem('token');
+  
   useEffect(() => {
     // Making title for the component
     makeTitle("Главная");
@@ -24,6 +32,37 @@ const Home = () => {
     fetchRandomQuote();
   }, [])
 
+  const addToFavorites = async() => {
+    setIsLoading(true);
+
+    try {
+      const response = await fetch('http://localhost:3000/api/addToFavorites', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ randomQuote: randomQuote })
+      })
+
+      const result = await response.json();
+
+      if (response.ok) {
+        // Add quote to the context
+        setFavorites((prevFavorites) => [...prevFavorites, randomQuote]);
+        // Display status
+        setMessage(result.message);
+      } else {
+        setMessage(result.message);
+      }
+    } catch(error) {
+      console.error('Error adding to favorites:', error);
+      setMessage(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   return (
     <>
       <h1>Hard times</h1>
@@ -36,9 +75,10 @@ const Home = () => {
 
             <footer>Автор: { randomQuote.author }</footer>
 
-            <button type="submit">
-              Add to favorites
+            <button type="submit" onClick={ addToFavorites } disabled={isLoading}>
+              {isLoading ? 'Adding...' : 'Add to favorites'}
             </button>
+            {message && <p>{message}</p>}
           </blockquote>
         ) : (
           <blockquote>
