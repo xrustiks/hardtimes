@@ -4,10 +4,16 @@ const getFavorites = async(req, res) => {
   let connection;
   try {
     connection = await openConnection();
-    await connection.query('USE quote');
-    const [favoriteQuotes] = await connection.query(`SELECT * FROM quote WHERE isFavorite = 1`);
+    await connection.query('USE quotes');
 
-    return res.status(200).json({ favoriteQuotes });
+    const [favoriteQuotes] = await connection.query(
+      `SELECT q.* FROM 
+      favorite_quotes fq JOIN quotes q ON fq.quote_id = q.id 
+      WHERE fq.user_id = ?`,
+      req.user.id
+    );
+
+    return res.status(200).json({ favorites: favoriteQuotes });
   } catch(error) {
     console.error(error);
     return res.status(500).json({ message: 'Failed retrieving favorites' });

@@ -8,8 +8,7 @@ const createTables = async(connection) => {
       quote TEXT,
       author VARCHAR(255),
       category VARCHAR(255),
-      origin VARCHAR(255),
-      isFavorite BOOLEAN DEFAULT FALSE
+      origin VARCHAR(255)
     )`;
     await connection.query(quotesTableQuery);
 

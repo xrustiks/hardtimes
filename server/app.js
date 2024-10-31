@@ -58,7 +58,7 @@ const startServer = async() => {
     app.get('/api/random-quote', getRandomQuote);
 
     // Route for getting favorite quotes
-    app.get('/api/favorites', getFavorites);
+    app.get('/api/favorites', authenticate, getFavorites);
 
     // Route for page with a form for adding a new quote
     app.get('/api/add-quote', async(req, res) => {
