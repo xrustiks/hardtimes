@@ -27,6 +27,11 @@ const Favorites = () => {
         });
 
         const result = await response.json();
+
+        if (!response.ok || result.favorites.length === 0) {
+          return setMessage(result.message);
+        }
+
         setFavorites(result.favorites);
       } catch(error) {
         console.log('Error fetching favorite quotes', error);
@@ -46,16 +51,21 @@ const Favorites = () => {
       {isLoading ? (
         <p>Загрузка...</p>
       ) : (
-        favorites.map((quote) => (
-          <blockquote key={quote.id}>
-            <div>&quot;{quote.quote}&quot;</div>
-            <div>Категория: {quote.category}</div>
-            <div>Источник: {quote.origin}</div>
-            <footer>Автор: {quote.author}</footer>
-          </blockquote>
-        ))
+        favorites.length > 0 ? (
+          // If there are favorite quotes, display them
+          favorites.map((quote) => (
+            <blockquote key={quote.id}>
+              <div>&quot;{quote.quote}&quot;</div>
+              <div>Категория: {quote.category}</div>
+              <div>Источник: {quote.origin}</div>
+              <footer>Автор: {quote.author}</footer>
+            </blockquote>
+          ))
+        ) : (
+          // If there are no favorite quotes, display a message
+          <p>{ message }</p>
+        )
       )}
-      {message && <p>{message}</p>}
     </div>
   )
 }

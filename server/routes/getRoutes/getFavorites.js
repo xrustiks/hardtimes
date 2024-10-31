@@ -12,6 +12,9 @@ const getFavorites = async(req, res) => {
       WHERE fq.user_id = ?`,
       req.user.id
     );
+    if (favoriteQuotes.length === 0) {
+      return res.status(200).json({ message: 'No favorite quotes found', favorites: [] });
+    }
 
     return res.status(200).json({ favorites: favoriteQuotes });
   } catch(error) {
