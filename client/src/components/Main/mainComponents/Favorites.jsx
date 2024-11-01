@@ -59,6 +59,8 @@ const Favorites = () => {
               <div>Категория: {quote.category}</div>
               <div>Источник: {quote.origin}</div>
               <footer>Автор: {quote.author}</footer>
+
+              <button type="button">Удалить из избранного</button>
             </blockquote>
           ))
         ) : (

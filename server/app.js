@@ -25,46 +25,44 @@ const startServer = async() => {
   try {
     await initDataBase();
 
+    // MAIN ROUTE
     // Main route for the server
     app.get('/api', async(req, res) => {
       return res.status(200).json({ message: `Hello from server` });
     })
 
+    // AUTENTICATION ROUTES
     // Route for user registration
     app.post('/api/register', registerUser);
-
     // Route for user login
     app.post('/api/login', loginUser);
 
+    // PROFILE ROUTES
     // Route for getting user profile: 
     // 1st argument is the route, 
     // 2nd is the middleware function, 
     // 3rd is the handler function
     app.get('/api/profile', authenticate, getProfile);
-
     // Route for profile settings: changing login
     app.put('/api/profile/settings/change-login', authenticate, changeLogin);
-
     // Route for profile settings: changing email
     app.put('/api/profile/settings/change-email', authenticate, changeEmail);
-
     // Route for profile settings: changing password
     app.put('/api/profile/settings/change-password', authenticate, changePassword);
 
+    // FAVORITES ROUTES
+    // Route for getting favorite quotes
+    app.get('/api/favorites', authenticate, getFavorites);
     // Route for adding some quote to favorites
     app.post('/api/addToFavorites', authenticate, addToFavorites);
 
+    // QUOTES ROUTES
     // Route for getting a random quote
     app.get('/api/random-quote', getRandomQuote);
-
-    // Route for getting favorite quotes
-    app.get('/api/favorites', authenticate, getFavorites);
-
     // Route for page with a form for adding a new quote
     app.get('/api/add-quote', async(req, res) => {
       return res.status(200).json({ message: "Add quote here" });
-    })
-
+    });
     // Route for adding a new quote
     app.post('/api/add-quote', addQuote);
 
