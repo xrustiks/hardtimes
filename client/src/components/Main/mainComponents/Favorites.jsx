@@ -1,12 +1,15 @@
 import { useState, useEffect, useContext } from 'react';
 import { UserContext } from '../../../hooks/UserContext.jsx';
 
+import { removeFromFavorites } from "../../../utils/favorites.js";
 import makeTitle from "../../../utils/makeTitle.js";
 
 const Favorites = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [favorites, setFavorites] = useContext(UserContext);
+
+  const token = localStorage.getItem('token');
 
   useEffect(() => {
     // Making title for the component
@@ -15,8 +18,7 @@ const Favorites = () => {
     // Fetch favorite quotes from database
     const fetchFavorites = async() => {
       setIsLoading(true);
-      const token = localStorage.getItem('token');
-      
+
       try {
         const response = await fetch('http://localhost:3000/api/favorites', {
           method: 'GET',
@@ -60,7 +62,7 @@ const Favorites = () => {
               <div>Источник: {quote.origin}</div>
               <footer>Автор: {quote.author}</footer>
 
-              <button type="button">Удалить из избранного</button>
+              <button type="button" onClick={ () => removeFromFavorites(token, quote.id, setIsLoading, setMessage) }>Удалить из избранного</button>
             </blockquote>
           ))
         ) : (

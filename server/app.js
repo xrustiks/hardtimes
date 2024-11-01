@@ -12,6 +12,7 @@ import changeLogin from './routes/putRoutes/changeLogin.js';
 import changeEmail from './routes/putRoutes/changeEmail.js';
 import changePassword from './routes/putRoutes/changePassword.js';
 import addToFavorites from './routes/postRoutes/addToFavorites.js';
+import removeFromFavorites from './routes/deleteRoutes/removeFromFavorites.js';
 import authenticate from './auth/authenticate.js';
 
 const app = express();
@@ -53,9 +54,10 @@ const startServer = async() => {
     // FAVORITES ROUTES
     // Route for getting favorite quotes
     app.get('/api/favorites', authenticate, getFavorites);
-    // Route for adding some quote to favorites
+    // Routes for adding and deleting a quote to/from favorites
     app.post('/api/addToFavorites', authenticate, addToFavorites);
-
+    app.delete('/api/removeFromFavorites', authenticate, removeFromFavorites);
+    
     // QUOTES ROUTES
     // Route for getting a random quote
     app.get('/api/random-quote', getRandomQuote);
