@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 
+import addToFavorites from "../../../utils/addToFavorites.js";
 import makeTitle from "../../../utils/makeTitle.js";
 
 const Home = () => {
@@ -29,35 +30,6 @@ const Home = () => {
     fetchRandomQuote();
   }, [])
 
-  const addToFavorites = async() => {
-    setIsLoading(true);
-
-    try {
-      const response = await fetch('http://localhost:3000/api/addToFavorites', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({ randomQuote: randomQuote })
-      })
-
-      const result = await response.json();
-
-      if (response.ok) {
-        // Display status
-        setMessage(result.message);
-      } else {
-        setMessage(result.message);
-      }
-    } catch(error) {
-      console.error('Error adding to favorites:', error);
-      setMessage(error.message);
-    } finally {
-      setIsLoading(false);
-    }
-  }
-
   return (
     <>
       <h1>Hard times</h1>
@@ -70,7 +42,10 @@ const Home = () => {
 
             <footer>Автор: { randomQuote.author }</footer>
 
-            <button type="submit" onClick={ addToFavorites } disabled={ isLoading }>
+            <button type="submit" 
+              onClick={ () => addToFavorites(token, randomQuote, setIsLoading, setMessage) } 
+              disabled={ isLoading }
+            >
               {isLoading ? 'Adding...' : 'Add to favorites'}
             </button>
             {message && <p>{message}</p>}

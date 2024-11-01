@@ -8,6 +8,7 @@ const Logout = () => {
     // Clear the token from local storage
     localStorage.removeItem('token');
     localStorage.removeItem('hasReloaded');
+    localStorage.removeItem('favorites');
 
     // Redirect to the login page
     navigate('/login');
