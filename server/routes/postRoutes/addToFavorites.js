@@ -1,13 +1,14 @@
 import openConnection from '../../db/connection.js';
 
 const addToFavorites = async(req, res) => {
-  // Receive quote data from frontend
-  const { randomQuote } = req.body;
-  // Extract user data from headers
-  const user = req.user;
-
   let connection;
+  
   try {
+    // Receive quote data from frontend
+    const { randomQuote } = req.body;
+    // Extract user data from headers
+    const user = req.user;
+
     connection = await openConnection();
     await connection.query('USE quotes');
 

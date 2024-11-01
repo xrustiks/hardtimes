@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import addToFavorites from "../../../utils/addToFavorites.js";
+import { addToFavorites } from "../../../utils/favorites.js";
 import makeTitle from "../../../utils/makeTitle.js";
 
 const Home = () => {
