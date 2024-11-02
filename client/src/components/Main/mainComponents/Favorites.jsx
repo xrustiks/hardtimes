@@ -7,6 +7,7 @@ import makeTitle from "../../../utils/makeTitle.js";
 const Favorites = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
+  // Context variables
   const [favorites, setFavorites] = useContext(UserContext);
 
   const token = localStorage.getItem('token');
@@ -44,7 +45,7 @@ const Favorites = () => {
     }
 
     fetchFavorites();
-  }, [setFavorites])
+  }, [setFavorites, token])
 
   return (
     <div className="favorites-page">
@@ -62,7 +63,13 @@ const Favorites = () => {
               <div>Источник: {quote.origin}</div>
               <footer>Автор: {quote.author}</footer>
 
-              <button type="button" onClick={ () => removeFromFavorites(token, quote.id, setIsLoading, setMessage) }>Удалить из избранного</button>
+              <button type="button" 
+                onClick={ () => removeFromFavorites(
+                  token, quote.id, favorites, setFavorites, setIsLoading, setMessage
+                ) }
+              >
+                Удалить из избранного
+              </button>
             </blockquote>
           ))
         ) : (

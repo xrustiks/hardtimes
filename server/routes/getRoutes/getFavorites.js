@@ -6,6 +6,7 @@ const getFavorites = async(req, res) => {
     connection = await openConnection();
     await connection.query('USE quotes');
 
+    // Getting all favorite quotes for the user
     const [favoriteQuotes] = await connection.query(
       `SELECT q.* FROM 
       favorite_quotes fq JOIN quotes q ON fq.quote_id = q.id 
