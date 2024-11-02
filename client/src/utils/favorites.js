@@ -24,7 +24,7 @@ export const addToFavorites = async(token, randomQuote, setIsLoading, setMessage
 }
 
 // Removes a quote from favorites
-export const removeFromFavorites = async(token, quoteId, setIsLoading, setMessage) => {
+export const removeFromFavorites = async(token, quoteId, favorites, setFavorites, setIsLoading, setMessage) => {
   setIsLoading(true);
 
   try {
@@ -39,7 +39,11 @@ export const removeFromFavorites = async(token, quoteId, setIsLoading, setMessag
 
     const result = await response.json();
 
-    setMessage(result.message);
+    if (response.ok) {
+      setFavorites(favorites.filter((quote) => quote.id !== quoteId));
+    } else {
+      setMessage(result.message);
+    }
   } catch(error) {
     console.log('Error deleting quote:', error);
     setMessage(error.message);
