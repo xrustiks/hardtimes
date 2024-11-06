@@ -66,7 +66,7 @@ const ChangePassword = () => {
   return (
     <div className="change-password">
       <form className="change-password-form" onSubmit={ handleSubmit }>
-        <label htmlFor="old-password">Old password:</label>
+        <label htmlFor="old-password">Старый пароль:</label>
         <input 
           type="password"
           id="old-password"
@@ -76,7 +76,7 @@ const ChangePassword = () => {
           required 
         />
 
-        <label htmlFor="new-password">New password:</label>
+        <label htmlFor="new-password">Новый пароль:</label>
         <input 
           type="password"
           id="new-password"
@@ -85,7 +85,7 @@ const ChangePassword = () => {
           onChange={ (e) => setFreshPassword(e.target.value) }
         required />
 
-        <label htmlFor="new-password-confirm">Confirm new password:</label>
+        <label htmlFor="new-password-confirm">Подтвердите новый пароль:</label>
         <input 
           type="password" 
           id="new-password-confirm" 
@@ -94,7 +94,7 @@ const ChangePassword = () => {
           onChange={ (e) => setFreshPasswordConfirm(e.target.value) }
         required />
         
-        <button type="submit">Change password</button>
+        <button type="submit">Готово</button>
       </form>
 
       { message && <p>{ message }</p> }

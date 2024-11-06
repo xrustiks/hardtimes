@@ -66,7 +66,7 @@ const ChangeLogin = () => {
   return (
     <div className="change-login">
       <form className="change-login-form" onSubmit={ handleSubmit }>
-        <label htmlFor="new-login">New login:</label>
+        <label htmlFor="new-login">Новое имя пользователя:</label>
         <input 
           type="text" 
           id="new-login" 
@@ -76,7 +76,7 @@ const ChangeLogin = () => {
           required 
         />
 
-        <label htmlFor="new-login-confirm">Confirm new login:</label>
+        <label htmlFor="new-login-confirm">Подтвердите новое имя пользователя:</label>
         <input 
           type="text" 
           id="new-login-confirm" 
@@ -86,7 +86,7 @@ const ChangeLogin = () => {
           required 
         />
 
-        <button type="submit">Change login</button>
+        <button type="submit">Готово</button>
       </form>
 
       { message && <p>{ message }</p> }

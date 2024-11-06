@@ -66,7 +66,7 @@ const ChangeEmail = () => {
   return (
     <div className="change-email">
       <form className="change-email-form" onSubmit={ handleSubmit }>
-        <label htmlFor="new-email">New email:</label>
+        <label htmlFor="new-email">Новый email:</label>
         <input 
           type="email" 
           id="new-email" 
@@ -76,7 +76,7 @@ const ChangeEmail = () => {
           required 
         />
 
-        <label htmlFor="new-email-confirm">Confirm new email:</label>
+        <label htmlFor="new-email-confirm">Подтвердить новый email:</label>
         <input 
           type="email" 
           id="new-email-confirm" 
@@ -86,7 +86,7 @@ const ChangeEmail = () => {
           required 
         />
         
-        <button type="submit">Change email</button>
+        <button type="submit">Готово</button>
       </form>
 
       { message && <p>{ message }</p> }
