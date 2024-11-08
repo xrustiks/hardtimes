@@ -9,6 +9,8 @@ const AddQuote = () => {
   const [origin, setOrigin] = useState("");
   const [message, setMessage] = useState("");
 
+  const token = localStorage.getItem('token');
+
   useEffect(() => {
     // Making title for the component
     makeTitle("Добавить цитату");
@@ -32,6 +34,7 @@ const AddQuote = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify(freshQuote)
       })

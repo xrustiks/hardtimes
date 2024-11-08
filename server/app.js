@@ -13,6 +13,7 @@ import changeEmail from './routes/putRoutes/changeEmail.js';
 import changePassword from './routes/putRoutes/changePassword.js';
 import addToFavorites from './routes/postRoutes/addToFavorites.js';
 import removeFromFavorites from './routes/deleteRoutes/removeFromFavorites.js';
+import checkAdmin from './auth/checkAdmin.js';
 import authenticate from './auth/authenticate.js';
 
 const app = express();
@@ -62,11 +63,11 @@ const startServer = async() => {
     // Route for getting a random quote
     app.get('/api/random-quote', getRandomQuote);
     // Route for page with a form for adding a new quote
-    app.get('/api/add-quote', async(req, res) => {
+    app.get('/api/add-quote', authenticate, checkAdmin, async(req, res) => {
       return res.status(200).json({ message: "Add quote here" });
     });
     // Route for adding a new quote
-    app.post('/api/add-quote', addQuote);
+    app.post('/api/add-quote', authenticate, checkAdmin, addQuote);
 
     app.listen(3000, () => {
       console.log('Server is running on port 3000');
