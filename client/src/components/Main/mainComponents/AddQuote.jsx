@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import makeTitle from "../../../utils/makeTitle.js";
 
@@ -8,13 +9,39 @@ const AddQuote = () => {
   const [category, setCategory] = useState("");
   const [origin, setOrigin] = useState("");
   const [message, setMessage] = useState("");
+  const [isAdmin, setIsAdmin] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const navigate = useNavigate();
 
   const token = localStorage.getItem('token');
 
   useEffect(() => {
     // Making title for the component
     makeTitle("Добавить цитату");
-  }, [])
+
+    // Checking if a user is admin
+    const checkAdmin = async() => {
+      try {
+        const response = await fetch('http://localhost:3000/api/profile', {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        const result = await response.json();
+        if (!response.ok || !result.user.isAdmin) {
+          setIsAdmin(false);
+          setErrorMessage("You are not authorized to add quotes");
+        }
+      } catch(error) {
+        navigate('/login');
+      }
+    }
+
+    checkAdmin();
+  }, [navigate, token])
 
   const handleSubmit = async(e) => {
     // Prevents reloading page after submitting
@@ -54,7 +81,10 @@ const AddQuote = () => {
     } catch (error) {
       setMessage(`Network error: ${error.message}. Please try again later.`);
     }
-    
+  }
+
+  if (!isAdmin) {
+    return <p className="message">{ errorMessage }</p>
   }
 
   return (
