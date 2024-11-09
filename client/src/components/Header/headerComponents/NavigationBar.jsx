@@ -13,7 +13,6 @@ const NavigationBar = () => {
   return (
     <div className="nav-bar">
       <Link to="/">Главная</Link>
-      <Link to="/post-quote">Добавить цитату</Link>
       {isLogin && <Link to="/favorites">Избранные цитаты</Link>}
     </div>
   )

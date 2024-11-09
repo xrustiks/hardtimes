@@ -7,6 +7,7 @@ import makeTitle from "../../../utils/makeTitle.js";
 const Profile = () => {
   const [message, setMessage] = useState('');
   const [userData, setUserData] = useState({});
+  const [isAdmin, setIsAdmin] = useState(true);
 
   const navigate = useNavigate();
   
@@ -21,7 +22,29 @@ const Profile = () => {
       navigate('/login');
       return;
     }
-    
+
+    // Checks if a user is admin
+    const checkIsAdmin = async() => {
+      try {
+        const response = await fetch('http://localhost:3000/api/profile', {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+  
+        const result = await response.json();
+  
+        if (!response.ok || !result.user.isAdmin) {
+          setIsAdmin(false);
+        }
+      } catch(error) {
+        setMessage(error.message);
+      }
+    }
+
+    checkIsAdmin();
+
     // Fetches user profile data
     const fetchProfile = async() => {
       // If login is successful, reload the page
@@ -65,6 +88,7 @@ const Profile = () => {
       <p>Email: { userData.email } | <Link to="/profile/settings/change-email">Изменить</Link></p>
       <p><Link to="/profile/settings/change-password">Сменить пароль</Link></p>
       <p><Link to="/favorites">Избранные цитаты</Link></p>
+      { isAdmin ? <Link to="/post-quote">Добавить цитату</Link> : null }
 
       { message && <p>{ message }</p> }
     </div>

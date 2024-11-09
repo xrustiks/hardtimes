@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 import makeTitle from "../../../utils/makeTitle.js";
 
@@ -10,9 +9,7 @@ const AddQuote = () => {
   const [origin, setOrigin] = useState("");
   const [message, setMessage] = useState("");
   const [isAdmin, setIsAdmin] = useState(true);
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const navigate = useNavigate();
+  const [isAdminMessage, setIsAdminMessage] = useState("");
 
   const token = localStorage.getItem('token');
 
@@ -33,15 +30,15 @@ const AddQuote = () => {
         const result = await response.json();
         if (!response.ok || !result.user.isAdmin) {
           setIsAdmin(false);
-          setErrorMessage("You are not authorized to add quotes");
+          setIsAdminMessage("You are not authorized to add quotes");
         }
       } catch(error) {
-        navigate('/login');
+        setMessage(error.message);
       }
     }
 
     checkAdmin();
-  }, [navigate, token])
+  }, [token])
 
   const handleSubmit = async(e) => {
     // Prevents reloading page after submitting
@@ -84,7 +81,7 @@ const AddQuote = () => {
   }
 
   if (!isAdmin) {
-    return <p className="message">{ errorMessage }</p>
+    return <p className="message">{ isAdminMessage }</p>
   }
 
   return (
