@@ -24,7 +24,7 @@ export const addToFavorites = async(token, randomQuote, setIsLoading, setMessage
 }
 
 // Removes a quote from favorites
-export const removeFromFavorites = async(token, quoteId, favorites, setFavorites, setIsLoading, setMessage) => {
+export const removeFromFavorites = async(token, randomQuote, favorites, setFavorites, setIsLoading, setMessage) => {
   setIsLoading(true);
 
   try {
@@ -34,13 +34,13 @@ export const removeFromFavorites = async(token, quoteId, favorites, setFavorites
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${ token }`
       },
-      body: JSON.stringify({ quoteId })
+      body: JSON.stringify({ randomQuote })
     });
 
     const result = await response.json();
 
     if (response.ok) {
-      setFavorites(favorites.filter((quote) => quote.id !== quoteId));
+      setFavorites(favorites.filter((quote) => quote.id !== randomQuote.id));
     } else {
       setMessage(result.message);
     }

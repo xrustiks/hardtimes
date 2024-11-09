@@ -65,7 +65,7 @@ const Favorites = () => {
 
               <button type="button" 
                 onClick={ () => removeFromFavorites(
-                  token, quote.id, favorites, setFavorites, setIsLoading, setMessage
+                  token, quote, favorites, setFavorites, setIsLoading, setMessage
                 ) }
               >
                 Удалить из избранного

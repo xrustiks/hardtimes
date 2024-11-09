@@ -5,7 +5,7 @@ const removeFromFavorites = async(req, res) => {
 
   try {
     // Receive quote data from frontend
-    const { quoteId } = req.body;
+    const { randomQuote } = req.body;
     // Extract user data from headers
     const user = req.user;
 
@@ -14,7 +14,7 @@ const removeFromFavorites = async(req, res) => {
 
     const [result] = await connection.query(
       `DELETE FROM favorite_quotes WHERE quote_id = ? AND user_id = ?`, 
-      [quoteId, user.id]
+      [randomQuote.id, user.id]
     );
     if (result.affectedRows === 0) {
       return res.status(404).json({ message: 'Quote not found in favorites' });
