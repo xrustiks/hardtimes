@@ -34,7 +34,7 @@ export const removeFromFavorites = async(token, randomQuote, favorites, setFavor
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${ token }`
       },
-      body: JSON.stringify({ randomQuote })
+      body: JSON.stringify({ randomQuote: randomQuote })
     });
 
     const result = await response.json();
