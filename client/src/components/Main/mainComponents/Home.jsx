@@ -41,9 +41,9 @@ const Home = () => {
       <div className="random-quote">
         {randomQuote ? (
           <blockquote>
-            <p>&quot;{ randomQuote.quote }&quot;</p>
-            <p>Категория: { randomQuote.category }</p>
-            <p>Источник: { randomQuote.origin }</p>
+            <div>&quot;{ randomQuote.quote }&quot;</div>
+            <div>Категория: { randomQuote.category }</div>
+            <div>Источник: { randomQuote.origin }</div>
 
             <footer>Автор: { randomQuote.author }</footer>
 

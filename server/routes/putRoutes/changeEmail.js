@@ -9,8 +9,10 @@ const changeEmail = async(req, res) => {
     connection = await openConnection();
     await connection.query('USE quotes');
 
-    const query = 'UPDATE users SET email=? WHERE id=?;';
-    const [result] = await connection.execute(query, [freshEmail, req.user.id]);
+    const [result] = await connection.execute(
+      'UPDATE users SET email=? WHERE id=?',
+      [freshEmail, req.user.id]
+    );
     if (result.rowsAffected === 0) {
       return res.status(400).json({ message: 'Failed to change email' });
     }

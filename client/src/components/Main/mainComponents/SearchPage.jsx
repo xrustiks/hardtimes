@@ -57,7 +57,9 @@ const SearchPage = () => {
         quotes.length > 0 ? (
           quotes.map((quote) => (
             <blockquote key={quote.id}>
-              <p>{quote.quote}</p>
+              <div>&quot;{quote.quote}&quot;</div>
+              <div>Категория: {quote.category}</div>
+              <div>Источник: {quote.origin}</div>
               <footer>{quote.author}</footer>
             </blockquote>
           ))

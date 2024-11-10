@@ -9,8 +9,10 @@ const changeLogin = async(req, res) => {
     connection = await openConnection();
     await connection.query('USE quotes');
 
-    const query = 'UPDATE users SET userName=? WHERE id=?;';
-    const [result] = await connection.execute(query, [freshLogin, req.user.id]);
+    const [result] = await connection.execute(
+      'UPDATE users SET userName=? WHERE id=?',
+      [freshLogin, req.user.id]
+    );
     if (result.rowsAffected === 0) {
       return res.status(400).json({ message: 'Failed to change login' });
     }
