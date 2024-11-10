@@ -19,7 +19,12 @@ const Home = () => {
   useEffect(() => {
     const fetchRandomQuote = async() => {
       try {
-        const response = await fetch('http://localhost:3000/api/random-quote');
+        const response = await fetch('http://localhost:3000/api/random-quote', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
         const data = await response.json();
         setRandomQuote(data);
       } catch(error) {

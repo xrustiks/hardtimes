@@ -51,7 +51,7 @@ const Favorites = () => {
     <div className="favorites-page">
       <h1>Избранные цитаты</h1>
 
-      {isLoading ? (
+      { isLoading ? (
         <p>Загрузка...</p>
       ) : (
         favorites.length > 0 ? (
@@ -76,7 +76,7 @@ const Favorites = () => {
           // If there are no favorite quotes, display a message
           <p>{ message }</p>
         )
-      )}
+      ) }
     </div>
   )
 }
