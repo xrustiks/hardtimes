@@ -9,6 +9,7 @@ const SearchPage = () => {
     makeTitle("Поиск");
   }, [])
 
+  // Getting query from URL params
   const location = useLocation();
   const query = new URLSearchParams(location.search).get("query");
 

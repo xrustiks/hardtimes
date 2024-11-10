@@ -8,6 +8,7 @@ import addQuote from './routes/postRoutes/addQuote.js';
 import getFavorites from './routes/getRoutes/getFavorites.js';
 import getRandomQuote from './routes/getRoutes/getRandomQuote.js';
 import getProfile from './routes/getRoutes/getProfile.js';
+import getAddQuotePage from './routes/getRoutes/getAddQuotePage.js';
 import changeLogin from './routes/putRoutes/changeLogin.js';
 import changeEmail from './routes/putRoutes/changeEmail.js';
 import changePassword from './routes/putRoutes/changePassword.js';
@@ -63,9 +64,7 @@ const startServer = async() => {
     // Route for getting a random quote
     app.get('/api/random-quote', getRandomQuote);
     // Route for page with a form for adding a new quote
-    app.get('/api/add-quote', authenticate, checkAdmin, async(req, res) => {
-      return res.status(200).json({ message: "Add quote here" });
-    });
+    app.get('/api/add-quote', authenticate, checkAdmin, getAddQuotePage);
     // Route for adding a new quote
     app.post('/api/add-quote', authenticate, checkAdmin, addQuote);
 
