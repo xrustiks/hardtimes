@@ -32,7 +32,7 @@ const registerUser = async(req, res) => {
     }
 
     // If the user doesn't exist, we add them to the database
-    await connection.query(
+    await connection.execute(
       `INSERT INTO users (userName, email, password) VALUES (?, ?, ?)`, 
       [userName, email, hashedPassword]
     );

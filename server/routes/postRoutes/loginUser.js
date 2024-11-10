@@ -24,7 +24,7 @@ const loginUser = async(req, res) => {
 
     // If the user is verified:
     // Extracting additional user data from the database
-    const [user] = await connection.query(
+    const [user] = await connection.execute(
       'SELECT id, userName, email, isAdmin FROM users WHERE email = ?', 
       [email]
     );

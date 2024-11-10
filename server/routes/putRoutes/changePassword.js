@@ -11,7 +11,10 @@ const changePassword = async(req, res) => {
     await connection.query('USE quotes');
 
     // Exctract existing hashed password from the database
-    const [userPassword] = await connection.query('SELECT password FROM users WHERE id = ?', [req.user.id]);
+    const [userPassword] = await connection.execute(
+      'SELECT password FROM users WHERE id = ?', 
+      [req.user.id]
+    );
     // Making sure a user entered correct old password
     const checkCurrentPassword = await compare(oldPassword, userPassword[0].password);
     if (!checkCurrentPassword) {

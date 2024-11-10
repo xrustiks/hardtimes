@@ -13,7 +13,7 @@ const addToFavorites = async(req, res) => {
     await connection.query('USE quotes');
 
     // Checking if the quote is already in the user's favorites
-    const [existingQuote] = await connection.query(
+    const [existingQuote] = await connection.execute(
       `SELECT * FROM favorite_quotes WHERE quote_id = ? AND user_id = ?`, 
       [randomQuote.id, user.id]
     );
@@ -22,7 +22,7 @@ const addToFavorites = async(req, res) => {
     }
 
     // If not, then add it to the favorite_quotes table
-    await connection.query(
+    await connection.execute(
       `INSERT INTO favorite_quotes (quote_id, user_id) VALUES (?, ?)`, 
       [randomQuote.id, user.id]
     );

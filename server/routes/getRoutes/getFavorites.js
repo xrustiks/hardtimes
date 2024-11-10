@@ -7,12 +7,12 @@ const getFavorites = async(req, res) => {
     await connection.query('USE quotes');
 
     // Getting all favorite quotes for the user
-    const [favoriteQuotes] = await connection.query(
+    const [favoriteQuotes] = await connection.execute(
       `SELECT quotes.*
       FROM quotes
       JOIN favorite_quotes ON quotes.id = favorite_quotes.quote_id
       WHERE user_id = ?`,
-      req.user.id
+      [req.user.id]
     );
     if (favoriteQuotes.length === 0) {
       return res.status(200).json({ message: 'No favorite quotes found', favorites: [] });
