@@ -44,7 +44,6 @@ const Home = () => {
             <div>&quot;{ randomQuote.quote }&quot;</div>
             <div>Категория: { randomQuote.category }</div>
             <div>Источник: { randomQuote.origin }</div>
-
             <footer>Автор: { randomQuote.author }</footer>
 
             <button type="submit" 
