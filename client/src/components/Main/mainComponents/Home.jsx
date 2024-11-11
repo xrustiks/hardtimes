@@ -32,8 +32,10 @@ const Home = () => {
       }
     }
 
-    fetchRandomQuote();
-  }, [])
+    if (randomQuote === null) {
+      fetchRandomQuote();
+    }
+  }, [randomQuote])
 
   return (
     <>
@@ -59,6 +61,9 @@ const Home = () => {
             <p>Загрузка...</p>
           </blockquote>
         )}
+        <button type="button" onClick={() => setRandomQuote(null)}>
+          Next quote
+        </button>
       </div>
     </>
   )
