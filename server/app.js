@@ -15,6 +15,7 @@ import changePassword from './routes/putRoutes/changePassword.js';
 import addToFavorites from './routes/postRoutes/addToFavorites.js';
 import removeFromFavorites from './routes/deleteRoutes/removeFromFavorites.js';
 import getSearchedQuotes from './routes/getRoutes/getSearchedQuotes.js';
+import getCategories from './routes/getRoutes/getCategories.js';
 import checkAdmin from './auth/checkAdmin.js';
 import authenticate from './auth/authenticate.js';
 
@@ -70,6 +71,10 @@ const startServer = async() => {
     app.post('/api/add-quote', authenticate, checkAdmin, addQuote);
     // Route for searching quotes
     app.get('/api/search-quotes', getSearchedQuotes);
+
+    // CATEGORIES ROUTES
+    // Route for getting categories
+    app.get('/api/getCategories', getCategories);
 
     app.listen(3000, () => {
       console.log('Server is running on port 3000');

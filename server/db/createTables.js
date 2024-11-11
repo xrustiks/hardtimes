@@ -23,7 +23,6 @@ const createTables = async(connection) => {
     await connection.query(usersTableQuery);
 
     const favoriteQuotes = `CREATE TABLE IF NOT EXISTS favorite_quotes (
-      id INT AUTO_INCREMENT PRIMARY KEY,
       user_id INT NOT NULL,
       quote_id INT NOT NULL,
       FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
