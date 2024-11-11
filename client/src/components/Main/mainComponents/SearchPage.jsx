@@ -10,6 +10,7 @@ const SearchPage = () => {
   // Getting query from URL params
   const location = useLocation();
   const query = new URLSearchParams(location.search).get("query");
+  console.log(query);
 
   useEffect(() => {
     // Making title for the component
@@ -19,7 +20,7 @@ const SearchPage = () => {
       setIsLoading(true);
 
       try {
-        const response = await fetch(`http://localhost:3000/api/search-quotes?query=${query}`, {
+        const response = await fetch(`http://localhost:3000/api/search-quotes/${query}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'

@@ -25,7 +25,6 @@ const Categories = () => {
         if (!response.ok) {
           setMessage(result.message);
         } else {
-          console.log('Categories fetched:', result.categories);
           setCategories(result.categories);
         }
       } catch (error) {

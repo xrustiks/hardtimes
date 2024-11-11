@@ -1,7 +1,7 @@
 import openConnection from '../../db/connection.js';
 
 const getSearchedQuotes = async(req, res) => {
-  const { query } = req.query;
+  const { query } = req.params;
 
   if (!query) {
     return res.status(400).json({ error: "Query parameter is required" });

@@ -70,7 +70,7 @@ const startServer = async() => {
     // Route for adding a new quote
     app.post('/api/add-quote', authenticate, checkAdmin, addQuote);
     // Route for searching quotes
-    app.get('/api/search-quotes', getSearchedQuotes);
+    app.get('/api/search-quotes/:query', getSearchedQuotes);
 
     // CATEGORIES ROUTES
     // Route for getting categories
