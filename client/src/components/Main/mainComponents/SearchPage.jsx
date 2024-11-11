@@ -52,7 +52,7 @@ const SearchPage = () => {
     <div className="search-page">
       <h1>Найденные цитаты:</h1>
 
-      {isLoading ? (
+      { isLoading ? (
         <p>Загрузка...</p>
       ) : (
         quotes.length > 0 ? (
@@ -67,7 +67,7 @@ const SearchPage = () => {
         ) : (
           <p>{message}</p>
         )
-      )}
+      ) }
     </div>
   );
 }

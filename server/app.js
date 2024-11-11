@@ -36,7 +36,7 @@ const startServer = async() => {
       return res.status(200).json({ message: `Hello from server` });
     })
 
-    // AUTENTICATION ROUTES
+    // AUTHENTICATION ROUTES
     // Route for user registration
     app.post('/api/register', registerUser);
     // Route for user login
@@ -74,7 +74,7 @@ const startServer = async() => {
 
     // CATEGORIES ROUTES
     // Route for getting categories
-    app.get('/api/getCategories', getCategories);
+    app.get('/api/get-categories', getCategories);
 
     app.listen(3000, () => {
       console.log('Server is running on port 3000');

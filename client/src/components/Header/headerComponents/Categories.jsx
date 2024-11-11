@@ -13,7 +13,7 @@ const Categories = () => {
 
     const getCategories = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/getCategories', {
+        const response = await fetch('http://localhost:3000/api/get-categories', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -38,15 +38,18 @@ const Categories = () => {
 
   return (
     <div className="select-category">
-      <select 
+      <select
         value={ selectedCategory } 
         onChange={ (e) => setSelectedCategory(e.target.value) }>
-        <option value="default">
+        <option
+          value="default">
           { selectedCategory }
         </option>
-        {/* List of categories */}
+        {/* Getting the list of categories */}
         { categories.map((category, index) => (
-          <option key={ index } value={ category.category }>
+          <option
+            key={ index }
+            value={ category.category }>
             { category.category }
           </option>
         )) }

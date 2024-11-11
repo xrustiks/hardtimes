@@ -3,6 +3,7 @@ const createTables = async(connection) => {
   try {
     await connection.query('USE quotes');
 
+    // Creating quotes table
     const quotesTableQuery = `CREATE TABLE IF NOT EXISTS quotes (
       id INT AUTO_INCREMENT PRIMARY KEY,
       quote TEXT,
@@ -12,6 +13,7 @@ const createTables = async(connection) => {
     )`;
     await connection.query(quotesTableQuery);
 
+    // Creating users table
     const usersTableQuery = `CREATE TABLE IF NOT EXISTS users (
       id INT AUTO_INCREMENT PRIMARY KEY,
       userName VARCHAR(255) NOT NULL UNIQUE,
@@ -22,6 +24,7 @@ const createTables = async(connection) => {
     )`;
     await connection.query(usersTableQuery);
 
+    // Creating favorite_quotes table
     const favoriteQuotes = `CREATE TABLE IF NOT EXISTS favorite_quotes (
       user_id INT NOT NULL,
       quote_id INT NOT NULL,
