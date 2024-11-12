@@ -1,16 +1,13 @@
 import { useState, useEffect } from 'react';
 
-import makeTitle from "../../../utils/makeTitle.js";
 import './Categories.css';
 
-const Categories = () => {
-  const [selectedCategory, setSelectedCategory] = useState('Choose category');
+const Categories = ({ setSelectedCategory }) => {
+  const [selectedCategory, setCategory] = useState('Choose category');
   const [categories, setCategories] = useState([]);
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    makeTitle("Избранное");
-
     const getCategories = async () => {
       try {
         const response = await fetch('http://localhost:3000/api/get-categories', {
@@ -36,11 +33,18 @@ const Categories = () => {
     getCategories();
   }, []);
 
+  const handleCategoryChange = (e) => {
+    const category = e.target.value;
+    setCategory(category);
+    // Transfer the selected category to Home
+    setSelectedCategory(category);
+  };
+
   return (
     <div className="select-category">
       <select
         value={ selectedCategory } 
-        onChange={ (e) => setSelectedCategory(e.target.value) }>
+        onChange={ (e) => handleCategoryChange(e) }>
         <option
           value="default">
           { selectedCategory }

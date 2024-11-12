@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 
+import Categories from '../../Header/headerComponents/Categories.jsx';
 import { addToFavorites } from "../../../utils/favorites.js";
 import makeTitle from "../../../utils/makeTitle.js";
 
@@ -7,6 +8,7 @@ const Home = () => {
   const [randomQuote, setRandomQuote] = useState(null);
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState('');
 
   // Context variables
   const token = localStorage.getItem('token');
@@ -19,49 +21,53 @@ const Home = () => {
   useEffect(() => {
     const fetchRandomQuote = async() => {
       try {
-        const response = await fetch('http://localhost:3000/api/random-quote', {
+        const url = selectedCategory
+          ? `http://localhost:3000/api/random-quote?category=${selectedCategory}`
+          : 'http://localhost:3000/api/random-quote';
+
+        const response = await fetch(url, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
           }
         });
-        const data = await response.json();
-        setRandomQuote(data);
+        const result = await response.json();
+        setRandomQuote(result);
       } catch(error) {
         console.error('Error fetching random quote:', error);
       }
     }
 
-    if (randomQuote === null) {
-      fetchRandomQuote();
-    }
-  }, [randomQuote])
+    fetchRandomQuote();
+  }, [ selectedCategory ])
 
   return (
     <>
       <h1>Hard times</h1>
+      <Categories setSelectedCategory={ setSelectedCategory } />
       <div className="random-quote">
-        {randomQuote ? (
+        { randomQuote ? (
           <blockquote>
             <div>&quot;{ randomQuote.quote }&quot;</div>
             <div>Категория: { randomQuote.category }</div>
             <div>Источник: { randomQuote.origin }</div>
             <footer>Автор: { randomQuote.author }</footer>
 
-            <button type="submit" 
+            <button type="submit"
               onClick={ () => addToFavorites(token, randomQuote, setIsLoading, setMessage) } 
               disabled={ isLoading }
             >
-              {isLoading ? 'Adding...' : 'Add to favorites'}
+              { isLoading ? 'Adding...' : 'Add to favorites' }
             </button>
-            {message && <p>{message}</p>}
+            { message && <p>{ message }</p> }
           </blockquote>
         ) : (
           <blockquote>
             <p>Загрузка...</p>
           </blockquote>
-        )}
-        <button type="button" onClick={() => setRandomQuote(null)}>
+        ) }
+
+        <button type="button" onClick={ () => setRandomQuote(null) }>
           Next quote
         </button>
       </div>
