@@ -16,30 +16,30 @@ const Home = () => {
   useEffect(() => {
     // Making title for the component
     makeTitle("Главная");
-  }, [])
+  }, []);
+
+  const fetchRandomQuote = async() => {
+    try {
+      const url = selectedCategory
+        ? `http://localhost:3000/api/random-quote?category=${selectedCategory}`
+        : 'http://localhost:3000/api/random-quote';
+
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      const result = await response.json();
+      setRandomQuote(result);
+    } catch(error) {
+      console.error('Error fetching random quote:', error);
+    }
+  }
 
   useEffect(() => {
-    const fetchRandomQuote = async() => {
-      try {
-        const url = selectedCategory
-          ? `http://localhost:3000/api/random-quote?category=${selectedCategory}`
-          : 'http://localhost:3000/api/random-quote';
-
-        const response = await fetch(url, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        });
-        const result = await response.json();
-        setRandomQuote(result);
-      } catch(error) {
-        console.error('Error fetching random quote:', error);
-      }
-    }
-
     fetchRandomQuote();
-  }, [ selectedCategory ])
+  }, [selectedCategory]);
 
   return (
     <>
@@ -67,7 +67,7 @@ const Home = () => {
           </blockquote>
         ) }
 
-        <button type="button" onClick={ () => setRandomQuote(null) }>
+        <button type="button" onClick={ () => fetchRandomQuote() }>
           Next quote
         </button>
       </div>
