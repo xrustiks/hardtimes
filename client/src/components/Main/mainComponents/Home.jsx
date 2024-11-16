@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
-import Categories from '../../Header/headerComponents/Categories.jsx';
+import { CategoriesContext } from '../../../hooks/CategoriesContext.jsx';
 import { addToFavorites } from "../../../utils/favorites.js";
 import makeTitle from "../../../utils/makeTitle.js";
 
 const Home = () => {
+  const [chosenCategory] = useContext(CategoriesContext);
   const [randomQuote, setRandomQuote] = useState(null);
-  const [chosenCategory, setChosenCategory] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -43,7 +43,6 @@ const Home = () => {
   return (
     <>
       <h1>Hard times</h1>
-      <Categories setChosenCategory={ setChosenCategory } />
       <div className="random-quote">
         { randomQuote ? (
           <blockquote>
