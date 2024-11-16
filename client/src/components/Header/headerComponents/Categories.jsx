@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
+import { CategoriesContext } from '../../../hooks/CategoriesContext.jsx';
 import './Categories.css';
 
-const Categories = ({ setChosenCategory }) => {
+const Categories = () => {
+  const [chosenCategory, setChosenCategory] = useContext(CategoriesContext);
   const [selectedCategory, setSelectedCategory] = useState('Выберите категорию');
   const [categories, setCategories] = useState([]);
   const [message, setMessage] = useState('');
