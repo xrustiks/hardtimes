@@ -1,8 +1,8 @@
 import { createContext, useState, useEffect } from 'react';
 
-export const UserContext = createContext();
+export const FavoritesContext = createContext();
 
-export const UserProvider = ({ children }) => {
+export const FavoritesProvider = ({ children }) => {
   // State that contains favorites data
   const [favorites, setFavorites] = useState(() => {
     const savedFavorites = localStorage.getItem("favorites");
@@ -15,8 +15,8 @@ export const UserProvider = ({ children }) => {
   }, [favorites]);
 
   return (
-    <UserContext.Provider value = {[ favorites, setFavorites ]}>
+    <FavoritesContext.Provider value = {[ favorites, setFavorites ]}>
         { children }
-    </UserContext.Provider>
+    </FavoritesContext.Provider>
   )
 }

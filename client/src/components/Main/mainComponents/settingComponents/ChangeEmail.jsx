@@ -14,7 +14,7 @@ const ChangeEmail = () => {
 
   useEffect(() => {
     // Making title for the component
-    makeTitle("Change email");
+    makeTitle("Сменить email");
     // If a user is authenticated, redirect to the login page
     if (!token) {
       navigate('/login');

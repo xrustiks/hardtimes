@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { UserContext } from '../../../hooks/UserContext.jsx';
+import { FavoritesContext } from '../../../hooks/FavoritesContext.jsx';
 
 import { removeFromFavorites } from "../../../utils/favorites.js";
 import makeTitle from "../../../utils/makeTitle.js";
@@ -8,7 +8,7 @@ const Favorites = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
   // Context variables
-  const [favorites, setFavorites] = useContext(UserContext);
+  const [favorites, setFavorites] = useContext(FavoritesContext);
 
   const token = localStorage.getItem('token');
 

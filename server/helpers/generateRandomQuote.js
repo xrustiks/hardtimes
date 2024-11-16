@@ -16,6 +16,7 @@ const generateRandomQuote = async (category) => {
       query = `SELECT * FROM quotes WHERE category = ? ORDER BY RAND() LIMIT 1`;
       params = [category];
     }
+
     // connection.query returns an array of two arrays: the result of a query and the metadata
     // const [randomQuote] is destructuring the first array
     const [randomQuote] = await connection.query(query, params);

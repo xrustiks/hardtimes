@@ -6,13 +6,12 @@ import makeTitle from "../../../utils/makeTitle.js";
 
 const Home = () => {
   const [randomQuote, setRandomQuote] = useState(null);
-  const [message, setMessage] = useState("");
+  const [chosenCategory, setChosenCategory] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [message, setMessage] = useState("");
 
-  // Context variables
   const token = localStorage.getItem('token');
-  
+
   useEffect(() => {
     // Making title for the component
     makeTitle("Главная");
@@ -20,8 +19,8 @@ const Home = () => {
 
   const fetchRandomQuote = async() => {
     try {
-      const url = selectedCategory
-        ? `http://localhost:3000/api/random-quote?category=${selectedCategory}`
+      const url = chosenCategory
+        ? `http://localhost:3000/api/random-quote?category=${chosenCategory}`
         : 'http://localhost:3000/api/random-quote';
 
       const response = await fetch(url, {
@@ -39,12 +38,12 @@ const Home = () => {
 
   useEffect(() => {
     fetchRandomQuote();
-  }, [selectedCategory]);
+  }, [chosenCategory]);
 
   return (
     <>
       <h1>Hard times</h1>
-      <Categories setSelectedCategory={ setSelectedCategory } />
+      <Categories setChosenCategory={ setChosenCategory } />
       <div className="random-quote">
         { randomQuote ? (
           <blockquote>
