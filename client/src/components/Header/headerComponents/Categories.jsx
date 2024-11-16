@@ -45,8 +45,9 @@ const Categories = ({ setChosenCategory }) => {
         value={ selectedCategory } 
         onChange={ (e) => handleCategoryChange(e) }>
         {/* The very first option */}
-        <option>
-          { selectedCategory }
+        <option
+          value="">
+          Выберите категорию
         </option>
         {/* Getting the list of categories */}
         { categories.map((category, index) => (
