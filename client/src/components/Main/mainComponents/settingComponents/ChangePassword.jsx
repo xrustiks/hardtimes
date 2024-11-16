@@ -15,7 +15,7 @@ const ChangePassword = () => {
 
   useEffect(() => {
     // Making title for the component
-    makeTitle("Change password");
+    makeTitle("Сменить пароль");
    // If a user is authenticated, redirect to the login page
    if (!token) {
     navigate('/login');

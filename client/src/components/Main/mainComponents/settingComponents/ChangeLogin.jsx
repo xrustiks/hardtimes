@@ -14,7 +14,7 @@ const ChangeLogin = () => {
 
   useEffect(() => {
     // Making title for the component
-    makeTitle("Change login");
+    makeTitle("Сменить логин");
     // If a user is authenticated, redirect to the login page
     if (!token) {
       navigate('/login');

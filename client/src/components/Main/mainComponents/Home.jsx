@@ -6,13 +6,12 @@ import makeTitle from "../../../utils/makeTitle.js";
 
 const Home = () => {
   const [randomQuote, setRandomQuote] = useState(null);
-  const [message, setMessage] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState("");
 
-  // Context variables
   const token = localStorage.getItem('token');
-  
+
   useEffect(() => {
     // Making title for the component
     makeTitle("Главная");
