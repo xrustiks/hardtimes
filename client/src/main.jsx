@@ -9,10 +9,10 @@ import './index.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <FavoritesProvider>
-      <CategoriesProvider>
+    <CategoriesProvider>
+      <FavoritesProvider>
         <App />
-      </CategoriesProvider>
-    </FavoritesProvider>
+      </FavoritesProvider>
+    </CategoriesProvider>
   </StrictMode>
 )

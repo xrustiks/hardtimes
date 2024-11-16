@@ -38,6 +38,20 @@ const Home = () => {
 
   useEffect(() => {
     fetchRandomQuote();
+
+    // Updates the quote when the user presses the keyboard button
+    const handleKeyPress = (event) => {
+      // for Latin and Cyrillic keyboard layout
+      if (event.key === "r" || event.key === "к") {
+        fetchRandomQuote();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
   }, [chosenCategory]);
 
   return (
