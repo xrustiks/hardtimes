@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 
 import './Categories.css';
 
-const Categories = ({ setSelectedCategory }) => {
-  const [selectedCategory, setCategory] = useState('Выберите категорию');
+const Categories = ({ setChosenCategory }) => {
+  const [selectedCategory, setSelectedCategory] = useState('Выберите категорию');
   const [categories, setCategories] = useState([]);
   const [message, setMessage] = useState('');
 
@@ -34,9 +34,9 @@ const Categories = ({ setSelectedCategory }) => {
   }, []);
 
   const handleCategoryChange = (e) => {
-    setCategory(e.target.value);
-    // Transfer the selected category to Home
     setSelectedCategory(e.target.value);
+    // Transfer the selected category to Home
+    setChosenCategory(e.target.value);
   };
 
   return (
