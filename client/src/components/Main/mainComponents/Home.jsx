@@ -1,8 +1,9 @@
 import { useState, useEffect, useContext } from 'react';
-
 import { CategoriesContext } from '../../../hooks/CategoriesContext.jsx';
-import { addToFavorites } from "../../../utils/favorites.js";
+
 import makeTitle from "../../../utils/makeTitle.js";
+import { addToFavorites } from "../../../utils/favorites.js";
+import particlesjsConfig from "../../../assets/particlesjs-config.json";
 
 const Home = () => {
   const [chosenCategory] = useContext(CategoriesContext);
@@ -13,11 +14,17 @@ const Home = () => {
   const token = localStorage.getItem('token');
 
   useEffect(() => {
-    // Making title for the component
     makeTitle("Главная");
+
+    // Due to particleJS connected as a script in index.html,
+    // we need to check if it's available
+    if (window.particlesJS) {
+      // Initializing particlesJS with the config file
+      window.particlesJS("particles-js", particlesjsConfig);
+    }
   }, []);
 
-  const fetchRandomQuote = async() => {
+  const fetchRandomQuote = async () => {
     try {
       const url = chosenCategory
         ? `http://localhost:3000/api/random-quote?category=${chosenCategory}`
@@ -31,7 +38,7 @@ const Home = () => {
       });
       const result = await response.json();
       setRandomQuote(result);
-    } catch(error) {
+    } catch (error) {
       console.error('Error fetching random quote:', error);
     }
   }
@@ -39,9 +46,7 @@ const Home = () => {
   useEffect(() => {
     fetchRandomQuote();
 
-    // Updates the quote when the user presses the keyboard button
     const handleKeyPress = (event) => {
-      // for Latin and Cyrillic keyboard layout
       if (event.key === "r" || event.key === "к") {
         fetchRandomQuote();
       }
@@ -56,35 +61,37 @@ const Home = () => {
 
   return (
     <>
-      <h1>Hard times</h1>
-      <div className="random-quote">
-        { randomQuote ? (
-          <blockquote>
-            <div>&quot;{ randomQuote.quote }&quot;</div>
-            <div>Категория: { randomQuote.category }</div>
-            <div>Источник: { randomQuote.origin }</div>
-            <footer>Автор: { randomQuote.author }</footer>
+      <div id="particles-js">
+        <h1>Hard times</h1>
+        <div className="random-quote">
+          {randomQuote ? (
+            <blockquote>
+              <div>&quot;{randomQuote.quote}&quot;</div>
+              <div>Категория: {randomQuote.category}</div>
+              <div>Источник: {randomQuote.origin}</div>
+              <footer>Автор: {randomQuote.author}</footer>
 
-            <button type="submit"
-              onClick={ () => addToFavorites(token, randomQuote, setIsLoading, setMessage) } 
-              disabled={ isLoading }
-            >
-              { isLoading ? 'Adding...' : 'Add to favorites' }
-            </button>
-            { message && <p>{ message }</p> }
-          </blockquote>
-        ) : (
-          <blockquote>
-            <p>Загрузка...</p>
-          </blockquote>
-        ) }
+              <button type="submit"
+                onClick={() => addToFavorites(token, randomQuote, setIsLoading, setMessage)}
+                disabled={isLoading}
+              >
+                {isLoading ? 'Adding...' : 'Add to favorites'}
+              </button>
+              {message && <p>{message}</p>}
+            </blockquote>
+          ) : (
+            <blockquote>
+              <p>Загрузка...</p>
+            </blockquote>
+          )}
 
-        <button type="button" onClick={ () => fetchRandomQuote() }>
-          Next quote
-        </button>
+          <button type="button" onClick={() => fetchRandomQuote()}>
+            Next quote
+          </button>
+        </div>
       </div>
     </>
-  )
+  );
 }
 
 export default Home;
