@@ -1,0 +1,31 @@
+#particles-js {
+  position: absolute;
+
+  height: 50vh;
+  width: 100%;
+  
+  z-index: 0;
+}
+
+.random-quote {
+  position: relative;
+
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+  margin-top: 1rem;
+
+  z-index: 100;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+
+
