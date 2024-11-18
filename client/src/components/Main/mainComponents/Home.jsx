@@ -4,6 +4,7 @@ import { CategoriesContext } from '../../../hooks/CategoriesContext.jsx';
 import makeTitle from "../../../utils/makeTitle.js";
 import { addToFavorites } from "../../../utils/favorites.js";
 import particlesjsConfig from "../../../assets/particlesjs-config.json";
+import './Home.css';
 
 const Home = () => {
   const [chosenCategory] = useContext(CategoriesContext);
@@ -14,6 +15,7 @@ const Home = () => {
   const token = localStorage.getItem('token');
 
   useEffect(() => {
+    // Making title for the component
     makeTitle("Главная");
 
     // Due to particleJS connected as a script in index.html,
@@ -26,6 +28,7 @@ const Home = () => {
 
   const fetchRandomQuote = async () => {
     try {
+      // Fetching a random quote from the server depending on the chosen category
       const url = chosenCategory
         ? `http://localhost:3000/api/random-quote?category=${chosenCategory}`
         : 'http://localhost:3000/api/random-quote';
@@ -44,8 +47,10 @@ const Home = () => {
   }
 
   useEffect(() => {
+    // Fetching a random quote when the component is mounted
     fetchRandomQuote();
 
+    // Updates the quote when the user presses the keyboard button
     const handleKeyPress = (event) => {
       if (event.key === "r" || event.key === "к") {
         fetchRandomQuote();
@@ -61,35 +66,37 @@ const Home = () => {
 
   return (
     <>
-      <div id="particles-js">
-        <h1>Hard times</h1>
+      { /* ParticlesJS background */ }
+      <div id="particles-js"></div>
+        { /* Component content */ }
         <div className="random-quote">
-          {randomQuote ? (
+          <h1>Hard times</h1>
+
+          { randomQuote ? (
             <blockquote>
-              <div>&quot;{randomQuote.quote}&quot;</div>
-              <div>Категория: {randomQuote.category}</div>
-              <div>Источник: {randomQuote.origin}</div>
-              <footer>Автор: {randomQuote.author}</footer>
+              <div>&quot;{ randomQuote.quote }&quot;</div>
+              <div>Категория: { randomQuote.category }</div>
+              <div>Источник: { randomQuote.origin }</div>
+              <footer>Автор: { randomQuote.author }</footer>
 
               <button type="submit"
-                onClick={() => addToFavorites(token, randomQuote, setIsLoading, setMessage)}
-                disabled={isLoading}
+                onClick={ () => addToFavorites(token, randomQuote, setIsLoading, setMessage) }
+                disabled={ isLoading }
               >
-                {isLoading ? 'Adding...' : 'Add to favorites'}
+                { isLoading ? 'Adding...' : 'Add to favorites' }
               </button>
-              {message && <p>{message}</p>}
+              { message && <p>{ message }</p> }
             </blockquote>
           ) : (
             <blockquote>
               <p>Загрузка...</p>
             </blockquote>
-          )}
+          ) }
 
-          <button type="button" onClick={() => fetchRandomQuote()}>
+          <button type="button" onClick={ () => fetchRandomQuote() }>
             Next quote
           </button>
         </div>
-      </div>
     </>
   );
 }
