@@ -24,9 +24,7 @@ const App = () => {
     <BrowserRouter>
       <AppContainer>
         <Header />
-        <main className="content-container">
-          <Main />
-        </main>
+        <Main />
         <Footer />
       </AppContainer>
     </BrowserRouter>

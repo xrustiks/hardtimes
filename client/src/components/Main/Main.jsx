@@ -15,7 +15,7 @@ import ChangePassword from './mainComponents/settingComponents/ChangePassword.js
 
 const Main = () => {
   return (
-    <div className="main">
+    <main className="main">
       <Routes>
         <Route path="/" element={ <Home /> } />
         <Route path="/post-quote" element={ <AddQuote /> } />
@@ -30,7 +30,7 @@ const Main = () => {
         <Route path="/profile/settings/change-email" element={ <ChangeEmail /> } />
         <Route path="/profile/settings/change-password" element={ <ChangePassword /> } />
       </Routes>
-    </div>
+    </main>
   )
 }
 
