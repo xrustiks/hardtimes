@@ -8,11 +8,13 @@ import './App.css';
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Header />
-      <Main />
-      <Footer />
-    </BrowserRouter>
+    <div className="app-container">
+      <BrowserRouter>
+        <Header />
+        <Main />
+        <Footer />
+      </BrowserRouter>
+    </div>
   )
 }
 
