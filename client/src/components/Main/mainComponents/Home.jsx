@@ -65,39 +65,44 @@ const Home = () => {
   }, [chosenCategory]);
 
   return (
-    <>
+    <div className="home">
       { /* ParticlesJS background */ }
       <div id="particles-js"></div>
-        { /* Component content */ }
-        <div className="random-quote">
-          <h1>Hard times</h1>
+      { /* Component content */ }
+      <div className="random-quote">
+        <h1>Hard times</h1>
 
-          { randomQuote ? (
-            <blockquote>
-              <div>&quot;{ randomQuote.quote }&quot;</div>
-              <div>Категория: { randomQuote.category }</div>
-              <div>Источник: { randomQuote.origin }</div>
-              <footer>Автор: { randomQuote.author }</footer>
+        { randomQuote ? (
+          <blockquote>
+            <div className="quote">&quot;{ randomQuote.quote }&quot;</div>
+            <div className="quote-category">Категория: { randomQuote.category }</div>
+            <div className="quote-origin">Источник: { randomQuote.origin }</div>
+            <footer className="quote-author">Автор: { randomQuote.author }</footer>
 
-              <button type="submit"
-                onClick={ () => addToFavorites(token, randomQuote, setIsLoading, setMessage) }
-                disabled={ isLoading }
-              >
-                { isLoading ? 'Adding...' : 'Add to favorites' }
-              </button>
-              { message && <p>{ message }</p> }
-            </blockquote>
-          ) : (
-            <blockquote>
-              <p>Загрузка...</p>
-            </blockquote>
-          ) }
+            <button
+              className="add-to-favorites-button"
+              type="submit"
+              onClick={ () => addToFavorites(token, randomQuote, setIsLoading, setMessage) }
+              disabled={ isLoading }
+            >
+              { isLoading ? 'Adding...' : 'Add to favorites' }
+            </button>
+            { message && <p>{ message }</p> }
+          </blockquote>
+        ) : (
+          <blockquote>
+            <p>Загрузка...</p>
+          </blockquote>
+        ) }
 
-          <button type="button" onClick={ () => fetchRandomQuote() }>
-            Next quote
-          </button>
-        </div>
-    </>
+        <button
+          className="generate-quote-button"
+          type="button"
+          onClick={ () => fetchRandomQuote() }>
+          Next quote
+        </button>
+      </div>
+    </div>
   );
 }
 

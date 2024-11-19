@@ -1,3 +1,4 @@
+/* General styles */
 body {
   padding: 0;
   margin: 0;
@@ -5,4 +6,25 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main page layout */
+.app-container.home-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+/* Other pages layout (only for Main component, Header and Footer aren't included) */
+.app-container.default-layout > main {
+  display: block;
+  /* Makes element fill all space between header and footer */
+  flex: 1;
 }
