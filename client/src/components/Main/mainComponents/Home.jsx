@@ -74,12 +74,14 @@ const Home = () => {
 
           { randomQuote ? (
             <blockquote>
-              <div>&quot;{ randomQuote.quote }&quot;</div>
-              <div>Категория: { randomQuote.category }</div>
-              <div>Источник: { randomQuote.origin }</div>
-              <footer>Автор: { randomQuote.author }</footer>
+              <div className="quote">&quot;{ randomQuote.quote }&quot;</div>
+              <div className="quote-category">Категория: { randomQuote.category }</div>
+              <div className="quote-origin">Источник: { randomQuote.origin }</div>
+              <footer className="quote-author">Автор: { randomQuote.author }</footer>
 
-              <button type="submit"
+              <button
+                className="add-to-favorites-button"
+                type="submit"
                 onClick={ () => addToFavorites(token, randomQuote, setIsLoading, setMessage) }
                 disabled={ isLoading }
               >
@@ -93,7 +95,10 @@ const Home = () => {
             </blockquote>
           ) }
 
-          <button type="button" onClick={ () => fetchRandomQuote() }>
+          <button
+            className="generate-quote-button"
+            type="button"
+            onClick={ () => fetchRandomQuote() }>
             Next quote
           </button>
         </div>
