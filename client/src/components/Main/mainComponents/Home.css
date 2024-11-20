@@ -19,7 +19,6 @@
   margin-top: 1rem;
 
   z-index: 100;
-  
 }
 
 h1 {
@@ -30,5 +29,20 @@ h1 {
   margin-top: 1rem;
 }
 
+/* Animation */
+ @keyframes in-focus {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
 
-
+.random-quote .quote {
+  animation: in-focus 2.5s forwards;
+}

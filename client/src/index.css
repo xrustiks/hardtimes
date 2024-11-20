@@ -1,14 +1,18 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Constantine-normal;
 
   color-scheme: light dark;
   color: white;
   background-color: #242424;
 
-  
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+	font-family: Constantine-normal;
+	src: url(./assets/fonts/Constantine.ttf);
 }
 
 body {
