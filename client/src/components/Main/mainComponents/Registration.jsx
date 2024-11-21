@@ -50,7 +50,7 @@ const Registration = () => {
   }
 
   return (
-    <div className="registration">
+    <div className="registration-page">
       <form onSubmit={ handleSubmit }>
         <div className="user-name">
           <label>Имя</label>

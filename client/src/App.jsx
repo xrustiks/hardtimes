@@ -6,7 +6,8 @@ import Footer from './components/Footer/Footer.jsx';
 
 import './App.css';
 
-// Container for the whole app
+// Container for the whole app 
+// that will change the layout depending on the location
 const AppContainer = ({ children }) => {
   const location = useLocation();
   const isHome = location.pathname === '/';
