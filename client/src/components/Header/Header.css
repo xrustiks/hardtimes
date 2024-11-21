@@ -1,13 +1,41 @@
 .header {
+  
+}
+
+.header-panel {
   position: relative;
 
   display: flex;
-  border: 1px solid white;
 
   align-items: center;
+  justify-content: space-between;
 
   height: 50px;
   width: 100vw;
 
   z-index: 100;
+}
+
+.header-panel__left {
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-start;
+
+  height: 100%;
+  width: 50%;
+}
+
+.header-panel__right {
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-end;
+
+  height: 100%;
+  width: 50%;
+}
+
+.header-panel > * {
+  
 }

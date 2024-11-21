@@ -1,8 +1,10 @@
 .select-category {
   padding: 10px;
+
+  flex-basis: 35%;
 }
 
 .select-category select {
+  width: 100%;
   border-radius: 5px;
-  width: 150px;
 }
