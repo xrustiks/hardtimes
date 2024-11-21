@@ -51,7 +51,7 @@ const Login = () => {
   }
 
   return (
-    <div className="login">
+    <div className="login-page">
       <form onSubmit={ handleSubmit }>
         <div className="user-name">
           <label>Почта</label>

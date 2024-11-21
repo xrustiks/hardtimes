@@ -4,8 +4,18 @@ body {
   margin: 0;
 }
 
+@font-face {
+	font-family: Constantine-normal;
+	src: url(./assets/fonts/Constantine.ttf);
+}
+
 * {
+  font-family: Constantine-normal;
   box-sizing: border-box;
+}
+
+a {
+  color: white;
 }
 
 .app-container {

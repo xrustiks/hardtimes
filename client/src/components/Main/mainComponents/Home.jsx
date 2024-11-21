@@ -65,13 +65,11 @@ const Home = () => {
   }, [chosenCategory]);
 
   return (
-    <div className="home">
+    <div className="home-page">
       { /* ParticlesJS background */ }
       <div id="particles-js"></div>
       { /* Component content */ }
       <div className="random-quote">
-        <h1>Hard times</h1>
-
         { randomQuote ? (
           <blockquote>
             <div className="quote">&quot;{ randomQuote.quote }&quot;</div>

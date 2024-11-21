@@ -82,7 +82,7 @@ const Profile = () => {
   }, [navigate, token]);
 
   return (
-    <div className="user-profile">
+    <div className="profile-page">
       <h1>Вы находится в личном кабинете</h1>
       <p>Имя пользователя: { userData.userName } | <Link to="/profile/settings/change-login">Изменить</Link></p>
       <p>Email: { userData.email } | <Link to="/profile/settings/change-email">Изменить</Link></p>

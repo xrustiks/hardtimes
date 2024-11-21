@@ -1,6 +1,4 @@
 :root {
-  font-family: Constantine-normal;
-
   color-scheme: light dark;
   color: white;
   background-color: #242424;
@@ -10,18 +8,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@font-face {
-	font-family: Constantine-normal;
-	src: url(./assets/fonts/Constantine.ttf);
-}
-
 body {
   margin: 0;
   display: flex;
   min-width: 320px;
   min-height: 100vh;
-}
-
-* {
-  
 }

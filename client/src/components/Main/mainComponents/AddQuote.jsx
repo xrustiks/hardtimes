@@ -85,51 +85,53 @@ const AddQuote = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="quote">
-        <label>Цитата:</label>
-        <input
-          type="text"
-          value={ quote }
-          onChange={ (e) => setQuote(e.target.value) }
-          required
-        />
-      </div>
+    <div className="add-quote-page">
+      <form onSubmit={ handleSubmit }>
+        <div className="quote">
+          <label>Цитата:</label>
+          <input
+            type="text"
+            value={ quote }
+            onChange={ (e) => setQuote(e.target.value) }
+            required
+          />
+        </div>
 
-      <div className="author">
-        <label>Автор:</label>
-        <input
-          type="text"
-          value={ author }
-          onChange={ (e) => setAuthor(e.target.value) }
-          required
-        />
-      </div>
+        <div className="author">
+          <label>Автор:</label>
+          <input
+            type="text"
+            value={ author }
+            onChange={ (e) => setAuthor(e.target.value) }
+            required
+          />
+        </div>
 
-      <div className="category">
-        <label>Категория:</label>
-        <input
-          type="text"
-          value={ category }
-          onChange={ (e) => setCategory(e.target.value) }
-          required
-        />
-      </div>
+        <div className="category">
+          <label>Категория:</label>
+          <input
+            type="text"
+            value={ category }
+            onChange={ (e) => setCategory(e.target.value) }
+            required
+          />
+        </div>
 
-      <div className="origin">
-        <label>Источник:</label>
-        <input
-          type="text"
-          value={ origin }
-          onChange={ (e) => setOrigin(e.target.value) }
-          required
-        />
-      </div>
+        <div className="origin">
+          <label>Источник:</label>
+          <input
+            type="text"
+            value={ origin }
+            onChange={ (e) => setOrigin(e.target.value) }
+            required
+          />
+        </div>
 
-      <button type="submit">Добавить цитату</button>
+        <button type="submit">Добавить цитату</button>
 
-      { message && <p className="message">{ message }</p> }
-    </form>
+        { message && <p className="message">{ message }</p> }
+      </form>
+    </div>
   );
 }
 
