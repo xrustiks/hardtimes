@@ -8,11 +8,18 @@ import './Header.css';
 const Header = () => {
   return (
     <div className="header">
-      <NavigationBar />
-      <Categories />
+      <div className="header-panel">
+        <div className="header-panel__left">
+          <NavigationBar />
+          <Categories />
+        </div>
+
+        <div className="header-panel__right">
+          <SearchField />
+          <LoginUserBar />
+        </div>
+      </div>
       <AppTitle />
-      <SearchField />
-      <LoginUserBar />
     </div>
   )
 }

@@ -1,6 +1,9 @@
 .login-bar, .user-bar {
   display: flex;
+  justify-content: flex-end;
   gap: 10px;
+
+  flex-shrink: 1;
 
   padding: 10px;
 }

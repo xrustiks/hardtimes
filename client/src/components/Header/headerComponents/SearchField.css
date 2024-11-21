@@ -1,5 +1,6 @@
 .search-field {
-  margin-left: auto;
+  flex-shrink: 1;
+  flex-basis: 0;
 }
 
 .search-field form {
@@ -7,4 +8,5 @@
   gap: 5px;
 
   padding: 10px;
+  width: 100%;
 }
