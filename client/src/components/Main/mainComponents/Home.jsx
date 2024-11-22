@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { CategoriesContext } from '../../../hooks/CategoriesContext.jsx';
 
 import makeTitle from "../../../utils/makeTitle.js";
-import { addToFavorites } from "../../../utils/favorites.js";
+import { addToFavorites } from "../../../utils/favoritesUtils.js";
 import particlesjsConfig from "../../../assets/particlesjs-config.json";
 import './Home.css';
 
