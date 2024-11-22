@@ -1,5 +1,5 @@
 .search-field {
-  flex-shrink: 0;
+  flex-shrink: 1;
 }
 
 .search-field form {
@@ -11,8 +11,8 @@
 }
 
 .search-field form input {
-  width: 70%;
-  min-width: 50%;
+  flex-basis: 100%;
+  min-width: 50px;
 
   font-family:'Times New Roman', Times, serif;
 }
