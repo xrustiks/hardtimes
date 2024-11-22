@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { FavoritesContext } from '../../../hooks/FavoritesContext.jsx';
 
-import { removeFromFavorites } from "../../../utils/favorites.js";
+import { removeFromFavorites } from "../../../utils/favoritesUtils.js";
 import makeTitle from "../../../utils/makeTitle.js";
 
 const Favorites = () => {

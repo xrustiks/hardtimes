@@ -1,12 +1,18 @@
 .search-field {
-  flex-shrink: 1;
-  flex-basis: 0;
+  flex-shrink: 0;
 }
 
 .search-field form {
   display: flex;
+  justify-content: flex-end;
   gap: 5px;
 
   padding: 10px;
-  width: 100%;
+}
+
+.search-field form input {
+  width: 70%;
+  min-width: 50%;
+
+  font-family:'Times New Roman', Times, serif;
 }
