@@ -7,4 +7,10 @@
 .select-category select {
   width: 100%;
   border-radius: 5px;
+
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.select-category select > * {
+  font-family: 'Times New Roman', Times, serif;
 }
