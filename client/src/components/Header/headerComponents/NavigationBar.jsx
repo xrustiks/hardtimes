@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import './NavigationBar.css';
-
 const NavigationBar = () => {
   const [isLogin, setIsLogin] = useState(false);
 

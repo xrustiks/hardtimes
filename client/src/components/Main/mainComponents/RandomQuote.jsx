@@ -2,7 +2,6 @@ import { useState, useEffect, useContext } from 'react';
 
 import { CategoriesContext } from '../../../hooks/CategoriesContext.jsx';
 import { addToFavorites } from "../../../utils/favoritesUtils.js";
-import './RandomQuote.css';
 
 const RandomQuote = () => {
   const [chosenCategory] = useContext(CategoriesContext);

@@ -1,7 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 
 import { CategoriesContext } from '../../../hooks/CategoriesContext.jsx';
-import './Categories.css';
 
 const Categories = () => {
   const [chosenCategory, setChosenCategory] = useContext(CategoriesContext);
