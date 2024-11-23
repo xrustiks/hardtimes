@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import makeTitle from "../../../utils/makeTitle.js";
 import particlesjsConfig from "../../../assets/particlesjs-config.json";
 import RandomQuote from "./RandomQuote.jsx";
-import './Home.css';
 
 const Home = () => {
   useEffect(() => {

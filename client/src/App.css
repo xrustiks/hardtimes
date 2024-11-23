@@ -39,3 +39,183 @@ a {
   /* Makes element fill all space between header and footer */
   flex: 1;
 }
+
+/* Header styles */
+.header {
+  
+}
+
+.header-panel {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  height: 50px;
+  width: 100vw;
+
+  z-index: 100;
+}
+
+.header-panel__left {
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-start;
+
+  height: 100%;
+  width: 50%;
+}
+
+.header-panel__right {
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-end;
+
+  height: 100%;
+  width: 50%;
+}
+
+.header-panel > * {
+  
+}
+
+/* NavigationBar styles */
+.nav-bar {
+  display: flex;
+  gap: 10px;
+
+  justify-content: flex-start;
+  align-items: center;
+
+  height: 100%;
+  flex-shrink: 1;
+
+  padding: 10px;
+}
+
+/* Categories styles */
+.select-category {
+  width: 35%;
+  min-width: 70px;
+
+  padding: 10px;
+}
+
+.select-category select {
+  width: 100%;
+  border-radius: 5px;
+
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.select-category select > * {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+/* AppTitle styles */
+.app-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+
+  height: 100%;
+  padding: 0;
+  margin: 0;
+
+  z-index: 1000;
+}
+
+.app-title-header {
+  padding: 0;
+  margin: 0;
+  font-size: 32px;
+}
+
+
+/* SearchField styles */
+.search-field {
+  flex-shrink: 1;
+}
+
+.search-field form {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+
+  padding: 10px;
+}
+
+.search-field form input {
+  width: 100%;
+  min-width: 50px;
+
+  font-family:'Times New Roman', Times, serif;
+}
+
+/* LoginUserBar styles */
+.login-bar, .user-bar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+
+  flex-shrink: 1;
+
+  padding: 10px;
+}
+
+
+
+/* Home styles */
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  
+  z-index: 0;
+}
+
+/* RandomQuote styles */
+.random-quote {
+  position: relative;
+
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+  margin-top: 1rem;
+
+  z-index: 100;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* Animation */
+@keyframes in-focus {
+  0% {
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.random-quote .quote {
+  animation: in-focus 2.5s forwards;
+}

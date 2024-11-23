@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 
 import UserBar from './UserBar';
 import LoginBar from './LoginBar';
-import './LoginUserBar.css';
 
 const LoginUserBar = () => {
   const [isLogin, setIsLogin] = useState(false);

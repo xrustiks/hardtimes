@@ -1,5 +1,3 @@
-import './AppTitle.css';
-
 const AppTitle = () => {
   return (
     <div className="app-title">

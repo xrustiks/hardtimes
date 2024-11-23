@@ -1,5 +1,3 @@
-import './SearchField.css';
-
 const SearchField = () => {
   return (
     <div className="search-field">
