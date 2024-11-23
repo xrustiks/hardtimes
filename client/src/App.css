@@ -41,10 +41,6 @@ a {
 }
 
 /* Header styles */
-.header {
-  
-}
-
 .header-panel {
   position: relative;
 
@@ -77,10 +73,6 @@ a {
 
   height: 100%;
   width: 50%;
-}
-
-.header-panel > * {
-  
 }
 
 /* NavigationBar styles */
@@ -116,7 +108,6 @@ a {
   font-family: 'Times New Roman', Times, serif;
 }
 
-
 /* AppTitle styles */
 .app-title {
   display: flex;
@@ -136,7 +127,6 @@ a {
   margin: 0;
   font-size: 32px;
 }
-
 
 /* SearchField styles */
 .search-field {
@@ -169,8 +159,6 @@ a {
   padding: 10px;
 }
 
-
-
 /* Home styles */
 #particles-js {
   position: fixed;
@@ -184,6 +172,7 @@ a {
 }
 
 /* RandomQuote styles */
+/* Main styles */
 .random-quote {
   position: relative;
 
@@ -194,6 +183,8 @@ a {
   margin-top: 1rem;
 
   z-index: 100;
+
+  border: 1px solid red;
 }
 
 h1 {

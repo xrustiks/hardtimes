@@ -15,7 +15,7 @@ const RandomQuote = () => {
     try {
       // Fetching a random quote from the server depending on the chosen category
       const url = chosenCategory
-        ? `http://localhost:3000/api/random-quote?category=${chosenCategory}`
+        ? `http://localhost:3000/api/random-quote?category=${ chosenCategory }`
         : 'http://localhost:3000/api/random-quote';
 
       const response = await fetch(url, {
@@ -51,28 +51,14 @@ const RandomQuote = () => {
 
   return (
     <div className="random-quote">
-      { randomQuote ? (
-        <blockquote>
-          <div className="quote">&quot;{ randomQuote.quote }&quot;</div>
-          <div className="quote-category">Категория: { randomQuote.category }</div>
-          <div className="quote-origin">Источник: { randomQuote.origin }</div>
-          <footer className="quote-author">Автор: { randomQuote.author }</footer>
-
-          <button
-            className="add-to-favorites-button"
-            type="submit"
-            onClick={ () => addToFavorites(token, randomQuote, setIsLoading, setMessage) }
-            disabled={ isLoading }
-          >
-            { isLoading ? 'Adding...' : 'Add to favorites' }
-          </button>
-          { message && <p>{ message }</p> }
-        </blockquote>
-      ) : (
-        <blockquote>
-          <p>Загрузка...</p>
-        </blockquote>
-      ) }
+      <button
+        className="add-to-favorites-button"
+        type="submit"
+        onClick={ () => addToFavorites(token, randomQuote, setIsLoading, setMessage) }
+        disabled={ isLoading }
+      >
+        { isLoading ? 'Adding...' : 'Add to favorites' }
+      </button>
 
       <button
         className="generate-quote-button"
@@ -80,6 +66,22 @@ const RandomQuote = () => {
         onClick={ () => fetchRandomQuote() }>
         Next quote
       </button>
+
+      { randomQuote ? (
+        <blockquote>
+          <div className="quote">&quot;{ randomQuote.quote }&quot;</div>
+          <div className="quote-category">Категория: { randomQuote.category }</div>
+          <div className="quote-origin">Источник: { randomQuote.origin }</div>
+          <footer className="quote-author">Автор: { randomQuote.author }</footer>
+
+          
+          { message && <p>{ message }</p> }
+        </blockquote>
+      ) : (
+        <blockquote>
+          <p>Загрузка...</p>
+        </blockquote>
+      ) }
     </div>
   );
 }
