@@ -53,7 +53,7 @@ const RandomQuote = () => {
     <div className="random-quote">
       <button
         className="add-to-favorites-button"
-        type="submit"
+        type="button"
         onClick={ () => addToFavorites(token, randomQuote, setIsLoading, setMessage) }
         disabled={ isLoading }
       >
