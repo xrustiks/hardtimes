@@ -171,6 +171,20 @@ a {
   z-index: 0;
 }
 
+/* Profile page style */
+.profile-page * {
+  font-family:'Times New Roman', Times, serif
+}
+
+.profile-page {
+  font-size: 14px;
+}
+
+.profile-page-header {
+  font-size: 24px;
+  text-align: left;
+}
+
 /* RandomQuote styles */
 /* Main styles */
 .random-quote {
