@@ -159,7 +159,21 @@ a {
   padding: 10px;
 }
 
-/* Home styles */
+/* Home page styles */
+.home-page {
+  position: relative;
+  border: 1px solid red;
+}
+
+.home-page > button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
+
+  z-index: 1;
+}
+
 #particles-js {
   position: fixed;
   top: 0;
@@ -169,6 +183,8 @@ a {
   height: 100%;
   
   z-index: 0;
+
+  /* pointer-events: none; */
 }
 
 /* Profile page style */
