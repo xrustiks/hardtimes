@@ -10,6 +10,7 @@ import './App.css';
 // that will change the layout depending on the location
 const AppContainer = ({ children }) => {
   const location = useLocation();
+  // If a user is at the home page, the isHome is true
   const isHome = location.pathname === '/';
 
   return (

@@ -19,13 +19,15 @@ a {
   color: white;
 }
 
+/* Application container styles */
+/* Application container general styles */
 .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* Main page layout */
+/* Main page styles */
 .app-container.home-layout {
   display: flex;
   flex-direction: column;
@@ -33,14 +35,21 @@ a {
   min-height: 100vh;
 }
 
-/* Other pages layout (only for Main component, Header and Footer aren't included) */
+/* Other pages styles (only for Main component, Header and Footer aren't included) */
 .app-container.default-layout > main {
   display: block;
   /* Makes element fill all space between header and footer */
   flex: 1;
 }
 
-/* Header styles */
+/* Styles for h1 headers in main component */
+.app-container.default-layout > main h1 {
+  text-align: left;
+  font-size: 18px;
+}
+
+/* Header component styles */
+/* Header general styles */
 .header-panel {
   position: relative;
 
@@ -55,6 +64,7 @@ a {
   z-index: 100;
 }
 
+/* Styles for left side elements */
 .header-panel__left {
   display: flex;
 
@@ -65,6 +75,7 @@ a {
   width: 50%;
 }
 
+/* Styles for right side elements */
 .header-panel__right {
   display: flex;
 
@@ -159,13 +170,14 @@ a {
   padding: 10px;
 }
 
+/* Main component styles */
 /* Home page styles */
 .home-page {
   position: relative;
   border: 1px solid red;
 }
 
-.home-page > button {
+.home-page button {
   position: absolute;
   top: 0;
   left: 0;
@@ -174,6 +186,7 @@ a {
   z-index: 1;
 }
 
+/* Home page background styles */
 #particles-js {
   position: fixed;
   top: 0;
@@ -183,26 +196,9 @@ a {
   height: 100%;
   
   z-index: 0;
-
-  /* pointer-events: none; */
-}
-
-/* Profile page style */
-.profile-page * {
-  font-family:'Times New Roman', Times, serif
-}
-
-.profile-page {
-  font-size: 14px;
-}
-
-.profile-page-header {
-  font-size: 24px;
-  text-align: left;
 }
 
 /* RandomQuote styles */
-/* Main styles */
 .random-quote {
   position: relative;
 
@@ -217,15 +213,16 @@ a {
   /* border: 1px solid red; */
 }
 
-h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  color: white;
-  text-align: center;
-  margin-top: 1rem;
+/* Profile page styles */
+.profile-page {
+  font-size: 14px;
 }
 
-/* Animation */
+.profile-page * {
+  font-family:'Times New Roman', Times, serif
+}
+
+/* Animations */
 @keyframes in-focus {
   0% {
     filter: blur(12px);
@@ -237,6 +234,7 @@ h1 {
   }
 }
 
+/* Animation for displaying a quote on home page */
 .random-quote .quote {
   animation: in-focus 2.5s forwards;
 }
