@@ -83,7 +83,7 @@ const Profile = () => {
 
   return (
     <div className="profile-page">
-      <h1 className="profile-page-header">Личный кабинет</h1>
+      <h1>Личный кабинет</h1>
       <p>Имя пользователя: { userData.userName } | <Link to="/profile/settings/change-login">Изменить</Link></p>
       <p>Email: { userData.email } | <Link to="/profile/settings/change-email">Изменить</Link></p>
       <p><Link to="/profile/settings/change-password">Сменить пароль</Link></p>

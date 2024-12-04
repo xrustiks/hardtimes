@@ -52,21 +52,23 @@ const Home = () => {
       <div id="particles-js"></div>
 
       { /* Control buttons */ }
-      <button
-        className="add-to-favorites-button"
-        type="button"
-        onClick={ () => addToFavorites(token, randomQuote, setIsLoading, setMessage) }
-        disabled={ isLoading }
-      >
-        { isLoading ? 'Adding...' : 'Add to favorites' }
-      </button>
+      <div className="buttons-container">
+        <button
+          className="add-to-favorites-button"
+          type="button"
+          onClick={ () => addToFavorites(token, randomQuote, setIsLoading, setMessage) }
+          disabled={ isLoading }
+        >
+          { isLoading ? 'Adding...' : 'Add to favorites' }
+        </button>
 
-      <button
-        className="generate-quote-button"
-        type="button"
-        onClick={ () => fetchRandomQuote() }>
-        Next quote
-      </button>
+        <button
+          className="generate-quote-button"
+          type="button"
+          onClick={ () => fetchRandomQuote() }>
+          Next quote
+        </button>
+      </div>
 
       { /* RandomQuote component */ }
       <RandomQuote
