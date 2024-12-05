@@ -77,6 +77,8 @@ const Home = () => {
         chosenCategory={ chosenCategory }
         message={ message }
       />
+
+      <div className="press-r">Нажмите R</div>
     </div>
   );
 }
