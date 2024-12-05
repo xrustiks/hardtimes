@@ -24,9 +24,13 @@ const RandomQuote = ({ fetchRandomQuote, randomQuote, chosenCategory, message })
       { randomQuote ? (
         <blockquote>
           <div className="quote">&quot;{ randomQuote.quote }&quot;</div>
-          <div className="quote-category">Категория: { randomQuote.category }</div>
-          <div className="quote-origin">Источник: { randomQuote.origin }</div>
-          <footer className="quote-author">Автор: { randomQuote.author }</footer>
+
+          <div className="quote-details">
+            <div className="quote-category">Категория: { randomQuote.category }</div>
+            <div className="quote-origin">Источник: { randomQuote.origin }</div>
+            <footer className="quote-author">Автор: { randomQuote.author }</footer>
+          </div>
+          
 
           { message && <p>{ message }</p> }
         </blockquote>

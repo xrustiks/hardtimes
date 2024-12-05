@@ -184,6 +184,8 @@ a {
   justify-content: center;
 
   height: 70vh;
+
+  border: 1px solid blue;
 }
 
 .home-page-buttons {
@@ -192,17 +194,24 @@ a {
 
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
   margin-top: 10px;
 
   align-self: center;
 
+  z-index: 2;
+
   /* border: 1px solid blue; */
 }
 
-.home-page-buttons > button {
-  
-  z-index: 1;
+/* Caption "Press R to refresh" */
+.press-r {
+  position: absolute;
+  bottom: 0;
+  align-self: center;
+
+  color: rgb(99, 99, 99);
+  font-size: 12px;
 }
 
 /* Home page background styles */
@@ -227,9 +236,16 @@ a {
   text-align: center;
   margin-top: 1rem;
 
-  z-index: 100;
+  z-index: 1;
 
-  /* border: 1px solid green; */
+  border: 1px solid green;
+}
+
+.random-quote .quote-details {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  gap: 20px;
 }
 
 /* Profile page styles */
