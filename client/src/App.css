@@ -50,6 +50,10 @@ a {
 
 /* Header component styles */
 /* Header general styles */
+.header {
+  /* border: 1px solid yellow; */
+}
+
 .header-panel {
   position: relative;
 
@@ -174,15 +178,30 @@ a {
 /* Home page styles */
 .home-page {
   position: relative;
-  border: 1px solid red;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  height: 70vh;
 }
 
-.home-page button {
+.home-page-buttons {
   position: absolute;
   top: 0;
-  left: 0;
-  margin: 10px;
 
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+
+  align-self: center;
+
+  /* border: 1px solid blue; */
+}
+
+.home-page-buttons > button {
+  
   z-index: 1;
 }
 
@@ -210,7 +229,7 @@ a {
 
   z-index: 100;
 
-  /* border: 1px solid red; */
+  /* border: 1px solid green; */
 }
 
 /* Profile page styles */

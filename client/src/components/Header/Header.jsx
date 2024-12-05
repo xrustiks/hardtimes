@@ -18,6 +18,7 @@ const Header = () => {
           <LoginUserBar />
         </div>
       </div>
+
       <AppTitle />
     </div>
   )
