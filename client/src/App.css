@@ -204,7 +204,7 @@ a {
   /* border: 1px solid blue; */
 }
 
-/* Caption "Нажмите R" */
+/* Caption "Press R to refresh" */
 .press-r {
   position: absolute;
   bottom: 0;
@@ -238,7 +238,14 @@ a {
 
   z-index: 1;
 
-  /* border: 1px solid green; */
+  border: 1px solid green;
+}
+
+.random-quote .quote-details {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  gap: 20px;
 }
 
 /* Profile page styles */
