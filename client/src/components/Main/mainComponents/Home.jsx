@@ -52,7 +52,7 @@ const Home = () => {
       <div id="particles-js"></div>
 
       { /* Control buttons */ }
-      <div className="buttons-container">
+      <div className="home-page-buttons">
         <button
           className="add-to-favorites-button"
           type="button"
