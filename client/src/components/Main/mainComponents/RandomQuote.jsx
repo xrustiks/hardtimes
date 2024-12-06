@@ -52,6 +52,7 @@ const RandomQuote = ({ fetchRandomQuote, randomQuote, chosenCategory, message })
   );
 }
 
+// Props validation for the RandomQuote component
 RandomQuote.propTypes = {
   fetchRandomQuote: PropTypes.func.isRequired,
   randomQuote: PropTypes.shape({
