@@ -19,7 +19,7 @@ a {
   color: white;
 }
 
-/* Application container styles */
+/* ------------ Application container styles ------------ */
 /* Application container general styles */
 .app-container {
   display: flex;
@@ -48,7 +48,7 @@ a {
   font-size: 18px;
 }
 
-/* Header component styles */
+/* ------------ Header component styles ------------ */
 /* Header general styles */
 .header {
   /* border: 1px solid yellow; */
@@ -174,7 +174,7 @@ a {
   padding: 10px;
 }
 
-/* Main component styles */
+/* ------------ Main component styles ------------ */
 /* Home page styles */
 .home-page {
   position: relative;
@@ -257,7 +257,7 @@ a {
   font-family:'Times New Roman', Times, serif
 }
 
-/* Animations */
+/* ------------ Animations ------------ */
 @keyframes in-focus {
   0% {
     filter: blur(12px);
