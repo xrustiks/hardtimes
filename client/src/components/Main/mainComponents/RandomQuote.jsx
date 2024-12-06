@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 const RandomQuote = ({ fetchRandomQuote, randomQuote, chosenCategory, message }) => {
   const [animationKey, setAnimationKey] = useState(0);
@@ -50,5 +51,17 @@ const RandomQuote = ({ fetchRandomQuote, randomQuote, chosenCategory, message })
     </div>
   );
 }
+
+RandomQuote.propTypes = {
+  fetchRandomQuote: PropTypes.func.isRequired,
+  randomQuote: PropTypes.shape({
+    quote: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    origin: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+  }),
+  chosenCategory: PropTypes.string.isRequired,
+  message: PropTypes.string,
+};
 
 export default RandomQuote;
