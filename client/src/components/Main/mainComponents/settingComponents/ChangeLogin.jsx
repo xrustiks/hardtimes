@@ -66,30 +66,39 @@ const ChangeLogin = () => {
   return (
     <div className="change-login">
       <form className="change-login-form" onSubmit={ handleSubmit }>
-        <label htmlFor="new-login">Новое имя пользователя:</label>
-        <input 
-          type="text" 
-          id="new-login" 
-          name="new-login"
-          value={ freshLogin }
-          onChange={ (e) => setFreshLogin(e.target.value) }
-          required 
-        />
+        <h2>Сменить логин</h2>
 
-        <label htmlFor="new-login-confirm">Подтвердите новое имя пользователя:</label>
-        <input 
-          type="text" 
-          id="new-login-confirm" 
-          name="new-login-confirm" 
-          value={ freshLoginConfirm }
-          onChange={ (e) => setFreshLoginConfirm(e.target.value) }
-          required 
-        />
+        <div className="fresh-login-group">
+          <label htmlFor="new-login">Новое имя пользователя:</label>
+          <input 
+            type="text" 
+            id="new-login" 
+            name="new-login"
+            value={ freshLogin }
+            onChange={ (e) => setFreshLogin(e.target.value) }
+            required 
+          />
+        </div>
+
+        <div className="fresh-login-confirm-group">
+          <label htmlFor="new-login-confirm">Подтвердите новое имя пользователя:</label>
+          <input 
+            type="text" 
+            id="new-login-confirm" 
+            name="new-login-confirm" 
+            value={ freshLoginConfirm }
+            onChange={ (e) => setFreshLoginConfirm(e.target.value) }
+            required 
+          />
+        </div>
 
         <button type="submit">Готово</button>
       </form>
-
-      { message && <p>{ message }</p> }
+      
+      <div className="result-message">
+        { message && <p>{ message }</p> }
+      </div>
+      
     </div>
   );
 }

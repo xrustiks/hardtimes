@@ -84,13 +84,19 @@ const Profile = () => {
   return (
     <div className="profile-page">
       <h1>Личный кабинет</h1>
-      <p>Имя пользователя: { userData.userName } | <Link to="/profile/settings/change-login">Изменить</Link></p>
-      <p>Email: { userData.email } | <Link to="/profile/settings/change-email">Изменить</Link></p>
-      <p><Link to="/profile/settings/change-password">Сменить пароль</Link></p>
-      <p><Link to="/favorites">Избранные цитаты</Link></p>
-      { isAdmin ? <Link to="/post-quote">Добавить цитату</Link> : null }
 
-      { message && <p>{ message }</p> }
+      <div className="profile-page-content">
+        <p>Имя пользователя: { userData.userName } | <Link to="/profile/settings/change-login">Изменить</Link></p>
+        <p>Email: { userData.email } | <Link to="/profile/settings/change-email">Изменить</Link></p>
+        <p><Link to="/profile/settings/change-password">Сменить пароль</Link></p>
+        <p><Link to="/favorites">Избранные цитаты</Link></p>
+        { isAdmin ? <Link to="/post-quote">Добавить цитату</Link> : null }
+      </div>
+
+      <div className="result-message">
+        { message && <p>{ message }</p> }
+      </div>
+      
     </div>
   );
 };

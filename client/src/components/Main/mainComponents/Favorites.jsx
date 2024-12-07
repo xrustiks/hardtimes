@@ -51,32 +51,36 @@ const Favorites = () => {
     <div className="favorites-page">
       <h1>Избранные цитаты</h1>
 
-      { isLoading ? (
-        <p>Загрузка...</p>
-      ) : (
-        favorites.length > 0 ? (
-          // If there are favorite quotes, display them
-          favorites.map((quote) => (
-            <blockquote key={quote.id}>
-              <div>&quot;{quote.quote}&quot;</div>
-              <div>Категория: {quote.category}</div>
-              <div>Источник: {quote.origin}</div>
-              <footer>Автор: {quote.author}</footer>
-
-              <button type="button" 
-                onClick={ () => removeFromFavorites(
-                  token, quote, favorites, setFavorites, setIsLoading, setMessage
-                ) }
-              >
-                Удалить из избранного
-              </button>
-            </blockquote>
-          ))
+      <div className="favorites-page-content">
+        { isLoading ? (
+          <p>Загрузка...</p>
         ) : (
-          // If there are no favorite quotes, display a message
-          <p>{ message }</p>
-        )
-      ) }
+          favorites.length > 0 ? (
+            // If there are favorite quotes, display them
+            favorites.map((quote) => (
+              <blockquote key={quote.id}>
+                <div>&quot;{quote.quote}&quot;</div>
+                <div>Категория: {quote.category}</div>
+                <div>Источник: {quote.origin}</div>
+                <footer>Автор: {quote.author}</footer>
+
+                <button type="button" 
+                  onClick={ () => removeFromFavorites(
+                    token, quote, favorites, setFavorites, setIsLoading, setMessage
+                  ) }
+                >
+                  Удалить из избранного
+                </button>
+              </blockquote>
+            ))
+          ) : (
+            <div className="result-message">
+              { /* If there are no favorite quotes, display a message */ }
+              { message && <p>{ message }</p> }
+            </div>
+          )
+        ) }
+      </div>
     </div>
   )
 }

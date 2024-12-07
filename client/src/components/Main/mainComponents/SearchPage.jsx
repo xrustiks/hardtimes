@@ -52,22 +52,26 @@ const SearchPage = () => {
     <div className="search-page">
       <h1>Найденные цитаты:</h1>
 
-      { isLoading ? (
-        <p>Загрузка...</p>
-      ) : (
-        quotes.length > 0 ? (
-          quotes.map((quote) => (
-            <blockquote key={quote.id}>
-              <div>&quot;{quote.quote}&quot;</div>
-              <div>Категория: {quote.category}</div>
-              <div>Источник: {quote.origin}</div>
-              <footer>{quote.author}</footer>
-            </blockquote>
-          ))
+      <div className="search-page-content">
+        { isLoading ? (
+          <p>Загрузка...</p>
         ) : (
-          <p>{message}</p>
-        )
-      ) }
+          quotes.length > 0 ? (
+            quotes.map((quote) => (
+              <blockquote key={ quote.id }>
+                <div>&quot;{ quote.quote }&quot;</div>
+                <div>Категория: { quote.category }</div>
+                <div>Источник: { quote.origin }</div>
+                <footer>Автор: { quote.author }</footer>
+              </blockquote>
+            ))
+          ) : (
+            <div className="result-message">
+              { message && <p>{ message }</p> }
+            </div>
+          )
+        ) }
+      </div>
     </div>
   );
 }
