@@ -66,30 +66,38 @@ const ChangeEmail = () => {
   return (
     <div className="change-email">
       <form className="change-email-form" onSubmit={ handleSubmit }>
-        <label htmlFor="new-email">Новый email:</label>
-        <input 
-          type="email" 
-          id="new-email" 
-          name="new-email" 
-          value={ freshEmail }
-          onChange={ (e) => setFreshEmail(e.target.value) }
-          required 
-        />
+        <h2>Сменить email</h2>
 
-        <label htmlFor="new-email-confirm">Подтвердить новый email:</label>
-        <input 
-          type="email" 
-          id="new-email-confirm" 
-          name="new-email-confirm"
-          value={ freshEmailConfirm }
-          onChange={ (e) => setFreshEmailConfirm(e.target.value) }
-          required 
-        />
+        <div className="fresh-email-group">
+          <label htmlFor="new-email">Новый email:</label>
+          <input 
+            type="email" 
+            id="new-email" 
+            name="new-email" 
+            value={ freshEmail }
+            onChange={ (e) => setFreshEmail(e.target.value) }
+            required 
+          />
+        </div>
+
+        <div className="fresh-email-confirm-group">
+          <label htmlFor="new-email-confirm">Подтвердить новый email:</label>
+          <input 
+            type="email" 
+            id="new-email-confirm" 
+            name="new-email-confirm"
+            value={ freshEmailConfirm }
+            onChange={ (e) => setFreshEmailConfirm(e.target.value) }
+            required 
+          />
+        </div>
         
         <button type="submit">Готово</button>
       </form>
 
-      { message && <p>{ message }</p> }
+      <div className="result-message">
+        { message && <p>{ message }</p> }
+      </div>
     </div>
   );
 }

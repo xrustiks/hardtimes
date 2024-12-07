@@ -52,31 +52,38 @@ const Login = () => {
 
   return (
     <div className="login-page">
-      <form onSubmit={ handleSubmit }>
-        <div className="user-name">
-          <label>Почта</label>
-          <input
-            type="email"
-            value={ email }
-            onChange={ (e) => setEmail(e.target.value) }
-            required
-          />
-        </div>
+      <h1>Введите свои данные</h1>
 
-        <div className="user-name">
-          <label>Пароль</label>
-          <input
-            type="password"
-            value={ password }
-            onChange={ (e) => setPassword(e.target.value) }
-            required
-          />
-        </div>
+      <div className="login-page-content">
+        <form onSubmit={ handleSubmit }>
+          <div className="user-name">
+            <label>Почта</label>
+            <input
+              type="email"
+              value={ email }
+              onChange={ (e) => setEmail(e.target.value) }
+              required
+            />
+          </div>
 
-        <button type="submit">Логин</button>
-      </form>
+          <div className="user-name">
+            <label>Пароль</label>
+            <input
+              type="password"
+              value={ password }
+              onChange={ (e) => setPassword(e.target.value) }
+              required
+            />
+          </div>
 
-      { message && <p className="message">{ message }</p> }
+          <button type="submit">Логин</button>
+        </form>
+      </div>
+
+      <div className="result-message">
+        { message && <p className="message">{ message }</p> }
+      </div>
+      
     </div>
   );
 };

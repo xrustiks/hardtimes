@@ -65,39 +65,49 @@ const ChangePassword = () => {
 
   return (
     <div className="change-password">
+      <h2>Сменить пароль</h2>
+
       <form className="change-password-form" onSubmit={ handleSubmit }>
-        <label htmlFor="old-password">Старый пароль:</label>
-        <input 
-          type="password"
-          id="old-password"
-          name="old-password"
-          value={ oldPassword }
-          onChange={ (e) => setOldPassword(e.target.value) }
-          required 
-        />
+        <div className="old-password-group">
+          <label htmlFor="old-password">Старый пароль:</label>
+          <input 
+            type="password"
+            id="old-password"
+            name="old-password"
+            value={ oldPassword }
+            onChange={ (e) => setOldPassword(e.target.value) }
+            required 
+          />
+        </div>
 
-        <label htmlFor="new-password">Новый пароль:</label>
-        <input 
-          type="password"
-          id="new-password"
-          name="new-password"
-          value={ freshPassword }
-          onChange={ (e) => setFreshPassword(e.target.value) }
-        required />
-
-        <label htmlFor="new-password-confirm">Подтвердите новый пароль:</label>
-        <input 
-          type="password" 
-          id="new-password-confirm" 
-          name="new-password-confirm"
-          value={ freshPasswordConfirm }
-          onChange={ (e) => setFreshPasswordConfirm(e.target.value) }
-        required />
+        <div className="fresh-password-group">
+          <label htmlFor="new-password">Новый пароль:</label>
+          <input 
+            type="password"
+            id="new-password"
+            name="new-password"
+            value={ freshPassword }
+            onChange={ (e) => setFreshPassword(e.target.value) }
+          required />
+        </div>
+        
+        <div className="fresh-password-confirm-group">
+          <label htmlFor="new-password-confirm">Подтвердите новый пароль:</label>
+          <input 
+            type="password" 
+            id="new-password-confirm" 
+            name="new-password-confirm"
+            value={ freshPasswordConfirm }
+            onChange={ (e) => setFreshPasswordConfirm(e.target.value) }
+          required />
+        </div>
         
         <button type="submit">Готово</button>
       </form>
 
-      { message && <p>{ message }</p> }
+      <div className="result-message">
+        { message && <p>{ message }</p> }
+      </div>
     </div>
   );
 }
