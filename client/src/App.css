@@ -1,4 +1,10 @@
-/* General styles */
+/* ------------ Global variables ------------ */
+:root {
+  --header-font-size: 20px;
+  
+}
+
+/* ------------ General styles ------------ */
 body {
   padding: 0;
   margin: 0;
@@ -66,6 +72,8 @@ a {
   width: 100vw;
 
   z-index: 100;
+
+  font-size: var(--header-font-size);
 }
 
 /* Styles for left side elements */
@@ -115,12 +123,48 @@ a {
 .select-category select {
   width: 100%;
   border-radius: 5px;
+  border: 3px solid rgb(74, 77, 22);
 
+  padding: 3px;
   font-family: 'Times New Roman', Times, serif;
 }
 
 .select-category select > * {
   font-family: 'Times New Roman', Times, serif;
+}
+
+/* SearchField styles */
+.search-field {
+  flex-shrink: 1;
+}
+
+.search-field form {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+
+  padding: 10px;
+}
+
+.search-field form input {
+  width: 100%;
+  min-width: 50px;
+  padding: 3px;
+  border-radius: 5px;
+  border: 3px solid rgb(74, 77, 22);
+
+  font-family:'Times New Roman', Times, serif;
+}
+
+/* LoginUserBar styles */
+.login-bar, .user-bar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+
+  flex-shrink: 1;
+
+  padding: 10px;
 }
 
 /* AppTitle styles */
@@ -143,37 +187,6 @@ a {
   font-size: 32px;
 }
 
-/* SearchField styles */
-.search-field {
-  flex-shrink: 1;
-}
-
-.search-field form {
-  display: flex;
-  justify-content: flex-end;
-  gap: 5px;
-
-  padding: 10px;
-}
-
-.search-field form input {
-  width: 100%;
-  min-width: 50px;
-
-  font-family:'Times New Roman', Times, serif;
-}
-
-/* LoginUserBar styles */
-.login-bar, .user-bar {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-
-  flex-shrink: 1;
-
-  padding: 10px;
-}
-
 /* ------------ Main component styles ------------ */
 /* Home page styles */
 .home-page {
@@ -185,10 +198,10 @@ a {
 
   height: 70vh;
 
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 
-.home-page-buttons {
+.home-page .home-page-buttons {
   position: absolute;
   top: 0;
 
@@ -204,8 +217,16 @@ a {
   /* border: 1px solid blue; */
 }
 
+.home-page .home-page-buttons button {
+  padding: 5px;
+  border: 1px solid rgb(94, 92, 92);
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  width: 150px;
+}
+
 /* Caption "Press R to refresh" */
-.press-r {
+.home-page .press-r {
   position: absolute;
   bottom: 0;
   align-self: center;
@@ -215,7 +236,7 @@ a {
 }
 
 /* Home page background styles */
-#particles-js {
+.home-page #particles-js {
   position: fixed;
   top: 0;
   left: 0;
@@ -230,21 +251,27 @@ a {
 .random-quote {
   position: relative;
 
-  font-size: 1.5rem;
+  font-size: 30px;
   font-weight: 500;
   color: white;
   text-align: center;
-  margin-top: 1rem;
 
   z-index: 1;
 
   border: 1px solid green;
 }
 
+.random-quote blockquote {
+  display: flex;
+  flex-direction: column;
+
+  gap: 30px;
+}
+
 .random-quote .quote-details {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 20px;
   gap: 20px;
 }
 

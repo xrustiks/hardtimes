@@ -59,14 +59,14 @@ const Home = () => {
           onClick={ () => addToFavorites(token, randomQuote, setIsLoading, setMessage) }
           disabled={ isLoading }
         >
-          { isLoading ? 'Adding...' : 'Add to favorites' }
+          { isLoading ? 'Добавляется...' : 'В избранное' }
         </button>
 
         <button
           className="generate-quote-button"
           type="button"
           onClick={ () => fetchRandomQuote() }>
-          Next quote
+          Еще
         </button>
       </div>
 
