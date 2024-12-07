@@ -1,7 +1,7 @@
 /* ------------ Global variables ------------ */
 :root {
   --header-font-size: 20px;
-  
+  --app-title-font-size: 32px;
 }
 
 /* ------------ General styles ------------ */
@@ -184,7 +184,7 @@ a {
 .app-title-header {
   padding: 0;
   margin: 0;
-  font-size: 32px;
+  font-size: var(--app-title-font-size);
 }
 
 /* ------------ Main component styles ------------ */
