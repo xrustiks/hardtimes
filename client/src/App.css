@@ -12,7 +12,7 @@ body {
   width: 100vw;
 }
 
-.profile-page, .favorites-page, .login-page, .search-page {
+.favorites-page, .search-page, .profile-page, .login-page {
   padding: var(--pages-margins);
 }
 
@@ -74,7 +74,7 @@ a {
   justify-content: space-between;
 
   height: 50px;
-  width: 100vw;
+  min-width: 100vw;
 
   z-index: 100;
 
@@ -394,4 +394,46 @@ a {
 /* Animation for displaying a quote on home page */
 .random-quote .quote {
   animation: in-focus 2.5s forwards;
+}
+
+/* ------------ Media queries ------------ */
+@media (max-width: 1024px) {
+  .select-category {
+    min-width: 150px;
+  }
+
+  .nav-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-panel__left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+
+    min-width: 300px;
+  }
+
+  .select-category {
+    width: 200px;
+  }
+
+  .header-panel__right {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+
+    min-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  
+}
+
+@media (max-width: 320px) {
+  
 }
