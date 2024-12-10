@@ -120,7 +120,6 @@ a {
   display: flex;
   justify-content: flex-start;
   gap: 10px;
-  flex-shrink: 1;
 
   padding: 10px;
 }
@@ -148,7 +147,7 @@ a {
 
 /* SearchField styles */
 .search-field {
-  flex-shrink: 1;
+  border: 1px purple solid;
 }
 
 .search-field form {
@@ -174,8 +173,6 @@ a {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-
-  flex-shrink: 1;
 
   padding: 10px;
 }
@@ -419,8 +416,6 @@ a {
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
-
-    min-width: 300px;
   }
 
   .header-panel__right {
@@ -454,6 +449,14 @@ a {
 
   .home-page .home-page-buttons button {
     width: 100px;
+  }
+
+  .footer {
+    display: none;
+  }
+
+  .app-title {
+    display: none;
   }
 }
 
