@@ -74,7 +74,7 @@ a {
   justify-content: space-between;
 
   height: 50px;
-  min-width: 100vw;
+  width: 100vw;
 
   z-index: 100;
 
@@ -90,6 +90,8 @@ a {
 
   height: 100%;
   width: 50%;
+
+  border: 1px red solid;
 }
 
 .header-panel__left * {
@@ -105,6 +107,8 @@ a {
 
   height: 100%;
   width: 50%;
+
+  border: 1px blue solid;
 }
 
 .header-panel__right * {
@@ -432,8 +436,6 @@ a {
 }
 
 @media (max-width: 768px) {
-  
-
   .select-category {
     width: 200px;
   }
@@ -445,9 +447,18 @@ a {
 
     min-width: 300px;
   }
+
+  .home-page {
+    position: static;
+  }
+
+  .home-page .home-page-buttons button {
+    width: 100px;
+  }
 }
 
 @media (max-width: 480px) {
+  
   
 }
 
