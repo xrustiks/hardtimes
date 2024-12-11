@@ -12,6 +12,7 @@ import Logout from './mainComponents/Logout.jsx';
 import ChangeLogin from './mainComponents/settingComponents/ChangeLogin.jsx';
 import ChangeEmail from './mainComponents/settingComponents/ChangeEmail.jsx';
 import ChangePassword from './mainComponents/settingComponents/ChangePassword.jsx';
+import './Main.css';
 
 const Main = () => {
   return (
