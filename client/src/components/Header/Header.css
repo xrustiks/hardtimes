@@ -1,0 +1,94 @@
+/* ------------ 1. Header component styles ------------ */
+/* Header general styles */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  border: 2px solid purple;
+}
+
+.header-panel {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+
+  border: 2px solid green;
+}
+
+/* Styles for the left side of the header bar */
+.header-panel__left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  
+  width: 50%;
+  min-width: 200px;
+
+  border: 2px solid red;
+}
+
+.header-panel__left .nav-bar {
+  display: flex;
+  gap: 10px;
+
+  border: 2px solid blue;
+}
+
+.header-panel__left .select-category select {
+  font-family: 'Times New Roman', Times, serif;
+  border-radius: 5px;
+
+  padding: 5px;
+}
+
+/* Styles for the right side of the header bar */
+.header-panel__right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  width: 50%;
+  min-width: 200px;
+
+  border: 2px solid yellow;
+}
+
+.header-panel__right .search-field form input {
+  font-family: 'Times New Roman', Times, serif;
+  border-radius: 5px;
+
+  padding: 5px;
+}
+
+.header-panel__right .user-bar, .header-panel__right .login-bar {
+  display: flex;
+  gap: 10px;
+
+  border: 2px solid orange;
+}
+
+/* ------------ Media queries ------------ */
+@media (max-width: 1024px) {
+  .nav-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .login-bar, .user-bar {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-title {
+    display: none;
+  }
+}

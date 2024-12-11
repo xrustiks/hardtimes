@@ -1,0 +1,206 @@
+/* ------------ Main component styles ------------ */
+/* Home page styles */
+.home-page {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  height: 70vh;
+
+  /* border: 1px solid blue; */
+}
+
+.home-page .home-page-buttons {
+  position: absolute;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+
+  align-self: center;
+
+  z-index: 2;
+
+  /* border: 1px solid blue; */
+}
+
+.home-page .home-page-buttons button {
+  padding: 5px;
+  border: 1px solid rgb(94, 92, 92);
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  width: 150px;
+}
+
+/* Caption "Press R to refresh" */
+.home-page .press-r {
+  position: absolute;
+  bottom: 20px;
+  align-self: center;
+
+  color: rgb(99, 99, 99);
+  font-size: 12px;
+}
+
+/* Home page background styles */
+.home-page #particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  
+  z-index: 0;
+}
+
+/* RandomQuote styles */
+.random-quote {
+  position: relative;
+
+  font-size: 30px;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+
+  z-index: 1;
+
+  /* border: 1px solid green; */
+}
+
+.random-quote blockquote {
+  display: flex;
+  flex-direction: column;
+
+  gap: 30px;
+}
+
+.random-quote .quote-details {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  gap: 20px;
+}
+
+/* ------------ Internal pages styles ------------ */
+/* Styles for all internal pages */
+.favorites-page, .search-page, .profile-page, .login-page {
+  padding: var(--pages-margins);
+}
+
+/* Profile page styles */
+.profile-page {
+  font-size: 14px;
+}
+
+.profile-page * {
+  font-family:'Times New Roman', Times, serif;
+}
+
+/* Change login page styles */
+.change-login {
+  display: flex;
+  flex-direction: column;
+  margin: var(--pages-margins);
+}
+
+.change-login * {
+  font-family:'Times New Roman', Times, serif;
+}
+
+.change-login form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.change-login form div {
+  display: flex;
+  gap: 5px;
+}
+
+.change-login form button {
+  padding: 5px;
+  border: 1px solid rgb(94, 92, 92);
+  border-radius: 5px;
+  width: 150px;
+}
+
+/* Change email page styles */
+.change-email {
+  display: flex;
+  flex-direction: column;
+  margin: var(--pages-margins);
+}
+
+.change-email * {
+  font-family:'Times New Roman', Times, serif;
+}
+
+.change-email form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.change-email form div {
+  display: flex;
+  gap: 5px;
+}
+
+.change-email form button {
+  padding: 5px;
+  border: 1px solid rgb(94, 92, 92);
+  border-radius: 5px;
+  width: 150px;
+}
+
+/* Change password page styles */
+.change-password {
+  display: flex;
+  flex-direction: column;
+  margin: var(--pages-margins);
+}
+
+.change-password * {
+  font-family:'Times New Roman', Times, serif;
+}
+
+.change-password form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.change-password form div {
+  display: flex;
+  gap: 5px;
+}
+
+.change-password form button {
+  padding: 5px;
+  border: 1px solid rgb(94, 92, 92);
+  border-radius: 5px;
+  width: 150px;
+}
+
+/* ------------ Animations ------------ */
+/* Animation for displaying a quote on home page */
+.random-quote .quote {
+  animation: in-focus 2.5s forwards;
+}
+
+/* ------------ Media queries ------------ */
+@media (max-width: 768px) {
+  .home-page {
+    position: static;
+  }
+
+  .home-page .home-page-buttons button {
+    width: 100px;
+  }
+}
