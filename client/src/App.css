@@ -12,10 +12,6 @@ body {
   width: 100vw;
 }
 
-.favorites-page, .search-page, .profile-page, .login-page {
-  padding: var(--pages-margins);
-}
-
 @font-face {
 	font-family: Constantine-normal;
 	src: url(./assets/fonts/Constantine.ttf);
@@ -30,7 +26,7 @@ a {
   color: white;
 }
 
-/* ------------ Application container styles ------------ */
+/* ------------ 0. Application container styles ------------ */
 /* Application container general styles */
 .app-container {
   display: flex;
@@ -59,7 +55,7 @@ a {
   font-size: 18px;
 }
 
-/* ------------ Header component styles ------------ */
+/* ------------ 1. Header component styles ------------ */
 /* Header general styles */
 .header {
   /* border: 1px solid yellow; */
@@ -147,7 +143,7 @@ a {
 
 /* SearchField styles */
 .search-field {
-  border: 1px purple solid;
+  /* border: 1px purple solid; */
 }
 
 .search-field form {
@@ -197,7 +193,7 @@ a {
   font-size: var(--app-title-font-size);
 }
 
-/* ------------ Main component styles ------------ */
+/* ------------ 2. Main component styles ------------ */
 /* Home page styles */
 .home-page {
   position: relative;
@@ -238,7 +234,7 @@ a {
 /* Caption "Press R to refresh" */
 .home-page .press-r {
   position: absolute;
-  bottom: 0;
+  bottom: 20px;
   align-self: center;
 
   color: rgb(99, 99, 99);
@@ -285,6 +281,12 @@ a {
   gap: 20px;
 }
 
+/* ------------ 3. Internal pages styles ------------ */
+/* Styles for all internal pages */
+.favorites-page, .search-page, .profile-page, .login-page {
+  padding: var(--pages-margins);
+}
+
 /* Profile page styles */
 .profile-page {
   font-size: 14px;
@@ -294,10 +296,7 @@ a {
   font-family:'Times New Roman', Times, serif;
 }
 
-
-
-/* ------------ Settings pages styles ------------ */
-/* Change login page */
+/* Change login page styles */
 .change-login {
   display: flex;
   flex-direction: column;
@@ -326,7 +325,7 @@ a {
   width: 150px;
 }
 
-/* Change email page */
+/* Change email page styles */
 .change-email {
   display: flex;
   flex-direction: column;
@@ -355,7 +354,7 @@ a {
   width: 150px;
 }
 
-/* Change password page */
+/* Change password page styles */
 .change-password {
   display: flex;
   flex-direction: column;
@@ -384,7 +383,7 @@ a {
   width: 150px;
 }
 
-/* ------------ Animations ------------ */
+/* ------------ 4. Animations ------------ */
 @keyframes in-focus {
   0% {
     filter: blur(12px);
@@ -401,7 +400,7 @@ a {
   animation: in-focus 2.5s forwards;
 }
 
-/* ------------ Media queries ------------ */
+/* ------------ 5. Media queries ------------ */
 @media (max-width: 1024px) {
   .select-category {
     min-width: 150px;
