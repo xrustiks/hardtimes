@@ -71,12 +71,14 @@ const Home = () => {
       </div>
 
       { /* RandomQuote component */ }
-      <RandomQuote
-        fetchRandomQuote={ fetchRandomQuote }
-        randomQuote={ randomQuote }
-        chosenCategory={ chosenCategory }
-        message={ message }
-      />
+      <div className="home-page-random-quote">
+        <RandomQuote
+          fetchRandomQuote={ fetchRandomQuote }
+          randomQuote={ randomQuote }
+          chosenCategory={ chosenCategory }
+          message={ message }
+        />
+      </div>
 
       <div className="press-r">Нажмите R</div>
     </div>
