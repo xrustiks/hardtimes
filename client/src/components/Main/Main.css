@@ -1,11 +1,8 @@
 /* ------------ Main component styles ------------ */
 .main {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  border: 6px dashed saddlebrown;
+  
 }
+
 /* Home page styles */
 .home-page {
   display: flex;
@@ -13,8 +10,11 @@
   justify-content: space-between;
 
   height: 70vh;
+  padding-bottom: 40px;
 
   border: 1px solid blue;
+
+  width: 100%;
 
   position: relative;
 }
@@ -47,7 +47,7 @@
 /* Caption "Press R to refresh" */
 .home-page .press-r {
   position: absolute;
-  bottom: 20px;
+  bottom: 10px;
   align-self: center;
 
   color: rgb(99, 99, 99);
