@@ -84,3 +84,17 @@
     display: none;
   }
 }
+
+@media (max-width: 488px) {
+  .search-field {
+    order: 2;
+  }
+
+  .user-bar {
+    order: 1;
+  }
+
+  .login-bar {
+    order: 1;
+  }
+}
