@@ -68,6 +68,18 @@
 
 /* ------------ Media queries ------------ */
 @media (max-width: 1024px) {
+  .header-panel__left, .header-panel__right {
+    flex-direction: column;
+  }
+
+  .header-panel__left {
+    align-items: flex-start;
+  }
+
+  .header-panel__right {
+    align-items: flex-end;
+  }
+
   .nav-bar {
     flex-direction: column;
     align-items: flex-start;
@@ -77,15 +89,7 @@
     flex-direction: column;
     align-items: flex-end;
   }
-}
 
-@media (max-width: 768px) {
-  .app-title {
-    display: none;
-  }
-}
-
-@media (max-width: 488px) {
   .search-field {
     order: 2;
   }
@@ -96,5 +100,11 @@
 
   .login-bar {
     order: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-title {
+    display: none;
   }
 }
