@@ -1,4 +1,5 @@
 import openConnection from '../../db/connection.js';
+import { logError } from '../../helpers/logging.js';
 
 const getSearchedQuotes = async(req, res) => {
   const { query } = req.params;
@@ -27,7 +28,7 @@ const getSearchedQuotes = async(req, res) => {
 
     return res.status(200).json({ searchResult: searchResult });
   } catch(error) {
-    console.error('Internal server error:', error);
+    logError('Internal server error:', error);
     return res.status(500).json({ message: 'Internal server error' });
   } finally {
     if (connection) {

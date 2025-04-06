@@ -1,5 +1,7 @@
 import openConnection from '../../db/connection.js';
 
+import { logError } from '../../helpers/logging.js';
+
 const addQuote = async(req, res) => {
   const { quote, author, category, origin } = req.body;
 
@@ -20,7 +22,7 @@ const addQuote = async(req, res) => {
 
     return res.status(201).json({ message: 'Quote successfully added' });
   } catch(error) {
-    console.error('Server error. Failed adding the quote, ' + error);
+    logError('Server error. Failed adding the quote, ' + error);
     return res.status(500).json({ message: 'Server error. Failed adding the quote' });
   } finally {
     if (connection) {

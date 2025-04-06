@@ -1,6 +1,8 @@
 import openConnection from '../../db/connection.js';
 import createToken from '../../auth/createToken.js';
 
+import { logError } from '../../helpers/logging.js';
+
 const changeEmail = async(req, res) => {
   const { freshEmail } = req.body;
 
@@ -26,7 +28,7 @@ const changeEmail = async(req, res) => {
 
     return res.status(200).json({ message: 'Email changed successfully', token: newToken });
   } catch(error) {
-    console.error('Error changing email:', error);
+    logError('Error changing email:', error);
     return res.status(500).json({ message: 'Server error' });
   } finally {
     if (connection) {

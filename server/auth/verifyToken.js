@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import loadEnv from '../config/loadEnv.js';
+import { logError } from '../helpers/logging.js';
 
 // Verifies JWT token
 export const verifyToken = (token) => {
@@ -13,7 +14,7 @@ export const verifyToken = (token) => {
     const decoded = jwt.verify(token, SECRET);
     return { success: true, data: decoded };
   } catch (error) {
-    console.error('Error verifying token:', error.message);
+    logError('Error verifying token:', error.message);
     return { success: false, error: error.message };
   }
 };

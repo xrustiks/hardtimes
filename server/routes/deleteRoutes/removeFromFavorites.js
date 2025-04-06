@@ -1,5 +1,8 @@
 import openConnection from '../../db/connection.js';
 
+import { logInfo } from '../../helpers/logging.js';
+import { logError } from '../../helpers/logging.js';
+
 const removeFromFavorites = async(req, res) => {
   let connection;
 
@@ -22,7 +25,7 @@ const removeFromFavorites = async(req, res) => {
 
     return res.status(200).json({ message: 'Quote successfully deleted from favorites' });
   } catch(error) {
-    console.log('Unable to delete from favorites:', error);
+    logError('Unable to delete from favorites:', error);
     return res.status(500).json({ message: 'Server error: failed deleting from favorites' });
   } finally {
     if (connection) {

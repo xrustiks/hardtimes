@@ -1,3 +1,5 @@
+import { logError } from '../helpers/logging.js';
+
 // Create tables in the database
 const createTables = async(connection) => {
   try {
@@ -33,7 +35,7 @@ const createTables = async(connection) => {
     )`;
     await connection.query(favoriteQuotes);
   } catch (error) {
-    console.error('Error creating tables:', error);
+    logError('Error creating tables:', error);
     throw error;
   } finally {
     if (connection) {

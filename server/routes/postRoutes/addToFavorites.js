@@ -1,5 +1,7 @@
 import openConnection from '../../db/connection.js';
 
+import { logError } from '../../helpers/logging.js';
+
 const addToFavorites = async(req, res) => {
   let connection;
   
@@ -29,7 +31,7 @@ const addToFavorites = async(req, res) => {
 
     return res.status(201).json({ message: 'Quote added to your favorites' });
   } catch(error) {
-    console.log('Server error. Failed adding quote to favorites', error);
+    logError('Server error. Failed adding quote to favorites', error);
     return res.status(500).json({ message: 'Server error. Failed adding quote to favorites' });
   } finally {
     if (connection) {

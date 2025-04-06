@@ -1,4 +1,5 @@
 import openConnection from '../../db/connection.js';
+import { logError } from '../../helpers/logging.js';
 
 const getFavorites = async(req, res) => {
   let connection;
@@ -20,7 +21,7 @@ const getFavorites = async(req, res) => {
 
     return res.status(200).json({ favorites: favoriteQuotes });
   } catch(error) {
-    console.error(error);
+    logError(error);
     return res.status(500).json({ message: 'Failed retrieving favorites' });
   } finally {
     if (connection) {

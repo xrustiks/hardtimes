@@ -1,5 +1,7 @@
 import openConnection from './connection.js';
 import createTables from './createTables.js';
+import { logInfo } from '../helpers/logging.js';
+import { logError } from '../helpers/logging.js';
 
 // Connect to the database
 const initDataBase = async() => {
@@ -10,11 +12,11 @@ const initDataBase = async() => {
 
     const query = `CREATE DATABASE IF NOT EXISTS quotes`;
     await connection.query(query);
-    console.log('Database successfully created or already exists');
+    logInfo('Database successfully created or already exists');
 
     await createTables(connection);
   } catch (error) {
-    console.error('Database error', error);
+    logError('Database error', error);
   } finally {
     if (connection) {
       await connection.end();
