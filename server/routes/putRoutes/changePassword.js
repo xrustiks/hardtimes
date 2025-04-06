@@ -2,6 +2,9 @@ import openConnection from '../../db/connection.js';
 
 import { hash, compare } from 'bcrypt';
 
+import { logInfo } from '../../helpers/logging.js';
+import { logError } from '../../helpers/logging.js';
+
 const changePassword = async(req, res) => {
   const { oldPassword, freshPassword } = req.body;
 
@@ -32,7 +35,7 @@ const changePassword = async(req, res) => {
 
     return res.status(200).json({ message: 'Password changed successfully' });
   } catch(error) {
-    console.error('Error changing password:', error);
+    logError('Error changing password:', error);
     return res.status(500).json({ message: 'Server error' });
   } finally {
     if (connection) {

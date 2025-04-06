@@ -1,6 +1,9 @@
 import openConnection from '../../db/connection.js';
 import createToken from '../../auth/createToken.js';
 
+import { logInfo } from '../../helpers/logging.js';
+import { logError } from '../../helpers/logging.js';
+
 const changeLogin = async(req, res) => {
   const { freshLogin } = req.body;
 
@@ -26,7 +29,7 @@ const changeLogin = async(req, res) => {
 
     return res.status(200).json({ message: 'Login changed successfully', token: newToken });
   } catch(error) {
-    console.error('Error changing login:', error);
+    logError('Error changing login:', error);
     return res.status(500).json({ message: 'Server error' });
   } finally {
     if (connection) {

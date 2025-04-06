@@ -1,4 +1,5 @@
 import openConnection from '../../db/connection.js';
+import { logError } from '../../helpers/logging.js';
 
 const getCategories = async (req, res) => {
   let connection;
@@ -15,7 +16,7 @@ const getCategories = async (req, res) => {
 
     return res.status(200).json({ categories: categories });
   } catch(error) {
-    console.error(error);
+    logError(error);
     return res.status(500).json({ message: 'Failed retrieving categories' });
   } finally {
     if (connection) {

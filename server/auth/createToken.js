@@ -1,11 +1,12 @@
 import jwt from 'jsonwebtoken';
 import loadEnv from '../config/loadEnv.js';
+import { logError } from '../helpers/logging.js';
 
 // Creates JWT token
 const createToken = (user) => {
   const SECRET = loadEnv().JWT_SECRET;
   if (!SECRET) {
-    console.error('SECRET is not defined');
+    logError('SECRET is not defined');
     return { success: false, error: 'SECRET is not defined' };
   }
 
@@ -13,7 +14,7 @@ const createToken = (user) => {
     // Returns JWT token for the user with the expiration date of 30 days
     return jwt.sign(user, SECRET, { expiresIn: '30d' });
   } catch(error) {
-    console.error('Error creating token:', error.message);
+    logError('Error creating token:', error.message);
     return { success: false, error: error.message };
   }
 }

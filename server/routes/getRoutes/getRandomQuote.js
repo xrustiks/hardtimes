@@ -1,4 +1,5 @@
 import generateRandomQuote from '../../helpers/generateRandomQuote.js';
+import { logError } from '../../helpers/logging.js';
 
 const getRandomQuote = async (req, res) => {
   const { category } = req.query;
@@ -11,7 +12,7 @@ const getRandomQuote = async (req, res) => {
 
     return res.status(200).json(randomQuote);
   } catch (error) {
-    console.error('Error fetching random quote:', error);
+    logError('Error fetching random quote:', error);
     return res.status(500).json({ error: 'Failed to fetch random quote' });
   }
 }

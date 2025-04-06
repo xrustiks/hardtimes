@@ -3,6 +3,8 @@ import { hash } from 'bcrypt';
 import openConnection from '../../db/connection.js';
 import checkUserExistence from '../../helpers/checkUserExistence.js';
 
+import { logError } from '../../helpers/logging.js';
+
 const registerUser = async(req, res) => {
   const { userName, email, password } = req.body;
 
@@ -39,7 +41,7 @@ const registerUser = async(req, res) => {
 
     return res.status(201).json({ message: 'User successfully added' });
   } catch(error) {
-    console.error('Error during user registration:', error);
+    logError('Error during user registration:', error);
     return res.status(500).json({ message: 'Server error during user registration' });
   } finally {
     if (connection) {

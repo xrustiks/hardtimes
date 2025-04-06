@@ -1,3 +1,5 @@
+import { logError } from '../../helpers/logging.js';
+
 const getProfile = (req, res) => {
   try {
     if (!req.user.userName) {
@@ -5,7 +7,7 @@ const getProfile = (req, res) => {
     }
     return res.status(200).json({ message: `Hello, ${ req.user.userName }!`, user: req.user });
   } catch (error) {
-    console.error('Error fetching profile:', error);
+    logError('Error fetching profile:', error);
     return res.status(500).json({ message: 'Server error' });
   }
 }

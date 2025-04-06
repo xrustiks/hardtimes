@@ -2,6 +2,8 @@ import openConnection from '../../db/connection.js';
 import verifyUser from '../../helpers/verifyUser.js';
 import createToken from '../../auth/createToken.js';
 
+import { logError } from '../../helpers/logging.js';
+
 // Component for user login
 const loginUser = async(req, res) => {
   const { email, password } = req.body;
@@ -36,7 +38,7 @@ const loginUser = async(req, res) => {
     // Returning the message, token (for localStorage) and user data (for context)
     return res.status(200).json({ message: message, token: token, user: userData });
   } catch(error) {
-    console.error('Error: ', error);
+    logError('Error: ', error);
     return res.status(500).json({ message: 'Server error' });
   } finally {
     if (connection) {

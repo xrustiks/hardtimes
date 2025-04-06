@@ -1,6 +1,7 @@
 // async-based version of mysql2
 import mysql from 'mysql2/promise';
 import loadEnv from '../config/loadEnv.js';
+import { logError } from '../helpers/logging.js';
 
 const env = loadEnv();
 
@@ -14,7 +15,7 @@ const openConnection = async () => {
     });
     return connection;
   } catch (error) {
-    console.error("Connection error: ", error);
+    logError("Connection error: ", error);
     throw error;
   }
 }
