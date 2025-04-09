@@ -167,6 +167,10 @@
   width: 150px;
 }
 
+.login-page input {
+  font-family: 'Times New Roman', Times, serif;
+}
+
 /* Change password page styles */
 .change-password {
   display: flex;
