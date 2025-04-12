@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 
 const Settings = () => {
-
   return (
     <div className="settings-page">
       <div className="change-login"><Link to="/profile/settings/change-login">Сменить имя пользователя</Link></div>

@@ -42,6 +42,9 @@
 
 .home-page-random-quote {
   border: 1px solid green;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Caption "Press R to refresh" */
@@ -198,6 +201,10 @@
   border: 1px solid rgb(94, 92, 92);
   border-radius: 5px;
   width: 150px;
+}
+
+.add-quote-page input {
+  font-family:'Times New Roman', Times, serif;
 }
 
 /* ------------ Animations ------------ */

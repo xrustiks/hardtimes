@@ -93,6 +93,7 @@ const AddQuote = () => {
             type="text"
             value={ quote }
             onChange={ (e) => setQuote(e.target.value) }
+            maxLength="500"
             required
           />
         </div>

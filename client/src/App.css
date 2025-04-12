@@ -40,12 +40,10 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 100vh;
 }
 
 /* Other pages styles (only for Main component, Header and Footer aren't included) */
 .app-container.default-layout > main {
-  display: block;
   /* Makes element fill all space between header and footer */
   flex: 1;
 }
