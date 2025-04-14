@@ -8,7 +8,7 @@ const createTables = async(connection) => {
     // Creating quotes table
     const quotesTableQuery = `CREATE TABLE IF NOT EXISTS quotes (
       id INT AUTO_INCREMENT PRIMARY KEY,
-      quote VARCHAR(500),
+      quote VARCHAR(400),
       author VARCHAR(255),
       category VARCHAR(255),
       origin VARCHAR(255)

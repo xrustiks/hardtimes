@@ -79,8 +79,6 @@ const Home = () => {
           message={ message }
         />
       </div>
-
-      <div className="press-r">Нажмите R</div>
     </div>
   );
 }

@@ -31,9 +31,11 @@ const RandomQuote = ({ fetchRandomQuote, randomQuote, chosenCategory, message })
     <div className="random-quote">
       { randomQuote ? (
         <blockquote>
-          { /* When an element is given a new key,
-          React thinks a new element has been created, even if the content has not changed */ }
-          <div className="quote" key={ animationKey }>&quot;{ randomQuote.quote }&quot;</div>
+          <div className="quote-body">
+            { /* When an element is given a new key,
+            React thinks a new element has been created, even if the content has not changed */ }
+            <div className="quote" key={ animationKey }>&quot;{ randomQuote.quote }&quot;</div>
+          </div>
 
           <div className="quote-details">
             <div className="quote-category">Категория: { randomQuote.category }</div>

@@ -9,10 +9,10 @@
   flex-direction: column;
   justify-content: space-between;
 
-  height: 70vh;
+  height: 40vh;
   padding-bottom: 40px;
 
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 
   width: 100%;
 
@@ -29,7 +29,7 @@
 
   z-index: 2;
 
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
 }
 
 .home-page .home-page-buttons button {
@@ -40,21 +40,17 @@
   width: 150px;
 }
 
-.home-page-random-quote {
-  border: 1px solid green;
+.quote-body {
+  max-height: 30vh;
 
   overflow: hidden;
   text-overflow: ellipsis;
+
+  /* border: 1px solid orange; */
 }
 
-/* Caption "Press R to refresh" */
-.home-page .press-r {
-  position: absolute;
-  bottom: 10px;
-  align-self: center;
-
-  color: rgb(99, 99, 99);
-  font-size: 12px;
+.quote-details {
+  /* border: 1px solid pink; */
 }
 
 /* Home page background styles */
