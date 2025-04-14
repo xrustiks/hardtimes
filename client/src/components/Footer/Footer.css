@@ -1,11 +1,30 @@
 .footer {
   position: relative;
-  border: 1px solid white;
+
+  display: flex;
+  flex-direction: column;
+
+  /* border: 1px solid white; */
   z-index: 100;
 }
 
-@media (max-width: 768px) {
-  .footer {
+/* Caption "Press R to refresh" */
+.press-r {
+  align-self: center;
+
+  color: rgb(99, 99, 99);
+  font-size: 12px;
+
+  /* border: 1px solid violet; */
+}
+
+.footer-caption {
+  font-size: 12px;
+  align-self: center;
+}
+
+@media (max-width: 1024px) {
+  .footer-caption {
     display: none;
   }
 }
