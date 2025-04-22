@@ -1,6 +1,6 @@
 import openConnection from '../../db/connection.js';
 
-import { logError } from '../../helpers/logging.js';
+import { logError } from '../../../utils/logging.js';
 
 const addQuote = async(req, res) => {
   const { quote, author, category, origin } = req.body;

@@ -3,6 +3,7 @@ import { FavoritesContext } from '../../../hooks/FavoritesContext.jsx';
 
 import { removeFromFavorites } from "../../../utils/favoritesUtils.js";
 import makeTitle from "../../../utils/makeTitle.js";
+import { logError } from "../../../../../utils/logging.js"; 
 
 const Favorites = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -34,10 +35,10 @@ const Favorites = () => {
         if (!response.ok || result.favorites.length === 0) {
           return setMessage(result.message);
         }
-
+        
         setFavorites(result.favorites);
       } catch(error) {
-        console.log('Error fetching favorite quotes', error);
+        logError('Error fetching favorite quotes', error);
         setMessage(error.message);
       } finally {
         setIsLoading(false);

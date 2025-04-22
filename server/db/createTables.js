@@ -1,4 +1,4 @@
-import { logError } from '../helpers/logging.js';
+import { logError } from '../../utils/logging.js';
 
 // Create tables in the database
 const createTables = async(connection) => {

@@ -1,7 +1,7 @@
 // async-based version of mysql2
 import mysql from 'mysql2/promise';
 import loadEnv from '../config/loadEnv.js';
-import { logError } from '../helpers/logging.js';
+import { logError } from '../../utils/logging.js';
 
 const env = loadEnv();
 

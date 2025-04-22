@@ -1,5 +1,5 @@
 import openConnection from '../../db/connection.js';
-import { logError } from '../../helpers/logging.js';
+import { logError } from '../../../utils/logging.js';
 
 const getFavorites = async(req, res) => {
   let connection;

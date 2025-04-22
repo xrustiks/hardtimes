@@ -2,7 +2,7 @@ import openConnection from '../../db/connection.js';
 import verifyUser from '../../helpers/verifyUser.js';
 import createToken from '../../auth/createToken.js';
 
-import { logError } from '../../helpers/logging.js';
+import { logError } from '../../../utils/logging.js';
 
 // Component for user login
 const loginUser = async(req, res) => {
