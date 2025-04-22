@@ -9,10 +9,10 @@
   flex-direction: column;
   justify-content: space-between;
 
-  height: 40vh;
+  height: 60vh;
   padding-bottom: 40px;
 
-  /* border: 1px solid blue; */
+  border: 1px solid blue;
 
   width: 100%;
 
@@ -46,11 +46,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
 
-  /* border: 1px solid orange; */
+  border: 1px solid orange;
 }
 
 .quote-details {
-  /* border: 1px solid pink; */
+  border: 1px solid pink;
 }
 
 /* Home page background styles */
@@ -206,7 +206,7 @@
 /* ------------ Animations ------------ */
 /* Animation for displaying a quote on home page */
 .random-quote .quote {
-  animation: in-focus 2.5s forwards;
+  animation: in-focus 2s forwards;
 }
 
 /* ------------ Media queries ------------ */
