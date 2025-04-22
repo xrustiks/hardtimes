@@ -3,7 +3,7 @@ import { hash } from 'bcrypt';
 import openConnection from '../../db/connection.js';
 import checkUserExistence from '../../helpers/checkUserExistence.js';
 
-import { logError } from '../../helpers/logging.js';
+import { logError } from '../../../utils/logging.js';
 
 const registerUser = async(req, res) => {
   const { userName, email, password } = req.body;

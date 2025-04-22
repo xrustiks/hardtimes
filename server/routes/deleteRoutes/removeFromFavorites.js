@@ -1,7 +1,7 @@
 import openConnection from '../../db/connection.js';
 
-import { logInfo } from '../../helpers/logging.js';
-import { logError } from '../../helpers/logging.js';
+import { logInfo } from '../../../utils/logging.js';
+import { logError } from '../../../utils/logging.js';
 
 const removeFromFavorites = async(req, res) => {
   let connection;

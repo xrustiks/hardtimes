@@ -1,7 +1,7 @@
 import openConnection from '../../db/connection.js';
 import createToken from '../../auth/createToken.js';
 
-import { logError } from '../../helpers/logging.js';
+import { logError } from '../../../utils/logging.js';
 
 const changeEmail = async(req, res) => {
   const { freshEmail } = req.body;

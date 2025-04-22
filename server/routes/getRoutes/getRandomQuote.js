@@ -1,5 +1,5 @@
 import generateRandomQuote from '../../helpers/generateRandomQuote.js';
-import { logError } from '../../helpers/logging.js';
+import { logError } from '../../../utils/logging.js';
 
 const getRandomQuote = async (req, res) => {
   const { category } = req.query;

@@ -1,7 +1,7 @@
 import openConnection from './connection.js';
 import createTables from './createTables.js';
-import { logInfo } from '../helpers/logging.js';
-import { logError } from '../helpers/logging.js';
+import { logInfo } from '../../utils/logging.js';
+import { logError } from '../../utils/logging.js';
 
 // Connect to the database
 const initDataBase = async() => {

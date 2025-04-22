@@ -1,5 +1,5 @@
 import verifyToken from './verifyToken.js';
-// import { logInfo } from '../helpers/logging.js';
+// import { logInfo } from '../../utils/logging.js';
 
 // Middleware for verifying JWT token
 export const authenticate = (req, res, next) => {
