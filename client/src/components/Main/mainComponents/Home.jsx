@@ -2,6 +2,8 @@ import { useEffect, useState, useContext } from 'react';
 
 import makeTitle from "../../../utils/makeTitle.js";
 import { addToFavorites } from "../../../utils/favoritesUtils.js";
+import { logError } from "../../../../../utils/logging.js"; 
+
 import particlesjsConfig from "../../../assets/particlesjs-config.json";
 import RandomQuote from "./RandomQuote.jsx";
 import { CategoriesContext } from '../../../hooks/CategoriesContext.jsx';
@@ -30,7 +32,7 @@ const Home = () => {
       const result = await response.json();
       setRandomQuote(result);
     } catch (error) {
-      console.error('Error fetching random quote:', error);
+      logError('Error fetching random quote:', error);
     }
   }
 

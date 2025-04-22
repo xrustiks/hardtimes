@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 import makeTitle from "../../../utils/makeTitle.js";
+import { logInfo } from "../../../../../utils/logging.js";
+import { logError } from "../../../../../utils/logging.js";
 
 const SearchPage = () => {
   const [quotes, setQuotes] = useState([]);
@@ -10,7 +12,7 @@ const SearchPage = () => {
   // Getting query from URL params
   const location = useLocation();
   const query = new URLSearchParams(location.search).get("query");
-  console.log(query);
+  logInfo(query);
 
   useEffect(() => {
     // Making title for the component
@@ -34,7 +36,7 @@ const SearchPage = () => {
           setMessage(result.message);
         }
       } catch(error) {
-        console.error('Error fetching search results:', error);
+        logError('Error fetching search results:', error);
         setMessage(error.message);
       } finally {
         setIsLoading(false);

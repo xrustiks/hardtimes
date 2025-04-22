@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import makeTitle from "../../../utils/makeTitle.js";
+import { logError } from "../../../../../utils/logging.js";
 
 const Registration = () => {
   const [userName, setUserName] = useState("");
@@ -44,7 +45,7 @@ const Registration = () => {
 
       setMessage(result.message);
     } catch(error) {
-      console.error("Error: ", error);
+      logError("Error: ", error);
       setMessage(error.message);
     }
   }
