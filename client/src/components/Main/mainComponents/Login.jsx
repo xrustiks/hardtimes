@@ -16,6 +16,7 @@ const Login = () => {
     makeTitle("Логин");
   }, [])
 
+  // Send login and password to the server
   const handleSubmit = async(e) => {
     // Prevent reloading page when submit
     e.preventDefault();

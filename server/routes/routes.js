@@ -22,7 +22,7 @@ const router = express.Router();
 // MAIN ROUTE
 // Main route for the server
 router.get('/api', async(req, res) => {
-return res.status(200).json({ message: `Hello from server` });
+  return res.status(200).json({ message: `Hello from server` });
 })
 
 // AUTHENTICATION ROUTES

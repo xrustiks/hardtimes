@@ -7,7 +7,7 @@ export const CategoriesProvider = ({ children }) => {
 
   return (
     <CategoriesContext.Provider value = {[ chosenCategory, setChosenCategory ]}>
-        { children }
+      { children }
     </CategoriesContext.Provider>
   )
 }
