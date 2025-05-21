@@ -96,7 +96,6 @@ const Profile = () => {
       <div className="result-message">
         { message && <p>{ message }</p> }
       </div>
-      
     </div>
   );
 };

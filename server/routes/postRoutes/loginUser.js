@@ -30,11 +30,11 @@ const loginUser = async(req, res) => {
       'SELECT id, userName, email, isAdmin FROM users WHERE email = ?', 
       [email]
     );
-    // Creating a token with the user data
-    const token = createToken(user[0]);
     // Extracting the user data from the user array for context
     const userData = user[0];
-    
+    // Creating a token with the user data
+    const token = createToken(userData);
+
     // Returning the message, token (for localStorage) and user data (for context)
     return res.status(200).json({ message: message, token: token, user: userData });
   } catch(error) {

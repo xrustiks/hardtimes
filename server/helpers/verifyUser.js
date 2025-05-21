@@ -14,6 +14,7 @@ const verifyUser = async(connection, email, password) => {
   }
 
   // Extracting user name and password from destructured user object
+  // variable 'password' renamed to 'hashedPassword' for clarity
   const { userName: userName, password: hashedPassword } = userData[0];
   // Compare the hashed password in database with the one that sent by user
   const isPasswordCorrect = await compare(password, hashedPassword);
