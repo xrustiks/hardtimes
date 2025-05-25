@@ -6,6 +6,7 @@ const RandomQuote = ({ fetchRandomQuote, randomQuote, chosenCategory, message })
 
   useEffect(() => {
     // Fetching a random quote when the component is mounted
+    // Random quote appears without pressing the button
     fetchRandomQuote();
 
     // Updates the quote when the user presses the keyboard button

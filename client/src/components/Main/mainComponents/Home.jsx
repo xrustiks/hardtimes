@@ -2,10 +2,11 @@ import { useEffect, useState, useContext } from 'react';
 
 import makeTitle from "../../../utils/makeTitle.js";
 import { addToFavorites } from "../../../utils/favoritesUtils.js";
-import { logError } from "../../../../../utils/logging.js"; 
+// import { logError } from "../../../../../utils/logging.js"; 
 
 import particlesjsConfig from "../../../assets/particlesjs-config.json";
 import RandomQuote from "./RandomQuote.jsx";
+import fetchRandomQuote from "../../../utils/fetchRandomQuote.js";
 import { CategoriesContext } from '../../../hooks/CategoriesContext.jsx';
 
 const Home = () => {
@@ -15,26 +16,6 @@ const Home = () => {
   const [message, setMessage] = useState("");
 
   const token = localStorage.getItem('token');
-
-  const fetchRandomQuote = async () => {
-    try {
-      // Fetching a random quote from the server depending on the chosen category
-      const url = chosenCategory
-        ? `http://localhost:3000/api/random-quote?category=${ chosenCategory }`
-        : 'http://localhost:3000/api/random-quote';
-
-      const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-      const result = await response.json();
-      setRandomQuote(result);
-    } catch (error) {
-      logError('Error fetching random quote:', error);
-    }
-  }
 
   useEffect(() => {
     // Making title for the component
@@ -67,7 +48,7 @@ const Home = () => {
         <button
           className="generate-quote-button"
           type="button"
-          onClick={ () => fetchRandomQuote() }>
+          onClick={ () => fetchRandomQuote(chosenCategory, setRandomQuote) }>
           Обновить
         </button>
       </div>
@@ -75,7 +56,7 @@ const Home = () => {
       { /* RandomQuote component */ }
       <div className="home-page-random-quote">
         <RandomQuote
-          fetchRandomQuote={ fetchRandomQuote }
+          fetchRandomQuote={ () => fetchRandomQuote(chosenCategory, setRandomQuote) }
           randomQuote={ randomQuote }
           chosenCategory={ chosenCategory }
           message={ message }
