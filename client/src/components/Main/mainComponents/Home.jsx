@@ -1,19 +1,21 @@
 import { useEffect, useState, useContext } from 'react';
 
 import makeTitle from "../../../utils/makeTitle.js";
-import { addToFavorites } from "../../../utils/favoritesUtils.js";
+import { addToFavorites, removeFromFavorites } from "../../../utils/favoritesUtils.js";
+import fetchRandomQuote from "../../../utils/fetchRandomQuote.js";
 // import { logError } from "../../../../../utils/logging.js"; 
 
 import particlesjsConfig from "../../../assets/particlesjs-config.json";
 import RandomQuote from "./RandomQuote.jsx";
-import fetchRandomQuote from "../../../utils/fetchRandomQuote.js";
 import { CategoriesContext } from '../../../hooks/CategoriesContext.jsx';
+import { FavoritesContext } from '../../../hooks/FavoritesContext.jsx';
 
 const Home = () => {
   const [randomQuote, setRandomQuote] = useState(null);
   const [chosenCategory] = useContext(CategoriesContext);
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [favorites, setFavorites] = useContext(FavoritesContext);
 
   const token = localStorage.getItem('token');
 
@@ -29,6 +31,11 @@ const Home = () => {
     }
   }, []);
 
+  // Check if a quote is already in favorites
+  const isFavorite = randomQuote && favorites.some((quote) => {
+    return quote.id === randomQuote.id;
+  });
+
   return (
     <div className="home-page">
       { /* ParticlesJS background */ }
@@ -39,10 +46,16 @@ const Home = () => {
         <button
           className="add-to-favorites-button"
           type="button"
-          onClick={ () => addToFavorites(token, randomQuote, setIsLoading, setMessage) }
+          onClick={ isFavorite
+            ? () => removeFromFavorites(token, quote, favorites, setFavorites, setIsLoading, setMessage)
+            : () => addToFavorites(token, randomQuote, setIsLoading, setMessage)
+          }
           disabled={ isLoading }
         >
-          { isLoading ? 'Добавляется...' : 'В избранное' }
+          { isLoading
+            ? (isFavorite ? 'Удаляется...' : 'Добавляется...')
+            : (isFavorite ? 'Из избранного' : 'В избранное')
+          }
         </button>
 
         <button
