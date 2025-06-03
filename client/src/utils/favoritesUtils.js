@@ -1,5 +1,5 @@
 // Adds a quote to favorites
-export const addToFavorites = async(token, randomQuote, setIsLoading, setMessage) => {
+export const addToFavorites = async(token, randomQuote, favorites, setFavorites, setIsLoading, setMessage) => {
   setIsLoading(true);
 
   try {
@@ -14,7 +14,11 @@ export const addToFavorites = async(token, randomQuote, setIsLoading, setMessage
 
     const result = await response.json();
 
-    setMessage(result.message);
+    if (response.ok) {
+      setFavorites([...favorites, randomQuote]);
+    } else {
+      setMessage(result.message);
+    }
   } catch(error) {
     console.error('Error adding to favorites:', error);
     setMessage(error.message);
