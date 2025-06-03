@@ -47,12 +47,13 @@ const Home = () => {
           className="add-to-favorites-button"
           type="button"
           onClick={ isFavorite
-            ? () => removeFromFavorites(token, quote, favorites, setFavorites, setIsLoading, setMessage)
-            : () => addToFavorites(token, randomQuote, setIsLoading, setMessage)
+            ? () => removeFromFavorites(token, randomQuote, favorites, setFavorites, setIsLoading, setMessage)
+            : () => addToFavorites(token, randomQuote, favorites, setFavorites, setIsLoading, setMessage)
           }
           disabled={ isLoading }
         >
           { isLoading
+            // Switching button text based on loading state and favorite status
             ? (isFavorite ? 'Удаляется...' : 'Добавляется...')
             : (isFavorite ? 'Из избранного' : 'В избранное')
           }
