@@ -16,8 +16,6 @@ export const addToFavorites = async(token, randomQuote, favorites, setFavorites,
 
     if (response.ok) {
       setFavorites([...favorites, randomQuote]);
-    } else {
-      setMessage(result.message);
     }
   } catch(error) {
     console.error('Error adding to favorites:', error);
