@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
 
 import makeTitle from "../../../utils/makeTitle.js";
+import ToggleFavoriteButton from "./ToggleFavoriteButton.jsx";
+import { FavoritesContext } from '../../../hooks/FavoritesContext.jsx';
 import { logInfo } from "../../../../../utils/logging.js";
 import { logError } from "../../../../../utils/logging.js";
 
@@ -9,10 +11,13 @@ const SearchPage = () => {
   const [quotes, setQuotes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
+  const [favorites, setFavorites] = useContext(FavoritesContext);
   // Getting query from URL params
   const location = useLocation();
   const query = new URLSearchParams(location.search).get("query");
   logInfo(query);
+
+  const token = localStorage.getItem('token');
 
   useEffect(() => {
     // Making title for the component
@@ -60,12 +65,25 @@ const SearchPage = () => {
         ) : (
           quotes.length > 0 ? (
             quotes.map((quote) => (
-              <blockquote key={ quote.id }>
+              <>
+                <blockquote key={ quote.id }>
                 <div>&quot;{ quote.quote }&quot;</div>
                 <div>Категория: { quote.category }</div>
                 <div>Источник: { quote.origin }</div>
                 <footer>Автор: { quote.author }</footer>
+
+                <ToggleFavoriteButton
+                  token={ token }
+                  randomQuote={ quote }
+                  favorites={ favorites }
+                  setFavorites={ setFavorites }
+                  setIsLoading={ setIsLoading }
+                  setMessage={ setMessage }
+                  isFavorite={ favorites.some(fav => fav.id === quote.id) }
+                  isLoading={ isLoading }
+                />
               </blockquote>
+              </>
             ))
           ) : (
             <div className="result-message">
