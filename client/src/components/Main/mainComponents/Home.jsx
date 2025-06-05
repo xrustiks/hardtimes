@@ -1,8 +1,8 @@
 import { useEffect, useState, useContext } from 'react';
 
 import makeTitle from "../../../utils/makeTitle.js";
-import { addToFavorites, removeFromFavorites } from "../../../utils/favoritesUtils.js";
 import fetchRandomQuote from "../../../utils/fetchRandomQuote.js";
+import ToggleFavoriteButton from "./ToggleFavoriteButton.jsx";
 // import { logError } from "../../../../../utils/logging.js"; 
 
 import particlesjsConfig from "../../../assets/particlesjs-config.json";
@@ -43,21 +43,16 @@ const Home = () => {
 
       { /* Control buttons */ }
       <div className="home-page-buttons">
-        <button
-          className="add-to-favorites-button"
-          type="button"
-          onClick={ isFavorite
-            ? () => removeFromFavorites(token, randomQuote, favorites, setFavorites, setIsLoading, setMessage)
-            : () => addToFavorites(token, randomQuote, favorites, setFavorites, setIsLoading, setMessage)
-          }
-          disabled={ isLoading }
-        >
-          { isLoading
-            // Switching button text based on loading state and favorite status
-            ? (isFavorite ? 'Удаляется...' : 'Добавляется...')
-            : (isFavorite ? 'Из избранного' : 'В избранное')
-          }
-        </button>
+        <ToggleFavoriteButton
+          token={ token }
+          randomQuote={ randomQuote }
+          favorites={ favorites }
+          setFavorites={ setFavorites }
+          setIsLoading={ setIsLoading }
+          setMessage={ setMessage }
+          isFavorite={ isFavorite }
+          isLoading={ isLoading }
+        />
 
         <button
           className="generate-quote-button"
