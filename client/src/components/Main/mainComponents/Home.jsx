@@ -58,7 +58,7 @@ const Home = () => {
           className="generate-quote-button"
           type="button"
           onClick={ () => fetchRandomQuote(chosenCategory, setRandomQuote) }>
-          Обновить
+          Следующая
         </button>
       </div>
 
