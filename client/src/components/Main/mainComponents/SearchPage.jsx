@@ -67,22 +67,22 @@ const SearchPage = () => {
             quotes.map((quote) => (
               <>
                 <blockquote key={ quote.id }>
-                <div>&quot;{ quote.quote }&quot;</div>
-                <div>Категория: { quote.category }</div>
-                <div>Источник: { quote.origin }</div>
-                <footer>Автор: { quote.author }</footer>
+                  <div>&quot;{ quote.quote }&quot;</div>
+                  <div>Категория: { quote.category }</div>
+                  <div>Источник: { quote.origin }</div>
+                  <footer>Автор: { quote.author }</footer>
 
-                <ToggleFavoriteButton
-                  token={ token }
-                  randomQuote={ quote }
-                  favorites={ favorites }
-                  setFavorites={ setFavorites }
-                  setIsLoading={ setIsLoading }
-                  setMessage={ setMessage }
-                  isFavorite={ favorites.some(fav => fav.id === quote.id) }
-                  isLoading={ isLoading }
-                />
-              </blockquote>
+                  <ToggleFavoriteButton
+                    token={ token }
+                    randomQuote={ quote }
+                    favorites={ favorites }
+                    setFavorites={ setFavorites }
+                    setIsLoading={ setIsLoading }
+                    setMessage={ setMessage }
+                    isFavorite={ favorites.some(fav => fav.id === quote.id) }
+                    isLoading={ isLoading }
+                  />
+                </blockquote>
               </>
             ))
           ) : (

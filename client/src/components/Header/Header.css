@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  padding: 15px;
 
   /* border: 2px solid purple; */
 
@@ -36,7 +37,7 @@
 }
 
 .header-panel__left .select-category select {
-  font-family: 'Times New Roman', Times, serif;
+  /* font-family: 'Times New Roman', Times, serif; */
   border-radius: 5px;
 
   padding: 5px;
@@ -55,7 +56,7 @@
 }
 
 .header-panel__right .search-field form input {
-  font-family: 'Times New Roman', Times, serif;
+  /* font-family: 'Times New Roman', Times, serif; */
   border-radius: 5px;
 
   padding: 5px;
