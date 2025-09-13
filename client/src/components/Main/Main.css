@@ -105,7 +105,7 @@
 }
 
 .profile-page * {
-  font-family:'Times New Roman', Times, serif;
+  /* font-family:'Times New Roman', Times, serif; */
 }
 
 /* Change login page styles */
@@ -116,7 +116,7 @@
 }
 
 .change-login * {
-  font-family:'Times New Roman', Times, serif;
+  /* font-family:'Times New Roman', Times, serif; */
 }
 
 .change-login form {
@@ -145,7 +145,7 @@
 }
 
 .change-email * {
-  font-family:'Times New Roman', Times, serif;
+  /* font-family:'Times New Roman', Times, serif; */
 }
 
 .change-email form {
@@ -178,7 +178,7 @@
 }
 
 .change-password * {
-  font-family:'Times New Roman', Times, serif;
+  /* font-family:'Times New Roman', Times, serif; */
 }
 
 .change-password form {
@@ -200,7 +200,7 @@
 }
 
 .add-quote-page input {
-  font-family:'Times New Roman', Times, serif;
+  /* font-family:'Times New Roman', Times, serif; */
 }
 
 /* ------------ Animations ------------ */
