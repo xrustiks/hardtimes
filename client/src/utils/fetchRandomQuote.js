@@ -8,12 +8,12 @@ const fetchRandomQuote = async (chosenCategory, setRandomQuote) => {
         ? `http://localhost:3000/api/random-quote?category=${ chosenCategory }`
         : 'http://localhost:3000/api/random-quote';
 
-      const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
+      const response = await fetch(url);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error: ${response.status}`);
+      }
+
       const result = await response.json();
       setRandomQuote(result);
     } catch (error) {

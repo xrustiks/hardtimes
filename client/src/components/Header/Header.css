@@ -69,6 +69,10 @@
 
 /* ------------ Media queries ------------ */
 @media (max-width: 1024px) {
+  .app-title {
+    display: none;
+  }
+
   .header-panel__left, .header-panel__right {
     flex-direction: column;
   }
@@ -104,8 +108,3 @@
   }
 }
 
-@media (max-width: 1024px) {
-  .app-title {
-    display: none;
-  }
-}
