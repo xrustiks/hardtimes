@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 
 import { CategoriesContext } from '../../../hooks/CategoriesContext.jsx';
+import getApiUrl from '../../../utils/apiConfig.js';
 
 const Categories = () => {
   const [chosenCategory, setChosenCategory] = useContext(CategoriesContext);
@@ -11,7 +12,7 @@ const Categories = () => {
   useEffect(() => {
     const getCategories = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/get-categories', {
+        const response = await fetch(getApiUrl('/api/get-categories'), {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
