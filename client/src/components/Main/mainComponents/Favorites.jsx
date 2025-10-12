@@ -3,6 +3,7 @@ import { FavoritesContext } from '../../../hooks/FavoritesContext.jsx';
 
 import { removeFromFavorites } from "../../../utils/favoritesUtils.js";
 import makeTitle from "../../../utils/makeTitle.js";
+import getApiUrl from '../../../utils/apiConfig.js';
 import { logError } from "../../../../../utils/logging.js"; 
 
 const Favorites = () => {
@@ -22,7 +23,7 @@ const Favorites = () => {
       setIsLoading(true);
 
       try {
-        const response = await fetch('http://localhost:3000/api/favorites', {
+        const response = await fetch(getApiUrl('/api/favorites'), {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

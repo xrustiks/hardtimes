@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
 
 import makeTitle from "../../../utils/makeTitle.js";
+import getApiUrl from '../../../utils/apiConfig.js';
 import ToggleFavoriteButton from "./ToggleFavoriteButton.jsx";
 import { FavoritesContext } from '../../../hooks/FavoritesContext.jsx';
 import { logInfo } from "../../../../../utils/logging.js";
@@ -27,7 +28,7 @@ const SearchPage = () => {
       setIsLoading(true);
 
       try {
-        const response = await fetch(`http://localhost:3000/api/search-quotes/${query}`, {
+        const response = await fetch(getApiUrl(`/api/search-quotes/${query}`), {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'

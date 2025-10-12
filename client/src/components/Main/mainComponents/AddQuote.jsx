@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import makeTitle from "../../../utils/makeTitle.js";
+import getApiUrl from '../../../utils/apiConfig.js';
 
 const AddQuote = () => {
   const [quote, setQuote] = useState("");
@@ -20,7 +21,7 @@ const AddQuote = () => {
     // Checking if a user is admin
     const checkAdmin = async() => {
       try {
-        const response = await fetch('http://localhost:3000/api/profile', {
+        const response = await fetch(getApiUrl('/api/profile'), {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`
