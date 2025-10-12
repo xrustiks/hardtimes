@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import makeTitle from "../../../../utils/makeTitle.js";
+import getApiUrl from '../../../../utils/apiConfig.js';
 
 const ChangeEmail = () => {
   const [freshEmail, setFreshEmail] = useState('');
@@ -37,7 +38,7 @@ const ChangeEmail = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:3000/api/profile/settings/change-email', {
+      const response = await fetch(getApiUrl('/api/profile/settings/change-email'), {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
