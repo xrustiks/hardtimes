@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import makeTitle from "../../../utils/makeTitle.js";
+import getApiUrl from '../../../utils/apiConfig.js';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -23,7 +24,7 @@ const Login = () => {
 
     try {
       // Sending a POST request to the server and waiting for the response
-      const response = await fetch('http://localhost:3000/api/login', {
+      const response = await fetch(getApiUrl('/api/login'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

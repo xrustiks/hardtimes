@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
 import makeTitle from "../../../utils/makeTitle.js";
+import getApiUrl from '../../../utils/apiConfig.js';
 
 // Component for user profile
 const Profile = () => {
@@ -26,7 +27,7 @@ const Profile = () => {
     // Checks if a user is admin
     const checkIsAdmin = async() => {
       try {
-        const response = await fetch('http://localhost:3000/api/profile', {
+        const response = await fetch(getApiUrl('/api/profile'), {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`

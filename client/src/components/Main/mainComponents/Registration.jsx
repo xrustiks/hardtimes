@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import makeTitle from "../../../utils/makeTitle.js";
+import getApiUrl from '../../../utils/apiConfig.js';
 import { logError } from "../../../../../utils/logging.js";
 
 const Registration = () => {
@@ -27,7 +28,7 @@ const Registration = () => {
 
     try {
       // Sending a POST request to the server and waiting for the response
-      const response = await fetch('http://localhost:3000/api/register', {
+      const response = await fetch(getApiUrl('/api/register'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
