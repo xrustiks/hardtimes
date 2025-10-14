@@ -5,6 +5,11 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Variables */
+  --header-font-size: 20px;
+  --app-title-font-size: 32px;
+  --pages-margins: 0 40px 0 40px;
 }
 
 body {
@@ -12,4 +17,22 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
+
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+}
+
+@font-face {
+	font-family: Constantine-normal;
+	src: url(./assets/fonts/Constantine.ttf);
+}
+
+* {
+  font-family: Constantine-normal;
+  box-sizing: border-box;
+}
+
+a {
+  color: white;
 }

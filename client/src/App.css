@@ -1,31 +1,3 @@
-/* ------------ Global variables ------------ */
-:root {
-  --header-font-size: 20px;
-  --app-title-font-size: 32px;
-  --pages-margins: 0 40px 0 40px;
-}
-
-/* ------------ General styles ------------ */
-body {
-  padding: 0;
-  margin: 0;
-  width: 100vw;
-}
-
-@font-face {
-	font-family: Constantine-normal;
-	src: url(./assets/fonts/Constantine.ttf);
-}
-
-* {
-  font-family: Constantine-normal;
-  box-sizing: border-box;
-}
-
-a {
-  color: white;
-}
-
 /* ------------ Application container styles ------------ */
 /* Application container general styles */
 .app-container {
