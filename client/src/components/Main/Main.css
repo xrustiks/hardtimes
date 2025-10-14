@@ -61,7 +61,7 @@
 .random-quote {
   position: relative;
 
-  font-size: 30px;
+  font-size: clamp(20px, 5vw, 30px);
   font-weight: 500;
   color: white;
   text-align: center;
