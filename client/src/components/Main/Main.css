@@ -8,11 +8,11 @@
   height: 60vh;
   padding-bottom: 40px;
 
-  border: 1px solid blue;
-
   width: 100%;
 
   position: relative;
+
+  border: 1px solid blue;
 }
 
 .home-page .home-page-buttons {
@@ -36,20 +36,6 @@
   width: 150px;
 }
 
-.quote-body {
-  max-height: 30vh;
-
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  border: 1px solid orange;
-}
-
-.quote-details {
-  border: 1px solid pink;
-}
-
-/* Home page background styles */
 .home-page #particles-js {
   position: fixed;
   top: 0;
@@ -82,11 +68,22 @@
   gap: 30px;
 }
 
+.random-quote .quote-body {
+  max-height: 30vh;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  border: 1px solid orange;
+}
+
 .random-quote .quote-details {
   display: flex;
   justify-content: space-between;
   font-size: 20px;
   gap: 20px;
+
+  border: 1px solid pink;
 }
 
 /* ------------ Internal pages styles ------------ */
@@ -101,7 +98,7 @@
 }
 
 .profile-page * {
-  /* font-family:'Times New Roman', Times, serif; */
+  font-family:'Times New Roman', Times, serif;
 }
 
 /* Change login page styles */
@@ -112,7 +109,7 @@
 }
 
 .change-login * {
-  /* font-family:'Times New Roman', Times, serif; */
+  font-family:'Times New Roman', Times, serif;
 }
 
 .change-login form {
@@ -141,7 +138,7 @@
 }
 
 .change-email * {
-  /* font-family:'Times New Roman', Times, serif; */
+  font-family:'Times New Roman', Times, serif;
 }
 
 .change-email form {
@@ -174,7 +171,7 @@
 }
 
 .change-password * {
-  /* font-family:'Times New Roman', Times, serif; */
+  font-family:'Times New Roman', Times, serif;
 }
 
 .change-password form {
@@ -196,7 +193,7 @@
 }
 
 .add-quote-page input {
-  /* font-family:'Times New Roman', Times, serif; */
+  font-family:'Times New Roman', Times, serif;
 }
 
 /* ------------ Animations ------------ */
