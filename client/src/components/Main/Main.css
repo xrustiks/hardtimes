@@ -61,7 +61,7 @@
 .random-quote {
   position: relative;
 
-  font-size: clamp(20px, 5vw, 30px);
+  
   font-weight: 500;
   color: white;
   text-align: center;
@@ -80,6 +80,9 @@
 
 .random-quote .quote-body {
   max-height: 30vh;
+  font-size: clamp(25px, 5vw, 30px);
+
+  overflow: auto;
 
   border: 1px solid orange;
 }
