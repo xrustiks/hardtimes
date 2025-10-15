@@ -2,6 +2,7 @@
   color: white;
   background-color: #242424;
 
+  /* Font rendering optimizations */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -12,26 +13,27 @@
   --pages-margins: 0 40px 0 40px;
 }
 
+* {
+  font-family: Constantine-normal;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: Constantine-normal;
+  src: url(./assets/fonts/Constantine.ttf);
+}
+
 body {
-  margin: 0;
   display: flex;
   flex-direction: column;
+  align-items: space-between;
+  
   min-width: 320px;
   min-height: 100vh;
 
   padding: 0;
   margin: 0;
   width: 100vw;
-}
-
-@font-face {
-	font-family: Constantine-normal;
-	src: url(./assets/fonts/Constantine.ttf);
-}
-
-* {
-  font-family: Constantine-normal;
-  box-sizing: border-box;
 }
 
 a {
