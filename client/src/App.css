@@ -8,10 +8,9 @@
 }
 
 /* Main page styles */
-.app-container.home-layout {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.app-container.home-layout > main {
+  /* Makes element fill all space between header and footer */
+  flex: 1;
 }
 
 /* Other pages styles (only for Main component, Header and Footer aren't included) */
